@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: blob:;"
+    />
+    <title>Synchrony Bay Contacts</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- CSS import -->
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>◢ VANTA'S SYNCHRONY BAY DATABASE ◣</h1>
+        <div class="subtitle">
+          // CONTACT DIRECTORY - AUTHORIZED ACCESS ONLY //
+        </div>
+      </header>
+
+      <input
+        type="text"
+        class="search-box"
+        id="searchBox"
+        placeholder="Search characters..."
+      />
+
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">
+          ALL CONTACTS
+        </button>
+        <button class="filter-btn" data-filter="fixer">FIXERS</button>
+        <button class="filter-btn" data-filter="corpo">CORPO</button>
+        <button class="filter-btn" data-filter="street">STREET</button>
+      </div>
+
+      <div class="cards-grid" id="cardsGrid"></div>
+    </div>
+
+    <div class="modal" id="characterModal">
+      <div class="modal-content" id="modalContent">
+        <button class="close-btn" id="closeModal">×</button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
