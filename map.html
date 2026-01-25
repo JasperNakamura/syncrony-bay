@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synchrony Bay - City Map</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/map.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>◢ SYNCHRONY BAY CITY MAP ◣</h1>
+        <div class="subtitle">// DISTRICT NAVIGATION //</div>
+        <a href="index.html" class="back-link" title="Back to Contacts">
+          ← BACK TO CONTACTS
+        </a>
+      </header>
+
+      <div class="map-container">
+        <pre class="ascii-map" id="asciiMap">
+                                                                                                        
+                                                                                                        
+ (OPEN OCEAN) \                                                                                         
+     .  .  .  .  . \                                       <span class="map-region" data-district="northern-outskirts">[ NORTHERN OUTSKIRTS ]</span>                       
+     .  .  .  .  .  .\                                               |                                  
+     .  .  .  .  .  . \______________________________________________|_____________________             
+     .  .  .  .  .  .  .  .                                          |                     \            
+     .  .  .  .  .  .  .  .  .                                 <span class="map-region" data-district="el-barrio-bajo">EL BARRIO BAJO</span>               \           
+     .  . <span class="map-region" data-district="beachside">[ BEACHSIDE ]</span> .  .  .                   :::::::::::::::::::::::::::::::::::::::::: \          
+     .  . <span class="map-region" data-district="beachside">[ MEGA-CLUBS ]</span>  .  .  .                 ::: [HAB-STACK 01] ::::: [HAB-STACK 02] ::::\         
+     .  .  .  .  .  .  .  .  .  .                 ::::::         |    :::        |       ::::  \        
+     .  .  .  .  .  .  .  .  .  .                 ::::::  [RIPPERDOC]  ::    [THE-STRIP]   :::: |       
+   ____ .  .  .  .  .  .  .  .  .                 ::::::         |      :        |       ::::   |       
+    ~ ~ \  .  .  .  .  .  .  .  .  .              ::[MERIDIAN-EXCHANGE] : [ATLAS-HOSPITAL]:::   |       
+   ~ ~ ~ \ .  .  .  .  .  .  .  .  .              :::::::::::::::::::::::::::::::::::::::::::   |       
+    ~ ~ ~ ~\. .  .  .  .  .  .  .  .              /               /                /            |       
+   ~ ~ ~ ~ ~ \.  .  .  .  .  .  .  . .           /               /                /             |       
+    ~ ~ ~ ~ ~ ~\ .  .  .  .  .  .  . .          /        <span class="map-region" data-district="neon-central">[ NEON CENTRAL ]</span>        /              |       
+   ~ ~ ~ ~ ~ ~ \ .  .  .  .  .  .  . .         |          ______|______         |               |       
+    ~ ~ ~ ~ ~ ~ |.  .  .  .  .  .  . .         |         /             \        |               |       
+   ~ ~ ~ ~ ~ ~ ~|   .  .  .  .  .  . .         |    [VR PARLORS]   [ZENITH HUB] |               |       
+    ~ ~ ~ ~ ~ ~ |.  .  .  .  .  .  . .         |         \______ ______/        |               |       
+   ~ ~ ~ ~ ~ ~ ~|.  .  .  .  .  .  . .         |                |               |_[GRID NODE 7] |       
+    ~ ~ ~ ~ ~ ~ |      .  .  .  .  . .         |          [MONORAIL L3]         |               |       
+   ~ ~ ~ ~ ~ ~ ~ \  .  .  .  .  .  . .         \________________________________/               |       
+    ~ ~ ~ ~ ~ ~ ~ \    .  .  .  .  . .          \              /               /                |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~\     .  .  .  . .           \            /               /                 |       
+    ~ ~SYNCHRONY~ ~ ~\    .  .  .  . .            \          /               /                  |       
+   ~ ~ ~ ~ ~BAY~ ~ ~ ~\~  .  .  .  .               \        /               /                   |       
+    ~ ~(Turquoise)~ ~ ~\  .  .  .  .                \      /               /                    |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~|  .  .  .                   \____/_______________/                     |       
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ | .  .  .                                                               |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~|.  .  .                                                                |       
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ | .=========#===============#===============#===============#==========||       
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ / .  .  .  /                /                /                //        |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ / .  .  .  /           :::::::::::::::::     /   :::::::      //         |       
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ / .  .  . /           :<span class="map-region" data-district="crestline">[CRESTLINE]</span>:::::     / <span class="map-region" data-district="midtown">[MIDTOWN]</span>     //          |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ / .  .  .  /           ::::::::::::::        / :::::|:::::  //           |       
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ / .  .  . /                /                / :::::|::::: //            |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ / .  .  .  .             <span class="map-region" data-district="corpo-district">[CORPO DISTRICT]</span>    /   :::|:::: //             |       
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~/ .  .  .  .  .       [|||]   [|||]   [|||]    /      |    //            |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~ ~/ .  .  .  .  .  .     [|||]===[|||]===[|||]    /       |   //            |       
+    ~ ~ ~ ~ ~ ~ ~ ~ ~/ .  .  .  .  .  .  .   _|_|_   _|_|_   _|_|_     \ <span class="map-region" data-district="transit-hub">[TRANSIT]</span> //           |       
+   ~ ~ ~ ~ ~ ~ ~ ~ ~/ .  .  .  .  .  .  .    [SKY-BRIDGES / DRONES]     \  <span class="map-region" data-district="transit-hub">[HUB]</span>  //            |       
+   _~_~_~_~_~_~_~_~/ .  .  .  .  .  .  .  .  \______|_______|__________|________|________________\      
+   <span class="map-region" data-district="yacht-docks">[YACHT DOCKS]</span> ~ / .  .  .  .  .  .  .  .  .    |      |                    |   |               |     
+   ________________/  .  .  .  .  .  .  .  .  . [MONORAIL L2]               [HIGHWAY]             |     
+    .  .  .  .  .   ____________________________________|_____________________|___|_______________|     
+    .  .  .  .  /                                     |                       |   |               |     
+    .  .  .  . /               <span class="map-region" data-district="detention">[DETENTION]</span>            |            ::::<span class="map-region" data-district="southern-sprawl">THE SOUTHERN SPRAWL</span>:::::    |    
+    .  .  .  . /               ______|______          |            :::(Horizontal Low-Rises):::    |    
+    .  .  .  . /              /             \          \           :::::::/::::::|:::::::::::::    |    
+   .__________/              /   <span class="map-region" data-district="detention">[PLAZA]</span>     \          \                /   [WAREHOUSES]          |    
+   <span class="map-region" data-district="faded-piers">(FADED PIERS)</span>            /    |     |      \          \______________/        |                 |    
+   [  ] [  ] [  ]           \    |     |        \                  |             |                 |    
+   [  ] [  ] [  ]============#=====#=====#=========#=====================#============#============|    
+    <span class="map-region" data-district="oil-rigs">(OIL RIGS)</span>              /      /                \                   /              \           |    
+         |                 /    <span class="map-region" data-district="docks">[DOCKS]</span>          <span class="map-region" data-district="dross-yards">[DROSS YARDS]</span>    [MONORAIL L1]   <span class="map-region" data-district="black-clinics">[BLACK CLINICS]</span>  |    
+   ______|________________/_______________________________________________________________________/     
+                                                                                                        
+  </pre>
+      </div>
+
+      <!-- Replace the existing district-info div with this -->
+      <div class="modal" id="districtModal">
+        <div
+          class="modal-content district-modal-content"
+          id="districtModalContent"
+        >
+          <button class="close-btn" id="closeInfo">×</button>
+          <div id="districtContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/map-data.js"></script>
+    <script src="js/map.js"></script>
+  </body>
+</html>
