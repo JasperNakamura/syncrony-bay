@@ -10,18 +10,17 @@ const districts = {
       "Nomad camps and off-grid communities",
       "Smuggling routes to and from the city",
       "Zero corpo or police presence",
-      "Air quality: Surprisingly clean (no industry)"
     ],
   },
   
   "el-barrio-bajo": {
     name: "EL BARRIO BAJO",
-    description: "The beating heart of Synchrony Bay's working class. Hab-Stack 01 and 02 tower above everything - concrete monoliths housing thousands in cramped micro-apartments. Street level is The Strip: a neon-lit maze of shops, street vendors, and survival. The Meridian Exchange handles gray-market goods, while Atlas Hospital struggles to care for those who can't afford corpo clinics. The Ripperdoc keeps people functional with black-market cyberware. This is where people live, work, and die without ever escaping.",
+    description: "The beating heart of Synchrony Bay's working class. Hab-Stack 01 and 02 tower above everything - concrete monoliths housing thousands in cramped micro-apartments. Street level is The Strip: a neon-lit maze of shops, street vendors, and survival. The Meridian Exchange handles gray-market goods, while Atlas Hospital suck funds from the desperately injured. The Ripperdoc keeps people functional with black-market cyberware. This is where people live, work, and die without ever escaping.",
     features: [
       "Hab-Stack 01 & 02: Massive residential towers (50+ floors each)",
       "The Strip: Shopping district and street markets",
       "Meridian Exchange: Gray-market trading hub",
-      "Atlas Hospital: Understaffed public hospital",
+      "Atlas Hospital: Private Hospital",
       "Ripperdoc clinics (unlicensed but necessary)",
       "Air quality: Poor, industrial runoff and smog"
     ],
@@ -36,20 +35,18 @@ const districts = {
       "Celebrity sightings and influencer parties",
       "Designer drug trade (clean and expensive)",
       "Direct yacht access from Yacht Docks",
-      "Air quality: Filtered perfection with a hint of ocean spray"
     ],
   },
   
   "neon-central": {
     name: "NEON CENTRAL",
-    description: "The entertainment district where reality becomes negotiable. VR Parlors offer escapes into digital dreams - some people haven't logged out in months. Zenith Hub is the media empire's regional headquarters, pumping out propaganda and entertainment 24/7. Grid Node 7 keeps the data flowing while Monorail L3 shuttles workers, dreamers, and those running from something. At night, the neon is blinding. During the day, you see the cracks.",
+    description: "The entertainment district where reality becomes negotiable. VR Parlors offer escapes into digital dreams - some people haven't logged out in months. Zenith Hub is the media empire's regional headquarters, pumping out propaganda and entertainment 24/7. Grid Node 7 keeps the city powered while Monorail L3 shuttles workers, dreamers, and those running from something.",
     features: [
       "VR Parlors: Virtual reality arcades and addiction dens",
       "Zenith Hub: Zenith Media Group regional HQ",
       "Grid Node 7: Electrical Grid",
       "Monorail L3: Express line to northern districts",
       "Adult entertainment and braindance studios",
-      "Air quality: Recycled and slightly chemical"
     ],
   },
   
@@ -62,7 +59,6 @@ const districts = {
       "Boutique shopping and restaurants",
       "Maintained green spaces (rare in Synchrony Bay)",
       "Gated community access control",
-      "Air quality: Filtered, approaching corpo standards"
     ],
   },
   
@@ -75,7 +71,6 @@ const districts = {
       "Major shopping centers",
       "Day/night economy split (legal/gray market)",
       "Underground connections to Transit Hub",
-      "Air quality: Acceptable with filter mask"
     ],
   },
   
@@ -88,7 +83,6 @@ const districts = {
       "Drone security swarms operating 24/7",
       "Élévation: Three-Michelin-star restaurant",
       "Penthouse residences above 80th floor",
-      "Air quality: Pristine, triple-filtered systems"
     ],
   },
   
@@ -101,7 +95,6 @@ const districts = {
       "Regional bus terminal",
       "Highway access ramps",
       "24/7 operation with heavy police presence",
-      "Underground market level (officially doesn't exist)"
     ],
   },
   
@@ -114,7 +107,6 @@ const districts = {
       "Direct water access to Beachside Mega-Clubs",
       "Helicopter landing pads",
       "Smuggling route (for those brave or stupid enough)",
-      "Air quality: Sea breeze, pristine"
     ],
   },
   
@@ -127,7 +119,6 @@ const districts = {
       "The Plaza: Neutral meeting ground outside prison",
       "Minimal guard control inside",
       "Private prison contractor operated",
-      "Air quality: Smog, despair, and resignation"
     ],
   },
   
@@ -140,7 +131,6 @@ const districts = {
       "Low-rise worker housing blocks (4-6 stories)",
       "Monorail L1: Worker transport line",
       "Highway: 24/7 commercial truck traffic",
-      "Air quality: Toxic without respirator"
     ],
   },
   
@@ -153,13 +143,12 @@ const districts = {
       "Smuggling drop-off points",
       "Connection to offshore oil rigs",
       "Zero law enforcement presence",
-      "Air quality: Salt air mixed with oil fumes"
     ],
   },
   
   "oil-rigs": {
     name: "OFFSHORE OIL RIGS",
-    description: "Massive platforms visible from shore, sucking oil from the seabed to feed Cascade Energy's profits. Workers live on-site for 28-day rotations - imprisoned on floating metal islands. Safety regulations are suggestions. Accidents happen weekly. Bodies disappear. The environmental damage is catastrophic but legal bribes keep inspectors away. The rigs operate 24/7, burning the ocean for quarterly earnings reports.",
+    description: "Massive platforms visible from shore, sucking oil from the seabed to feed Pacific Synth's profits. Workers live on-site for 28-day rotations - imprisoned on floating metal islands. Safety regulations are suggestions. Accidents happen weekly. Bodies disappear. The environmental damage is catastrophic but legal bribes keep inspectors away. The rigs operate 24/7, burning the ocean for quarterly earnings reports.",
     features: [
       "Active oil extraction platforms (12 rigs)",
       "On-site worker housing (prison-like conditions)",
@@ -179,20 +168,18 @@ const districts = {
       "Longshoreman unions (weak and bought)",
       "Gang-controlled smuggling operations",
       "Corrupt port authority",
-      "Air quality: Diesel fumes and salt air"
     ],
   },
   
   "dross-yards": {
     name: "DROSS YARDS",
-    description: "Where Synchrony Bay's waste goes to die - and where the desperate go to survive. Mountains of toxic electronic waste, industrial refuse, and things that shouldn't exist tower three stories high. Scavenger communities pick through corporate garbage for anything valuable. Corps dump illegal waste at night. The ground is poisoned. The water is poisoned. The air is poisoned. But people still live here because they have nowhere else to go.",
+    description: "Where Synchrony Bay's waste goes to die. Mountains of toxic electronic waste, industrial refuse, and things that shouldn't exist tower three stories high. Scavenger communities pick through corporate garbage for anything valuable. Corps dump illegal waste at night. The ground is poisoned. The water is poisoned. The air is poisoned.",
     features: [
       "Toxic waste disposal (illegal dumping)",
       "Electronic waste mountains (e-waste)",
       "Scavenger communities",
       "Industrial scrap yards",
       "Severe ground and water contamination",
-      "Air quality: Hazmat suit strongly recommended"
     ],
   },
   
