@@ -23,6 +23,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 body {
@@ -665,135 +666,139 @@ header {
 
 .map-link,
 .back-link {
-  display: inline-block;
-  padding: 12px 20px;
-  margin-top: 10px;
-  text-decoration: none;
-  background: rgba(0, 255, 255, 0.1);
-  border: 2px solid #00ffff;
-  color: #00ffff;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 100; /* High z-index to ensure it's always clickable */
-  cursor: pointer;
-  /* Ensure minimum touch target size (44px is Apple's recommendation) */
-  min-height: 44px;
-  min-width: 100px;
-  text-align: center;
-  line-height: 1.5;
-  /* Prevent text selection which can interfere with taps */
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 255, 255, 0.3);
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid #00ffff;
+    color: #00ffff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 100;
+    /* High z-index to ensure it's always clickable */
+    cursor: pointer;
+    /* Ensure minimum touch target size (44px is Apple's recommendation) */
+    min-height: 44px;
+    min-width: 100px;
+    text-align: center;
+    line-height: 1.5;
+    /* Prevent text selection which can interfere with taps */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 255, 255, 0.3);
 }
 
 .map-link:hover,
 .map-link:active,
 .back-link:hover,
 .back-link:active {
-  background: rgba(0, 255, 255, 0.2);
-  box-shadow: 0 0 10px #00ffff;
-  transform: scale(1.02);
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 10px #00ffff;
+    transform: scale(1.02);
 }
 
 /* Ensure header has proper stacking context */
 header {
-  position: relative;
-  z-index: 50;
-  padding-bottom: 15px;
+    position: relative;
+    z-index: 50;
+    padding-bottom: 15px;
 }
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
-  .map-link,
-  .back-link {
-    /* Make buttons easier to tap */
-    padding: 16px 24px;
-    font-size: 14px;
-    /* Center and give full width for easier tapping */
-    display: block;
-    text-align: center;
-    margin: 15px auto 10px auto;
-    width: 90%;
-    max-width: 280px;
-    /* Ensure it's not positioned absolutely */
-    position: static;
-    /* Add extra visual feedback for mobile */
-    border-width: 3px;
-  }
-  
-  /* Adjust header layout for mobile */
-  header {
-    position: relative;
-    padding-bottom: 25px;
-    text-align: center;
-  }
-  
-  header h1 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  header .subtitle {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-  }
-  
-  /* Prevent any overflow issues that might hide the button */
-  .container {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
+
+    .map-link,
+    .back-link {
+        /* Make buttons easier to tap */
+        padding: 16px 24px;
+        font-size: 14px;
+        /* Center and give full width for easier tapping */
+        display: block;
+        text-align: center;
+        margin: 15px auto 10px auto;
+        width: 90%;
+        max-width: 280px;
+        /* Ensure it's not positioned absolutely */
+        position: static;
+        /* Add extra visual feedback for mobile */
+        border-width: 3px;
+    }
+
+    /* Adjust header layout for mobile */
+    header {
+        position: relative;
+        padding-bottom: 25px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    header .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    /* Prevent any overflow issues that might hide the button */
+    .container {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
 
 /* Extra small screens (phones in portrait) */
 @media (max-width: 480px) {
-  .map-link,
-  .back-link {
-    padding: 14px 20px;
-    font-size: 13px;
-    width: 95%;
-    max-width: none;
-    margin: 12px auto 8px auto;
-  }
-  
-  header h1 {
-    font-size: 1.2rem;
-  }
-  
-  header .subtitle {
-    font-size: 0.8rem;
-  }
+
+    .map-link,
+    .back-link {
+        padding: 14px 20px;
+        font-size: 13px;
+        width: 95%;
+        max-width: none;
+        margin: 12px auto 8px auto;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    header .subtitle {
+        font-size: 0.8rem;
+    }
 }
 
 /* Fix for iOS Safari specific issues */
 @supports (-webkit-touch-callout: none) {
-  .map-link,
-  .back-link {
-    /* Prevent iOS zoom on double-tap */
-    touch-action: manipulation;
-  }
+
+    .map-link,
+    .back-link {
+        /* Prevent iOS zoom on double-tap */
+        touch-action: manipulation;
+    }
 }
 
 /* Active state for better mobile feedback */
 .map-link:active,
 .back-link:active {
-  transform: scale(0.98);
-  background: rgba(0, 255, 255, 0.3);
+    transform: scale(0.98);
+    background: rgba(0, 255, 255, 0.3);
 }
 
 /* Ensure map container doesn't overlap buttons */
 .map-container {
-  margin-top: 20px;
-  position: relative;
-  z-index: 1;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
-  .map-container {
-    margin-top: 30px;
-  }
+    .map-container {
+        margin-top: 30px;
+    }
 }
 
 /* Map CSS */
@@ -940,24 +945,27 @@ header {
 }
 
 .gig-card.completed {
-  opacity: 0.2;
+    opacity: 0.2;
 }
 
 /* Option 4: Animated pulse */
 .gig-card.active {
     filter: brightness(1.2);
-  box-shadow: 0 0 20px rgba(255, 0, 60, 0.4);
-  border: 2px solid #ff003c;
-  animation: pulse 2s infinite;
+    box-shadow: 0 0 20px rgba(255, 0, 60, 0.4);
+    border: 2px solid #ff003c;
+    animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { 
-    filter: brightness(1.2);
-    box-shadow: 0 0 15px rgba(255, 0, 60, 0.3);
-  }
-  50% { 
-    filter: brightness(1.4);
-    box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
-  }
+
+    0%,
+    100% {
+        filter: brightness(1.2);
+        box-shadow: 0 0 15px rgba(255, 0, 60, 0.3);
+    }
+
+    50% {
+        filter: brightness(1.4);
+        box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
+    }
 }
