@@ -26,6 +26,13 @@
     font-family: 'JetBrains Mono', monospace;
 }
 
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  touch-action: pan-y;
+}
+
 body {
     font-family: "Courier New", monospace;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
