@@ -114,10 +114,15 @@ function showModal(char) {
     <div class="gigs-section">
       <h3 style="color: var(--cp-yellow); margin-bottom: 15px;">Available Gigs</h3>
       ${gigs[char.id]
-        .filter((gig) => gig.visible !== false) // <-- ADD THIS LINE
+        .sort((a, b) => {
+          if (a.active && !b.active) return -1; // a goes first
+          if (!a.active && b.active) return 1; // b goes first
+          return 0; // keep original order
+        })
+        .filter((gig) => gig.visible !== false)
         .map(
           (gig) => `
-            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""}">
+            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""} ${gig.active ? "active" : ""}">
               <div class="gig-header">
                 <div class="gig-title">${gig.title}</div>
                 <div class="gig-difficulty">${gig.difficulty}</div>

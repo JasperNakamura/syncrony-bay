@@ -750,7 +750,9 @@ const gigs = {
   {
     title: "Meridian Technologies Exposé: Chakra T6 Privacy Breach",
     difficulty: "⭐⭐⭐",
-    completed: true,
+    visible: true,
+    completed: false,
+    active: true,
     payment: "€$5,000 + Tech Industry Connections",
     type: "Corporate Espionage",
     description:
