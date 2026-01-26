@@ -704,91 +704,113 @@ const gigs = {
     },
   ],
   beaumont: [
-    {
-      title: "Research Assistant: Gather Public Records",
-      difficulty: "⭐",
-      payment: "€$500",
-      type: "Research",
-      description:
-        "Anaïs needs public records gathered for investigation - building permits, business licenses, court filings. Tedious work at municipal offices. No danger, just time-consuming bureaucracy. She pays for legwork while she chases bigger leads.",
-      requirements: ["Patience for bureaucracy", "Organized record-keeping"],
-    },
-    {
-      title: "Interview Protection: Low-Risk Escort",
-      difficulty: "⭐⭐",
-      payment: "€$800",
-      type: "Escort",
-      description:
-        "Accompany Anaïs to interview sources in moderately safe locations. Workers, community members, low-level officials. Mostly insurance - she expects no trouble but wants backup. Professional demeanor essential, you're part of press team.",
-      requirements: [
-        "Professional appearance",
-        "Discrete presence",
-        "Respect for journalistic process",
-      ],
-    },
-    {
-      title: "Equipment Transport: Camera Gear Security",
-      difficulty: "⭐",
-      payment: "€$600",
-      type: "Transportation",
-      description:
-        "Transport Anaïs's expensive camera equipment between locations. She can't carry it all herself and doesn't trust regular couriers. Handle with care, protect from theft. Simple but crucial - her work depends on her gear.",
-      requirements: [
-        "Reliable transport",
-        "Careful handling",
-        "Basic security awareness",
-      ],
-    },
-    {
-      title: "Conflict Zone Photography: War Zone Access",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$8,000 + Press Credit",
-      type: "Protection/Access",
-      description:
-        "Escort Anaïs into active combat zones between corps or gangs. She needs photos of the violence for her exposé. Keep her alive while she gets impossible shots. She'll take risks you wouldn't. Works well with Marcus Thompson for leaked intel locations. Warning: photographer has death wish. Bonus: your story might get told.",
-      requirements: [],
-    },
-    {
-      title: "Exclusive Event Infiltration: Get the Compromising Shots",
-      difficulty: "⭐⭐⭐",
-      payment: "€$6,000 + Blackmail Material Copy",
-      type: "Infiltration",
-      description:
-        "Get Anaïs into exclusive corpo events, private parties, or closed meetings. She needs photos of crimes, affairs, or corruption. You get her in, protect her while she works, extract when it goes wrong. Can coordinate with Valentina Castellanos for high society access.",
-      requirements: [
-        "Social engineering or stealth",
-        "Quick extraction capability",
-        "Don't mind pissing off powerful people",
-      ],
-    },
-    {
-      title: "Dangerous Investigation: Corporate Crime Scene",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$10,000 + Your Story Published",
-      type: "Investigation Support",
-      description:
-        "Anaïs is investigating corporate crime - illegal dumping, worker deaths, corruption. She needs muscle while she gathers evidence in dangerous locations. Corps will send security, gangs might be involved. Often works with Aria Sterling's leaked intel. Duration: days to weeks. Risk: high - making enemies of megacorps.",
-      requirements: [],
-    },
-    {
-      title: "Post-Exposé Extraction",
-      difficulty: "⭐⭐⭐⭐⭐",
-      payment: "€$15,000 + International Press Connections",
-      type: "Emergency Extraction",
-      description:
-        "Anaïs's latest exposé just dropped. Corps/gangs/government wants her dead. Need immediate extraction, safe house, and protection until heat dies down. She's burned her location again. Happens every few months. Response time: immediate. Duration: 1-2 weeks. Frequency: quarterly.",
-      requirements: [],
-    },
-    {
-      title: "Create Newsworthy Situation",
-      difficulty: "⭐⭐⭐",
-      payment: "€$7,000 + Photo Feature",
-      type: "Orchestrated Incident",
-      description:
-        "Anaïs needs something dramatic to photograph. Stage a protest, trigger a corpo response, or create a 'situation' that exposes injustice. Must be photogenic and truthful - she won't stage fake news, but she'll stage real events. Works with Rosa Morales for community actions. Goal: truth through spectacle. Ethics: complicated but well-intentioned.",
-      requirements: [],
-    },
-  ],
+  {
+    title: "Bay Development Corporation Displacement Interview",
+    difficulty: "⭐⭐⭐",
+    payment: "€$2,500",
+    type: "Escort",
+    description:
+      "Accompany Anaïs to interview families being displaced by Bay Development Corporation's aggressive gentrification projects. Former residents, community organizers, local business owners forced out by rising rents and eminent domain abuse. BDC has been known to send 'representatives' to discourage people from talking to journalists. Mostly insurance - she expects no trouble but wants backup in case BDC goons show up. You're posing as part of her press team. Professional demeanor essential - these people have lost everything and deserve respect.",
+    requirements: [
+      "A suit worth at least €$1,000",
+      "Respect for journalistic process",
+    ],
+  },
+  {
+    title: "Élévation Exposé: The Rotten Core of High Society",
+    difficulty: "⭐⭐⭐",
+    payment: "€$4,000 + High Society Blackmail Material",
+    visible: false,
+    type: "Infiltration",
+    description:
+      "Get Anaïs into Élévation, the Michelin 3-star restaurant where Synchrony Bay's elite make their real deals. Posing as staff or guests, she needs photos of corpo executives, politicians, and crime bosses conducting illegal business over €$2,000 plates. Document who's eating with who, capture incriminating conversations, photograph document exchanges.",
+    requirements: [
+      "Formal attire/service skills",
+      "High society etiquette knowledge",
+    ],
+  },
+  {
+    title: "Create Newsworthy Situation",
+    difficulty: "⭐⭐⭐",
+    payment: "€$3,500 + Photo Feature",
+    type: "Orchestrated Incident",
+    description:
+      "Anaïs needs something dramatic to photograph. Stage a protest, trigger a corpo response, or create a 'situation' that exposes injustice. Must be photogenic and truthful - she won't stage fake news, but she'll stage real events.",
+    requirements: [],
+  },
+  {
+    title: "Helix Corporation Testing Facility: Medical War Crimes",
+    difficulty: "⭐⭐⭐",
+    payment: "€$4,500",
+    type: "Documentary Protection",
+    description:
+      "Anaïs is documenting Helix Corporation's illegal human experimentation at their 'volunteer medical trials' facility. Gene therapy without consent, experimental drugs on desperate patients, falsified safety data. She needs protection while interviewing victims, photographing facilities, and gathering evidence of genetic engineering crimes. Helix security will be minimal at the facility itself, but corporate cleaners might show up if they catch wind. Witnesses are traumatized and scared of retaliation - need sensitivity. Evidence could shut down entire unethical testing programs and expose Helix's dark side.",
+    requirements: [],
+  },
+  {
+    title: "Meridian Technologies Exposé: Chakra T6 Privacy Breach",
+    difficulty: "⭐⭐⭐",
+    completed: true,
+    payment: "€$5,000 + Tech Industry Connections",
+    type: "Corporate Espionage",
+    description:
+      "Break into Meridian Technologies' 10th floor offices to find evidence about their new flagship phone, the Chakra T6. Anonymous sources claim it secretly records conversations even when off, harvests biometric data without consent, has backdoor government access, and sells user location data to third parties. Anaïs needs photos of internal documents, prototypes, and source code. Building security is tight but predictable. Tech companies kill stories like this so you have one chance to get it right.",
+    requirements: [
+      "Building infiltration skills",
+      "Tech security bypass knowledge",
+    ],
+  },
+  {
+    title: "Conflict Zone Photography: War Zone Access",
+    difficulty: "⭐⭐⭐⭐",
+    payment: "€$35,000",
+    visible: false,
+    type: "Protection/Access",
+    description:
+      "Escort Anaïs into active combat zones between corps or gangs. She needs photos of the violence for her exposé. Keep her alive while she gets impossible shots. She'll take risks you wouldn't.",
+    requirements: [],
+  },
+  {
+    title: "Harborside Manufacturing Investigation: Toxic Dumping Exposé",
+    difficulty: "⭐⭐⭐⭐",
+    payment: "€$42,000",
+    visible: false,
+    type: "Investigation Support",
+    description:
+      "Anaïs is investigating Harborside Manufacturing's illegal toxic waste dumping into Synchrony Bay. Worker deaths covered up and falsified EPA reports. She needs muscle while she gathers evidence at the dockside factories - photos of dumping operations, interviews with dying workers, soil and water samples. Harborside will send security goons, local gangs are on their payroll. Duration: days to weeks.",
+    requirements: [],
+  },
+  {
+    title: "Apex Dynamics Whistleblower: AI Ethics Nightmare",
+    difficulty: "⭐⭐⭐⭐",
+    visible: false,
+    payment: "€$28,000",
+    type: "Protection/Infiltration + Perk Shard",
+    description:
+      "A senior engineer inside Apex Dynamics wants to expose their autonomous weapons program - AI that targets civilians, predictive policing algorithms with built-in racial bias, robots designed to break strikes. The whistleblower is paranoid and heavily watched by Apex's internal security. Get Anaïs to the meeting location undetected, keep both of them safe during the evidence exchange, and ensure the data makes it out. Apex's counter-intelligence division uses their own AI surveillance.",
+    requirements: [],
+  },
+  {
+    title: "Post-Exposé Extraction",
+    difficulty: "⭐⭐⭐⭐⭐",
+    visible: false,
+    payment: "€$100,000 or a special favor",
+    type: "Emergency Extraction",
+    description:
+      "Anaïs's latest exposé just dropped. Corps/gangs/government wants her dead. Need immediate extraction, safe house, and protection until heat dies down. She's burned her location again.",
+    requirements: [],
+  },
+  {
+    title: "Kronos Systems Black Site: The War Crimes Documentary",
+    difficulty: "⭐⭐⭐⭐⭐",
+    visible: false,
+    payment: "€$150,000 + Documentary Credit + Global Distribution",
+    type: "Long-term Protection",
+    description:
+      "Anaïs is going deep inside a Kronos Systems black site facility where they test experimental weapons on 'enemy combatants' and dissidents. Illegal sonic and chemical weapons. You're posing as new security personnel, she's posing as a medic. You're her lifeline, security, and extraction plan for 3 weeks of constant danger. She'll document everything with hidden cameras. If you're caught, Kronos makes you both disappear. If you succeed, this brings down their entire private warfare division and a war will be stopped",
+    requirements: [],
+  },
+],
   aria: [
     {
       title: "Document Delivery: Anonymous Drop",

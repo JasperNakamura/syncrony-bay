@@ -38,12 +38,10 @@ function createCard(char) {
     </div>
   `;
 
-  card
-    .querySelector(".view-details-btn")
-    .addEventListener("click", (e) => {
-      e.stopPropagation();
-      showModal(char);
-    });
+  card.querySelector(".view-details-btn").addEventListener("click", (e) => {
+    e.stopPropagation();
+    showModal(char);
+  });
 
   return card;
 }
@@ -82,7 +80,7 @@ function showModal(char) {
   const modal = document.getElementById("characterModal");
   const modalContent = document.getElementById("modalContent");
   const modalBody = document.getElementById("modalBody");
-  
+
   const iscorpo = char.alignment === "corpo";
   modalContent.className = `modal-content ${char.alignment}`;
 
@@ -113,39 +111,40 @@ function showModal(char) {
   let gigsHTML = "";
   if (gigs[char.id] && gigs[char.id].length > 0) {
     gigsHTML = `
-        <div class="gigs-section">
-            <h3 style="color: var(--cp-yellow); margin-bottom: 15px;">Available Gigs</h3>
-            ${gigs[char.id]
-              .map(
-                (gig) => `
-                <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""}">
-                    <div class="gig-header">
-                        <div class="gig-title">${gig.title}</div>
-                        <div class="gig-difficulty">${gig.difficulty}</div>
-                    </div>
-                    <div class="gig-meta">
-                        <div class="gig-payment">💰 ${gig.payment}</div>
-                        <div class="gig-type">📋 ${gig.type}</div>
-                    </div>
-                    <div class="gig-description">${gig.description}</div>
-                    ${
-                      gig.requirements
-                        ? `
-                        <div class="gig-requirements">
-                            <div class="gig-requirements-title">Requirements:</div>
-                            <ul style="margin: 5px 0 0 20px; list-style: disc;">
-                                ${gig.requirements.map((req) => `<li>${req}</li>`).join("")}
-                            </ul>
-                        </div>
-                    `
-                        : ""
-                    }
+    <div class="gigs-section">
+      <h3 style="color: var(--cp-yellow); margin-bottom: 15px;">Available Gigs</h3>
+      ${gigs[char.id]
+        .filter((gig) => gig.visible !== false) // <-- ADD THIS LINE
+        .map(
+          (gig) => `
+            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""}">
+              <div class="gig-header">
+                <div class="gig-title">${gig.title}</div>
+                <div class="gig-difficulty">${gig.difficulty}</div>
+              </div>
+              <div class="gig-meta">
+                <div class="gig-payment">💰 ${gig.payment}</div>
+                <div class="gig-type">📋 ${gig.type}</div>
+              </div>
+              <div class="gig-description">${gig.description}</div>
+              ${
+                gig.requirements
+                  ? `
+                <div class="gig-requirements">
+                  <div class="gig-requirements-title">Requirements:</div>
+                  <ul style="margin: 5px 0 0 20px; list-style: disc;">
+                    ${gig.requirements.map((req) => `<li>${req}</li>`).join("")}
+                  </ul>
                 </div>
-            `,
-              )
-              .join("")}
-        </div>
-    `;
+              `
+                  : ""
+              }
+            </div>
+          `,
+        )
+        .join("")}
+    </div>
+  `;
   }
 
   // Define the image mapping and get the background image FIRST
@@ -247,10 +246,7 @@ function showModal(char) {
 
         const enlargedImg = imageOverlay.querySelector(".enlarged-image");
         console.log("Enlarged image element:", enlargedImg);
-        console.log(
-          "Computed styles:",
-          window.getComputedStyle(enlargedImg),
-        );
+        console.log("Computed styles:", window.getComputedStyle(enlargedImg));
         console.log("Width:", enlargedImg.offsetWidth);
         console.log("Height:", enlargedImg.offsetHeight);
         console.log(
