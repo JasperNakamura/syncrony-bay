@@ -84,10 +84,7 @@ const gigs = {
       type: "Targeted Strike",
       description:
         "Helix Corporation dumped toxic waste in community water supply. Three kids died. Legal system won't touch them. Hit the executives responsible - their homes, their cars, their sense of security. Send a message.",
-      requirements: [
-        "Intelligence gathering",
-        "Precision strikes",
-      ],
+      requirements: ["Intelligence gathering", "Precision strikes"],
     },
     {
       title: "Workers' Rights: Factory Shutdown",
@@ -192,35 +189,7 @@ const gigs = {
       ],
     },
   ],
-  akira: [
-    {
-      title: "Muscle for Hire: General Combat Support",
-      difficulty: "Varies",
-      payment: "€$500-2,000 per job",
-      type: "Combat Support",
-      description:
-        "Available for hire through Rosa Morales. Provides armed muscle for operations requiring combat capability. Specializes in close-quarters combat and building clearance. Prefers jobs that don't target civilians.",
-      requirements: ["Anti-corpo, community defense, escort work preferred"],
-    },
-    {
-      title: "Close Protection: Bodyguard Detail",
-      difficulty: "⭐⭐",
-      payment: "€$300/day",
-      type: "Protection",
-      description:
-        "Personal protection services for high-risk individuals. Works well with Dr. Lin Zhao for medical escort jobs. Loyal and reliable once contract is signed.",
-      requirements: ["Don't threaten her sister"],
-    },
-    {
-      title: "Building Clearance: Hostile Environment",
-      difficulty: "⭐⭐⭐",
-      payment: "€$1,500-3,000",
-      type: "Combat",
-      description:
-        "Clear buildings of hostile forces. Gang hideouts, squatter removal (if justified), or corpo facility raids. Efficient and thorough. Prefers to know the why before she starts shooting.",
-      requirements: ["Clear mission parameters", "Fair pay"],
-    },
-  ],
+  akira: [],
   jiyeon: [
     {
       title: "Standard Delivery: Basic Package Run",
@@ -580,6 +549,7 @@ const gigs = {
       title: "La Ola Revenge Intercept",
       difficulty: "⭐",
       payment: "Free car repairs",
+      completed: true,
       type: "Defense",
       description:
         "Kaia humiliated a La Ola member last week. They're coming for payback on Friday. Father got word from a friend. Post up at her apartment, ready for when they show. Non-lethal preferred but her safety is priority.",
@@ -664,8 +634,8 @@ const gigs = {
       title: "Meridian Technologies Exposé: Chakra T6 Privacy Breach",
       difficulty: "⭐⭐⭐",
       visible: true,
-      completed: false,
-      active: true,
+      completed: true,
+      active: false,
       payment: "€$5,000 + Tech Industry Connections",
       type: "Corporate Espionage",
       description:
@@ -1117,6 +1087,35 @@ const characters = [
   },
 ];
 
+// ==================== LOCALSTORAGE FUNCTIONS ====================
+
+function saveGigsToLocalStorage() {
+  localStorage.setItem("gigsData", JSON.stringify(gigs));
+}
+
+function loadGigsFromLocalStorage() {
+  const saved = localStorage.getItem("gigsData");
+  if (saved) {
+    const savedGigs = JSON.parse(saved);
+    Object.keys(savedGigs).forEach((charId) => {
+      if (gigs[charId]) {
+        savedGigs[charId].forEach((savedGig, index) => {
+          if (gigs[charId][index]) {
+            gigs[charId][index].active = savedGig.active || false;
+            gigs[charId][index].completed = savedGig.completed || false;
+            gigs[charId][index].visible = savedGig.visible !== false;
+          }
+        });
+      }
+    });
+  }
+}
+
+// Load saved gigs state immediately
+loadGigsFromLocalStorage();
+
+// ==================== DOM ELEMENTS ====================
+
 const cardsGrid = document.getElementById("cardsGrid");
 const searchBox = document.getElementById("searchBox");
 const filterBtns = document.querySelectorAll(".filter-btn");
@@ -1126,6 +1125,8 @@ const modalBody = document.getElementById("modalBody");
 const closeModal = document.getElementById("closeModal");
 
 var currentFilter = "all";
+
+// ==================== COMPONENT FUNCTIONS ====================
 
 function createCard(char) {
   const card = document.createElement("div");
@@ -1138,32 +1139,32 @@ function createCard(char) {
       : '<span class="alignment-badge badge-street">⚡ STREET</span>';
 
   card.innerHTML = `
-                <div class="card-header">
-                    <div>
-                        <div class="card-name">${char.name}</div>
-                        <div class="card-alias">"${char.alias}"</div>
-                    </div>
-                    ${alignmentBadge}
-                </div>
-                
-                <div class="card-mid-section">
-                    <div class="card-text-content">
-                        <div class="card-role">${char.occupation}</div>
-                        <div class="card-info">
-                            <span>Age:</span> ${char.age} | <span>Origin:</span> ${char.nationality}
-                        </div>
-                        <div class="card-specialty">
-                            ${char.specialty}
-                        </div>
-                    </div>
-                </div>
+    <div class="card-header">
+        <div>
+            <div class="card-name">${char.name}</div>
+            <div class="card-alias">"${char.alias}"</div>
+        </div>
+        ${alignmentBadge}
+    </div>
+    
+    <div class="card-mid-section">
+        <div class="card-text-content">
+            <div class="card-role">${char.occupation}</div>
+            <div class="card-info">
+                <span>Age:</span> ${char.age} | <span>Origin:</span> ${char.nationality}
+            </div>
+            <div class="card-specialty">
+                ${char.specialty}
+            </div>
+        </div>
+    </div>
 
-                <div class="card-actions">
-                    <button class="view-details-btn" style="flex-grow: 1;">VIEW FULL PROFILE</button>
-                    <button class="view-details-btn">🕻</button>
-                    <button class="view-details-btn">🗨</button>
-                </div>
-            `;
+    <div class="card-actions">
+        <button class="view-details-btn" style="flex-grow: 1;">VIEW FULL PROFILE</button>
+        <button class="view-details-btn">🕻</button>
+        <button class="view-details-btn">🗨</button>
+    </div>
+  `;
 
   card.querySelector(".view-details-btn").addEventListener("click", (e) => {
     e.stopPropagation();
@@ -1214,58 +1215,64 @@ function showModal(char) {
 
   let specialHTML = char.special
     ? `
-                <div class="modal-section">
-                    <h3>Special Notes</h3>
-                    <p>${char.special}</p>
-                </div>
-            `
+        <div class="modal-section">
+            <h3>Special Notes</h3>
+            <p>${char.special}</p>
+        </div>
+    `
     : "";
 
   let quoteHTML = char.quote
     ? `
-                <div class="quote-box">
-                    "${char.quote}"
-                </div>
-            `
+        <div class="quote-box">
+            "${char.quote}"
+        </div>
+    `
     : "";
 
   // Generate gigs section
   let gigsHTML = "";
   if (gigs[char.id] && gigs[char.id].length > 0) {
     gigsHTML = `
-                    <div class="gigs-section">
-                        <h3 style="color: var(--cp-yellow); margin-bottom: 15px;">Available Gigs</h3>
-                        ${gigs[char.id]
-                          .map(
-                            (gig) => `
-                            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""}">
-                                <div class="gig-header">
-                                    <div class="gig-title">${gig.title}</div>
-                                    <div class="gig-difficulty">${gig.difficulty}</div>
-                                </div>
-                                <div class="gig-meta">
-                                    <div class="gig-payment">💰 ${gig.payment}</div>
-                                    <div class="gig-type">📋 ${gig.type}</div>
-                                </div>
-                                <div class="gig-description">${gig.description}</div>
-                                ${
-                                  gig.requirements
-                                    ? `
-                                    <div class="gig-requirements">
-                                        <div class="gig-requirements-title">Requirements:</div>
-                                        <ul style="margin: 5px 0 0 20px; list-style: disc;">
-                                            ${gig.requirements.map((req) => `<li>${req}</li>`).join("")}
-                                        </ul>
-                                    </div>
-                                `
-                                    : ""
-                                }
-                            </div>
-                        `,
-                          )
-                          .join("")}
-                    </div>
-                `;
+      <div class="gigs-section">
+        <h3 style="color: var(--cp-yellow); margin-bottom: 15px;">Available Gigs</h3>
+        ${gigs[char.id]
+          .sort((a, b) => {
+            if (a.active && !b.active) return -1;
+            if (!a.active && b.active) return 1;
+            return 0;
+          })
+          .filter((gig) => gig.visible !== false)
+          .map(
+            (gig) => `
+              <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""} ${gig.active ? "active" : ""}">
+                <div class="gig-header">
+                  <div class="gig-title">${gig.title}</div>
+                  <div class="gig-difficulty">${gig.difficulty}</div>
+                </div>
+                <div class="gig-meta">
+                  <div class="gig-payment">💰 ${gig.payment}</div>
+                  <div class="gig-type">📋 ${gig.type}</div>
+                </div>
+                <div class="gig-description">${gig.description}</div>
+                ${
+                  gig.requirements
+                    ? `
+                  <div class="gig-requirements">
+                    <div class="gig-requirements-title">Requirements:</div>
+                    <ul style="margin: 5px 0 0 20px; list-style: disc;">
+                      ${gig.requirements.map((req) => `<li>${req}</li>`).join("")}
+                    </ul>
+                  </div>
+                `
+                    : ""
+                }
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+    `;
   }
 
   // Define the image mapping and get the background image FIRST
@@ -1287,99 +1294,109 @@ function showModal(char) {
   const bgImage = imageMapping[char.id] || "none";
 
   modalBody.innerHTML = `
-                <div class="modal-header" style="display: flex; align-items: flex-start; gap: 20px;">
-                    <div style="flex: 1;">
-                        <h2>${char.name}</h2>
-                        <div class="card-alias" style="font-size: 1.2em;">"${char.alias}"</div>
-                    </div>
-                    <div class="character-thumbnail" style="background-image: ${bgImage} !important; background-size: cover; background-position: top center; width: 150px; height: 150px; border-radius: 8px; flex-shrink: 0; cursor: pointer;"></div>
-                </div>
-                ${quoteHTML}
+    <div class="modal-header" style="display: flex; align-items: flex-start; gap: 20px;">
+        <div style="flex: 1;">
+            <h2>${char.name}</h2>
+            <div class="card-alias" style="font-size: 1.2em;">"${char.alias}"</div>
+        </div>
+        <div class="character-thumbnail" style="background-image: ${bgImage} !important; background-size: cover; background-position: top center; width: 150px; height: 150px; border-radius: 8px; flex-shrink: 0; cursor: pointer;"></div>
+    </div>
+    ${quoteHTML}
 
-                <div class="modal-section">
-                    <h3>Background</h3>
-                    <p>${char.background}</p>
-                </div>
+    <div class="modal-section">
+        <h3>Background</h3>
+        <p>${char.background}</p>
+    </div>
 
-                <div class="info-grid">
-                    <div class="info-item">
-                        <div class="info-label">AGE</div>
-                        <div>${char.age}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">NATIONALITY</div>
-                        <div>${char.nationality}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">OCCUPATION</div>
-                        <div>${char.occupation}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">ALIGNMENT</div>
-                        <div>${char.alignment.toUpperCase()}</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">SPECIALTY</div>
-                        <div>${char.specialty}</div>
-                    </div>
-                </div>
+    <div class="info-grid">
+        <div class="info-item">
+            <div class="info-label">AGE</div>
+            <div>${char.age}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">NATIONALITY</div>
+            <div>${char.nationality}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">OCCUPATION</div>
+            <div>${char.occupation}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">ALIGNMENT</div>
+            <div>${char.alignment.toUpperCase()}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">SPECIALTY</div>
+            <div>${char.specialty}</div>
+        </div>
+    </div>
 
-                <div class="modal-section">
-                    <h3>Physical Description</h3>
-                    <p>${char.physical}</p>
-                </div>
+    <div class="modal-section">
+        <h3>Physical Description</h3>
+        <p>${char.physical}</p>
+    </div>
 
-                <div class="modal-section">
-                    <h3>Personal Notes</h3>
-                    <p>${char.notes}</p>
-                </div>
+    <div class="modal-section">
+        <h3>Personal Notes</h3>
+        <p>${char.notes}</p>
+    </div>
 
-                <div class="modal-section">
-                    <h3>Services Available</h3>
-                    ${servicesHTML}
-                </div>
+    <div class="modal-section">
+        <h3>Services Available</h3>
+        ${servicesHTML}
+    </div>
 
-                ${specialHTML}
+    ${specialHTML}
 
-                ${gigsHTML}
-            `;
+    ${gigsHTML}
+  `;
 
   modal.style.display = "block";
 
-  // Query AFTER the modal is displayed and DOM is updated
+  // Add click handlers to gig cards for toggling active state
   setTimeout(() => {
+    const gigCards = modalBody.querySelectorAll(".gig-card");
+
+    gigCards.forEach((gigCard, index) => {
+      gigCard.addEventListener("click", (e) => {
+        // Don't toggle if clicking on links or buttons inside
+        if (e.target.tagName === "A" || e.target.tagName === "BUTTON") return;
+
+        // Get the gig title from the card to find the correct gig
+        const gigTitle = gigCard.querySelector(".gig-title").textContent;
+
+        // Find the actual gig in the original array by title
+        const gigData = gigs[char.id].find((g) => g.title === gigTitle);
+
+        if (gigData) {
+          gigData.active = !gigData.active;
+
+          // Save to localStorage
+          saveGigsToLocalStorage();
+
+          // Re-render modal to show updated state
+          showModal(char);
+        }
+      });
+    });
+
+    // Handle thumbnail click for enlarged image
     const thumbnail = modalBody.querySelector(".character-thumbnail");
     if (thumbnail) {
       thumbnail.addEventListener("click", () => {
-        console.log("Thumbnail clicked!");
-        console.log("bgImage value:", bgImage);
-
         const imageOverlay = document.createElement("div");
         imageOverlay.className = "image-overlay";
         imageOverlay.innerHTML = `
-                        <div class="enlarged-image-container">
-                            <div class="enlarged-image" style="background-image: ${bgImage} !important; background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;"></div>
-                        </div>
-                    `;
+          <div class="enlarged-image-container">
+              <div class="enlarged-image" style="background-image: ${bgImage} !important; background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;"></div>
+          </div>
+        `;
         document.body.appendChild(imageOverlay);
 
-        console.log("Overlay HTML:", imageOverlay.innerHTML);
-
-        const enlargedImg = imageOverlay.querySelector(".enlarged-image");
-        console.log("Enlarged image element:", enlargedImg);
-        console.log("Computed styles:", window.getComputedStyle(enlargedImg));
-        console.log("Width:", enlargedImg.offsetWidth);
-        console.log("Height:", enlargedImg.offsetHeight);
-        console.log(
-          "Background image:",
-          window.getComputedStyle(enlargedImg).backgroundImage,
-        );
-
-        // Close on click
         // Close on click
         imageOverlay.addEventListener("click", () => {
           imageOverlay.classList.add("closing");
-          setTimeout(() => imageOverlay.remove(), 400); // Match animation duration
+          setTimeout(() => imageOverlay.remove(), 400);
         });
 
         // Trigger animation
@@ -1389,7 +1406,8 @@ function showModal(char) {
   }, 0);
 }
 
-// Event Listeners
+// ==================== EVENT LISTENERS ====================
+
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     filterBtns.forEach((b) => b.classList.remove("active"));
@@ -1413,5 +1431,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-// Initial render
+// ==================== INITIAL RENDER ====================
+
 renderCards();

@@ -1,3 +1,32 @@
+// ==================== LOCALSTORAGE FUNCTIONS ====================
+
+function saveGigsToLocalStorage() {
+  localStorage.setItem('gigsData', JSON.stringify(gigs));
+}
+
+function loadGigsFromLocalStorage() {
+  const saved = localStorage.getItem('gigsData');
+  if (saved) {
+    const savedGigs = JSON.parse(saved);
+    Object.keys(savedGigs).forEach(charId => {
+      if (gigs[charId]) {
+        savedGigs[charId].forEach((savedGig, index) => {
+          if (gigs[charId][index]) {
+            gigs[charId][index].active = savedGig.active || false;
+            gigs[charId][index].completed = savedGig.completed || false;
+            gigs[charId][index].visible = savedGig.visible !== false;
+          }
+        });
+      }
+    });
+  }
+}
+
+// Load saved gigs on page load
+if (typeof gigs !== 'undefined') {
+  loadGigsFromLocalStorage();
+}
+
 // ==================== COMPONENT FUNCTIONS ====================
 
 function createCard(char) {
@@ -122,7 +151,7 @@ function showModal(char) {
         .filter((gig) => gig.visible !== false)
         .map(
           (gig) => `
-            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""} ${gig.active ? "active" : ""}">
+            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""} ${gig.active ? "active" : ""}" data-gig-title="${gig.title.replace(/"/g, '&quot;')}">
               <div class="gig-header">
                 <div class="gig-title">${gig.title}</div>
                 <div class="gig-difficulty">${gig.difficulty}</div>
@@ -170,6 +199,7 @@ function showModal(char) {
 
   const bgImage = imageMapping[char.id] || "none";
 
+  // SET innerHTML FIRST
   modalBody.innerHTML = `
     <div class="modal-header" style="display: flex; align-items: flex-start; gap: 20px;">
         <div style="flex: 1;">
@@ -230,14 +260,37 @@ function showModal(char) {
 
   modal.style.display = "block";
 
-  // Query AFTER the modal is displayed and DOM is updated
+  // THEN add event listeners AFTER the HTML is in the DOM
   setTimeout(() => {
+    // Add gig card click handlers
+    const gigCards = modalBody.querySelectorAll(".gig-card");
+    gigCards.forEach((gigCard) => {
+      gigCard.addEventListener("click", (e) => {
+        // Don't toggle if clicking on links or buttons inside
+        if (e.target.tagName === "A" || e.target.tagName === "BUTTON") return;
+
+        // Get the gig title from the data attribute
+        const gigTitle = gigCard.getAttribute("data-gig-title");
+        
+        // Find the actual gig in the original array by title
+        const gigData = gigs[char.id].find(g => g.title === gigTitle);
+        
+        if (gigData) {
+          gigData.active = !gigData.active;
+          
+          // Save to localStorage
+          saveGigsToLocalStorage();
+          
+          // Re-render modal to show updated state
+          showModal(char);
+        }
+      });
+    });
+
+    // Add thumbnail click handler
     const thumbnail = modalBody.querySelector(".character-thumbnail");
     if (thumbnail) {
       thumbnail.addEventListener("click", () => {
-        console.log("Thumbnail clicked!");
-        console.log("bgImage value:", bgImage);
-
         const imageOverlay = document.createElement("div");
         imageOverlay.className = "image-overlay";
         imageOverlay.innerHTML = `
@@ -246,18 +299,6 @@ function showModal(char) {
             </div>
         `;
         document.body.appendChild(imageOverlay);
-
-        console.log("Overlay HTML:", imageOverlay.innerHTML);
-
-        const enlargedImg = imageOverlay.querySelector(".enlarged-image");
-        console.log("Enlarged image element:", enlargedImg);
-        console.log("Computed styles:", window.getComputedStyle(enlargedImg));
-        console.log("Width:", enlargedImg.offsetWidth);
-        console.log("Height:", enlargedImg.offsetHeight);
-        console.log(
-          "Background image:",
-          window.getComputedStyle(enlargedImg).backgroundImage,
-        );
 
         // Close on click
         imageOverlay.addEventListener("click", () => {
