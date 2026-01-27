@@ -509,7 +509,7 @@ const gigs = {
       payment: "€$2,000 + Medical Services",
       type: "Night Security",
       description:
-        "Guard underground clinic during operating hours (midnight-6am). Gangers sometimes try to collect 'protection money,' addicts get violent, and occasionally corpo goons investigate. Protect patients and doctor. Non-lethal preferred for patients. Weekly, overnight shift.",
+        "Guard underground clinic during operating hours (midnight-6am). Gugs sometimes try to collect 'protection money,' addicts get violent, and occasionally corpo goons investigate. Protect patients and doctor. Non-lethal preferred for patients. Weekly, overnight shift.",
       requirements: [],
     },
     {
@@ -648,61 +648,85 @@ const gigs = {
     },
   ],
   tamm: [
-    {
-      title: "Groceries Escort: Safe Shopping Trip",
-      difficulty: "⭐",
-      payment: "€$300 + Home-Cooked Meal",
-      type: "Escort",
-      description:
-        "Walk with Jaan while he does weekly grocery shopping. Gang territory between home and market. Simple protection detail - presence usually enough. He's kind man, makes good conversation. Kaia sometimes comes along (and complains entire time). Weekly, 2 hours.",
-      requirements: ["Patience", "Respectful demeanor"],
-    },
-    {
-      title: "University Escort Protection",
-      difficulty: "⭐⭐",
-      payment: "€$500/day + Home-Cooked Meals",
-      type: "Escort",
-      description:
-        "Walk Kaia to and from university through gang territory. 6th Street and Maelstrom both want her dead for 'disrespecting' them. She'll fight you on needing protection. Keep her alive despite herself. M-F, 7am and 6pm. Warning: client is uncooperative.",
-      requirements: [],
-    },
-    {
-      title: "Study Session Bodyguard",
-      difficulty: "⭐⭐",
-      payment: "€$400/session + Mechanical Repairs",
-      type: "Protection",
-      description:
-        "Guard Kaia during evening study sessions at library or cafe. Gangs know her schedule. She refuses to change routine out of pride. Protect her while she studies engineering. She'll insult you for being there. 3-4 hours, 2-3 times weekly. Father is desperate, daughter is stubborn.",
-      requirements: [],
-    },
-    {
-      title: "Gang Threat Deterrence",
-      difficulty: "⭐⭐⭐",
-      payment: "€$3,000 + Community Favors",
-      type: "Intimidation/Combat",
-      description:
-        "Send clear message to gang members threatening Kaia. Father prefers non-lethal but understands sometimes it's necessary. Make them afraid to touch her. Permanent solutions acceptable if no other choice. Targets: 6th Street, Maelstrom members. Goal: make example that protects her long-term.",
-      requirements: [],
-    },
-    {
-      title: "Emergency Extraction: Kaia in Trouble",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$5,000 + Life Debt",
-      type: "Rescue",
-      description:
-        "Kaia got herself into another fight. Father gets panicked call. Need immediate extraction from hostile situation - gang ambush, bar fight, or worse. Happens frequently. Father pays whatever it takes to get her back alive. Frequency: too often. Response time: immediate. Warning: she won't thank you.",
-      requirements: [],
-    },
-    {
-      title: "Social Event Guard Detail",
-      difficulty: "⭐⭐",
-      payment: "€$800 + Estonian Food",
-      type: "Event Security",
-      description:
-        "Kaia has university social events. Father terrified gangs will attack when she's vulnerable. Discrete protection during events. She'll try to ditch you. Don't let her. Monthly. Client attitude: apologetic father, defiant daughter.",
-      requirements: [],
-    },
-  ],
+  {
+    title: "Party Escort",
+    difficulty: "⭐",
+    completed: true,
+    payment: "€$300 + Home-Cooked Meal",
+    type: "Escort",
+    description:
+      "Make sure Kaia comes home safe from her party on the weekend. Simple protection detail - presence usually enough.",
+    requirements: [],
+  },
+  {
+    title: "Bar Fight Cleanup",
+    difficulty: "⭐",
+    payment: "€$400",
+    visible: false,
+    type: "Extraction/Combat",
+    description:
+      "Kaia got into another bar fight. Someone said something, she threw the first punch. Now it's escalating. Get there before she gets seriously hurt or kills someone. Extract her before cops or gangs arrive.",
+    requirements: ["ASAP"],
+  },
+  {
+    title: "Street Confrontation Backup",
+    difficulty: "⭐",
+    payment: "€$350 + Home-Cooked Meal",
+    visible: false,
+    type: "Combat Support",
+    description:
+      "Kaia mouthed off to wrong people on the street. Now it's a fight. Got a text from Bailey. She's outnumbered 3-to-1 but still swinging. Get there, even the odds, pull her out.",
+    requirements: ["ASAP"],
+  },
+  {
+    title: "La Ola Revenge Intercept",
+    difficulty: "⭐",
+    payment: "Free car repairs",
+    type: "Defense",
+    description:
+      "Kaia humiliated a La Ola member last week. They're coming for payback on Friday. Father got word from a friend. Post up at her apartment, ready for when they show. Non-lethal preferred but her safety is priority.",
+    requirements: [],
+  },
+  {
+    title: "Campus Fight Protection",
+    difficulty: "⭐",
+    payment: "€$300 + Food",
+    type: "Deterrence",
+    description:
+      "Kaia's been getting into fights with another engineering student. It's escalating. Other student has gang connections. Stand nearby during their next class, make your presence known. Hopefully no actual fighting needed.",
+    requirements: [],
+  },
+  {
+    title: "1 Week University Escort Protection",
+    difficulty: "⭐⭐",
+    payment: "€$500 + Daily Home-Cooked Meals",
+    visible: false,
+    type: "Escort",
+    description:
+      "Walk Kaia to and from university. La Ola and Eclipse both want her dead for 'disrespecting' them. She'll fight you on needing protection. Keep her alive despite herself. M-F, 7am and 6pm.",
+    requirements: [],
+  },
+  {
+    title: "Nightclub Brawl Extraction",
+    difficulty: "⭐⭐",
+    payment: "€$700 + Semla",
+    visible: false,
+    type: "Emergency Extraction",
+    description:
+      "Kaia went to a nightclub in Eclipse territory despite warnings. She hasn't seemingly come back since. Find and save her.",
+    requirements: ["Combat skills", "Crowd navigation"],
+  },
+  {
+    title: "Gang Threat Deterrence",
+    difficulty: "⭐⭐⭐",
+    payment: "€$3,000 + Community Favors",
+    visible: false,
+    type: "Intimidation/Combat",
+    description:
+      "Send clear message to gang members threatening Kaia. Father prefers non-lethal but understands sometimes it's necessary. Make them afraid to touch her. Targets: La Ola and Eclipse members. Goal: make example that protects her long-term.",
+    requirements: [],
+  },
+],
   beaumont: [
   {
     title: "Bay Development Corporation Displacement Interview",
