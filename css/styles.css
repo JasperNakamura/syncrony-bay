@@ -403,11 +403,6 @@ h1 {
     margin: 15px 0;
 }
 
-.gig-card.corpo-gig {
-    border-color: var(--cp-red);
-    background: rgba(255, 0, 60, 0.05);
-}
-
 .gig-header {
     display: flex;
     justify-content: space-between;

@@ -401,20 +401,7 @@ const gigs = {
   ],
   wei: [
     {
-      title: "Rare Ingredient Acquisition: Illegal Delicacy",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$15,000 + Meal at Élévation",
-      type: "Smuggling/Theft",
-      description:
-        "Need live Matsutake mushrooms from Japanese corpo farm or fresh Bluefin tuna from restricted waters. Customs won't allow import. Need it fresh, undamaged, and delivered within 48 hours of harvest. No questions about legality.",
-      requirements: [
-        "Smuggling connections or theft skills",
-        "Temperature-controlled transport",
-        "Speed",
-      ],
-    },
-    {
-      title: "Restaurant Sabotage: Eliminate Competition",
+      title: "Restaurant Sabotage",
       difficulty: "⭐⭐⭐",
       payment: "€$12,000",
       type: "Sabotage",
@@ -423,26 +410,73 @@ const gigs = {
       requirements: [
         "Kitchen infiltration",
         "Subtle sabotage",
-        "Perfect timing",
+        "Critic safety",
       ],
     },
     {
-      title: "Recipe Theft: Family Secrets",
+      title: "Eliminate Rising Star",
+      difficulty: "⭐⭐⭐",
+      payment: "€$14,000",
+      type: "Character Assassination",
+      description:
+        "Young celebrity chef Martin Compston is getting media attention as 'next big thing' in Synchrony Bay. Create a scandal that destroys their reputation. Find dirt or fabricate drug use, sexual harassment claims, etc. Permanent career damage required. Media contacts helpful.",
+      requirements: [
+        "Social engineering",
+        "Media manipulation",
+        "Evidence fabrication",
+      ],
+    },
+    {
+      title: "Coelacanth Acquisition: Living Fossil Delicacy",
       difficulty: "⭐⭐⭐⭐",
-      payment: "€$20,000 + High Society Access",
+      payment: "€$22,000 + Meal at Élévation",
+      type: "Smuggling/Theft",
+      description:
+        "Ultra-wealthy client wants to taste coelacanth - the 'living fossil' fish thought extinct for millions of years. Only a few hundred exist in deep waters off Comoros Islands. Need one alive and fresh. International law forbids capture. Extremely delicate transport required - they die easily outside deep water pressure.",
+      requirements: [
+        "International smuggling connections",
+        "Specialized aquatic transport",
+      ],
+    },
+    {
+      title: "Cloned Tasmanian Tiger Meat",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$28,000",
+      type: "Theft/Smuggling",
+      description:
+        "Helix Corporation successfully cloned Tasmanian tiger for conservation. Wei wants tissue samples for the ultimate 'extinct meat' dish. Break into research facility, steal viable samples, deliver to Wei's private food scientist. Security is corporate-grade.",
+      requirements: [
+        "Corporate infiltration",
+        "Biological sample handling",
+        "Extreme discretion",
+      ],
+    },
+    {
+      title: "Michelin Inspector Intel",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$30,000 + Flight to France",
+      visible: false,
+      type: "Information Gathering/Bribery",
+      description:
+        "Michelin inspectors are anonymous. Wei needs to know when they're visiting Élévation so he can prepare perfectly. Find out inspector identities, schedules, preferences. Bribe, blackmail, or surveil Michelin Guide headquarters in France.",
+      requirements: [
+        "International intelligence gathering",
+      ],
+    },
+    {
+      title: "Recipe Theft",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$20,000",
       type: "Burglary",
       description:
-        "Legendary chef's handwritten recipe book held in private collection. Owner refuses to sell. Need original book or perfect copies of specific pages. Collector has high-end security system.",
-      requirements: [
-        "B&E specialist",
-        "Document handling expertise",
-        "Art theft experience preferred",
-      ],
+        "A trending foodtruck so good it even got a single Michilen star. Find the recipie to Liege style waffles.",
+      requirements: [],
     },
     {
       title: "Critic Elimination: Remove Negative Review",
       difficulty: "⭐⭐⭐⭐",
       payment: "€$25,000",
+      visible: false,
       type: "Wet Work / Blackmail",
       description:
         "Food critic threatens to publish devastating review of Élévation. Either make them disappear or provide blackmail material sufficient to kill the story. Must happen before publication deadline in 5 days.",
@@ -453,16 +487,15 @@ const gigs = {
       ],
     },
     {
-      title: "Event Diversion: Create Chaos",
-      difficulty: "⭐⭐",
-      payment: "€$8,000",
-      type: "Distraction",
+      title: "Black Market Wine Acquisition: Impossible Vintage",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$18,000 + Rare Wine Bottle",
+      visible: false,
+      type: "Theft/Smuggling",
       description:
-        "During rival's grand opening, need significant distraction. Gang attack, building fire alarm, health inspector raid - anything that empties the restaurant during critic attendance. No casualties but maximum embarrassment.",
+        "Ultra-wealthy client demands 1947 Château d'Yquem for their private dinner at Élévation. Only known bottles are in museum collections or wealthy individual private cellars. Acquire by any means necessary. One week deadline.",
       requirements: [
-        "Creative problem-solving",
-        "Timing coordination",
-        "Plausible deniability",
+        "Portable wine cooler",
       ],
     },
   ],
@@ -648,195 +681,176 @@ const gigs = {
     },
   ],
   tamm: [
-  {
-    title: "Party Escort",
-    difficulty: "⭐",
-    completed: true,
-    payment: "€$300 + Home-Cooked Meal",
-    type: "Escort",
-    description:
-      "Make sure Kaia comes home safe from her party on the weekend. Simple protection detail - presence usually enough.",
-    requirements: [],
-  },
-  {
-    title: "Bar Fight Cleanup",
-    difficulty: "⭐",
-    payment: "€$400",
-    visible: false,
-    type: "Extraction/Combat",
-    description:
-      "Kaia got into another bar fight. Someone said something, she threw the first punch. Now it's escalating. Get there before she gets seriously hurt or kills someone. Extract her before cops or gangs arrive.",
-    requirements: ["ASAP"],
-  },
-  {
-    title: "Street Confrontation Backup",
-    difficulty: "⭐",
-    payment: "€$350 + Home-Cooked Meal",
-    visible: false,
-    type: "Combat Support",
-    description:
-      "Kaia mouthed off to wrong people on the street. Now it's a fight. Got a text from Bailey. She's outnumbered 3-to-1 but still swinging. Get there, even the odds, pull her out.",
-    requirements: ["ASAP"],
-  },
-  {
-    title: "La Ola Revenge Intercept",
-    difficulty: "⭐",
-    payment: "Free car repairs",
-    type: "Defense",
-    description:
-      "Kaia humiliated a La Ola member last week. They're coming for payback on Friday. Father got word from a friend. Post up at her apartment, ready for when they show. Non-lethal preferred but her safety is priority.",
-    requirements: [],
-  },
-  {
-    title: "Campus Fight Protection",
-    difficulty: "⭐",
-    payment: "€$300 + Food",
-    type: "Deterrence",
-    description:
-      "Kaia's been getting into fights with another engineering student. It's escalating. Other student has gang connections. Stand nearby during their next class, make your presence known. Hopefully no actual fighting needed.",
-    requirements: [],
-  },
-  {
-    title: "1 Week University Escort Protection",
-    difficulty: "⭐⭐",
-    payment: "€$500 + Daily Home-Cooked Meals",
-    visible: false,
-    type: "Escort",
-    description:
-      "Walk Kaia to and from university. La Ola and Eclipse both want her dead for 'disrespecting' them. She'll fight you on needing protection. Keep her alive despite herself. M-F, 7am and 6pm.",
-    requirements: [],
-  },
-  {
-    title: "Nightclub Brawl Extraction",
-    difficulty: "⭐⭐",
-    payment: "€$700 + Semla",
-    visible: false,
-    type: "Emergency Extraction",
-    description:
-      "Kaia went to a nightclub in Eclipse territory despite warnings. She hasn't seemingly come back since. Find and save her.",
-    requirements: ["Combat skills", "Crowd navigation"],
-  },
-  {
-    title: "Gang Threat Deterrence",
-    difficulty: "⭐⭐⭐",
-    payment: "€$3,000 + Community Favors",
-    visible: false,
-    type: "Intimidation/Combat",
-    description:
-      "Send clear message to gang members threatening Kaia. Father prefers non-lethal but understands sometimes it's necessary. Make them afraid to touch her. Targets: La Ola and Eclipse members. Goal: make example that protects her long-term.",
-    requirements: [],
-  },
-],
+    {
+      title: "Party Escort",
+      difficulty: "⭐",
+      completed: true,
+      payment: "€$300 + Home-Cooked Meal",
+      type: "Escort",
+      description:
+        "Make sure Kaia comes home safe from her party on the weekend. Simple protection detail - presence usually enough.",
+      requirements: [],
+    },
+    {
+      title: "Bar Fight Cleanup",
+      difficulty: "⭐",
+      payment: "€$400",
+      visible: false,
+      type: "Extraction/Combat",
+      description:
+        "Kaia got into another bar fight. Someone said something, she threw the first punch. Now it's escalating. Get there before she gets seriously hurt or kills someone. Extract her before cops or gangs arrive.",
+      requirements: ["ASAP"],
+    },
+    {
+      title: "Street Confrontation Backup",
+      difficulty: "⭐",
+      payment: "€$350 + Home-Cooked Meal",
+      visible: false,
+      type: "Combat Support",
+      description:
+        "Kaia mouthed off to wrong people on the street. Now it's a fight. Got a text from Bailey. She's outnumbered 3-to-1 but still swinging. Get there, even the odds, pull her out.",
+      requirements: ["ASAP"],
+    },
+    {
+      title: "La Ola Revenge Intercept",
+      difficulty: "⭐",
+      payment: "Free car repairs",
+      type: "Defense",
+      description:
+        "Kaia humiliated a La Ola member last week. They're coming for payback on Friday. Father got word from a friend. Post up at her apartment, ready for when they show. Non-lethal preferred but her safety is priority.",
+      requirements: [],
+    },
+    {
+      title: "Campus Fight Protection",
+      difficulty: "⭐",
+      payment: "€$300 + Food",
+      type: "Deterrence",
+      description:
+        "Kaia's been getting into fights with another engineering student. It's escalating. Other student has gang connections. Stand nearby during their next class, make your presence known. Hopefully no actual fighting needed.",
+      requirements: [],
+    },
+    {
+      title: "1 Week University Escort Protection",
+      difficulty: "⭐⭐",
+      payment: "€$500 + Daily Home-Cooked Meals",
+      visible: false,
+      type: "Escort",
+      description:
+        "Walk Kaia to and from university. La Ola and Eclipse both want her dead for 'disrespecting' them. She'll fight you on needing protection. Keep her alive despite herself. M-F, 7am and 6pm.",
+      requirements: [],
+    },
+    {
+      title: "Nightclub Brawl Extraction",
+      difficulty: "⭐⭐",
+      payment: "€$700 + Semla",
+      visible: false,
+      type: "Emergency Extraction",
+      description:
+        "Kaia went to a nightclub in Eclipse territory despite warnings. She hasn't seemingly come back since. Find and save her.",
+      requirements: ["Combat skills", "Crowd navigation"],
+    },
+    {
+      title: "Gang Threat Deterrence",
+      difficulty: "⭐⭐⭐",
+      payment: "€$3,000 + Community Favors",
+      visible: false,
+      type: "Intimidation/Combat",
+      description:
+        "Send clear message to gang members threatening Kaia. Father prefers non-lethal but understands sometimes it's necessary. Make them afraid to touch her. Targets: La Ola and Eclipse members. Goal: make example that protects her long-term.",
+      requirements: [],
+    },
+  ],
   beaumont: [
-  {
-    title: "Bay Development Corporation Displacement Interview",
-    difficulty: "⭐⭐⭐",
-    payment: "€$2,500",
-    type: "Escort",
-    description:
-      "Accompany Anaïs to interview families being displaced by Bay Development Corporation's aggressive gentrification projects. Former residents, community organizers, local business owners forced out by rising rents and eminent domain abuse. BDC has been known to send 'representatives' to discourage people from talking to journalists. Mostly insurance - she expects no trouble but wants backup in case BDC goons show up. You're posing as part of her press team. Professional demeanor essential - these people have lost everything and deserve respect.",
-    requirements: [
-      "A suit worth at least €$1,000",
-      "Respect for journalistic process",
-    ],
-  },
-  {
-    title: "Élévation Exposé: The Rotten Core of High Society",
-    difficulty: "⭐⭐⭐",
-    payment: "€$4,000 + High Society Blackmail Material",
-    visible: false,
-    type: "Infiltration",
-    description:
-      "Get Anaïs into Élévation, the Michelin 3-star restaurant where Synchrony Bay's elite make their real deals. Posing as staff or guests, she needs photos of corpo executives, politicians, and crime bosses conducting illegal business over €$2,000 plates. Document who's eating with who, capture incriminating conversations, photograph document exchanges.",
-    requirements: [
-      "Formal attire/service skills",
-      "High society etiquette knowledge",
-    ],
-  },
-  {
-    title: "Create Newsworthy Situation",
-    difficulty: "⭐⭐⭐",
-    payment: "€$3,500 + Photo Feature",
-    type: "Orchestrated Incident",
-    description:
-      "Anaïs needs something dramatic to photograph. Stage a protest, trigger a corpo response, or create a 'situation' that exposes injustice. Must be photogenic and truthful - she won't stage fake news, but she'll stage real events.",
-    requirements: [],
-  },
-  {
-    title: "Helix Corporation Testing Facility: Medical War Crimes",
-    difficulty: "⭐⭐⭐",
-    payment: "€$4,500",
-    type: "Documentary Protection",
-    description:
-      "Anaïs is documenting Helix Corporation's illegal human experimentation at their 'volunteer medical trials' facility. Gene therapy without consent, experimental drugs on desperate patients, falsified safety data. She needs protection while interviewing victims, photographing facilities, and gathering evidence of genetic engineering crimes. Helix security will be minimal at the facility itself, but corporate cleaners might show up if they catch wind. Witnesses are traumatized and scared of retaliation - need sensitivity. Evidence could shut down entire unethical testing programs and expose Helix's dark side.",
-    requirements: [],
-  },
-  {
-    title: "Meridian Technologies Exposé: Chakra T6 Privacy Breach",
-    difficulty: "⭐⭐⭐",
-    visible: true,
-    completed: false,
-    active: true,
-    payment: "€$5,000 + Tech Industry Connections",
-    type: "Corporate Espionage",
-    description:
-      "Break into Meridian Technologies' 10th floor offices to find evidence about their new flagship phone, the Chakra T6. Anonymous sources claim it secretly records conversations even when off, harvests biometric data without consent, has backdoor government access, and sells user location data to third parties. Anaïs needs photos of internal documents, prototypes, and source code. Building security is tight but predictable. Tech companies kill stories like this so you have one chance to get it right.",
-    requirements: [
-      "Building infiltration skills",
-      "Tech security bypass knowledge",
-    ],
-  },
-  {
-    title: "Conflict Zone Photography: War Zone Access",
-    difficulty: "⭐⭐⭐⭐",
-    payment: "€$35,000",
-    visible: false,
-    type: "Protection/Access",
-    description:
-      "Escort Anaïs into active combat zones between corps or gangs. She needs photos of the violence for her exposé. Keep her alive while she gets impossible shots. She'll take risks you wouldn't.",
-    requirements: [],
-  },
-  {
-    title: "Harborside Manufacturing Investigation: Toxic Dumping Exposé",
-    difficulty: "⭐⭐⭐⭐",
-    payment: "€$42,000",
-    visible: false,
-    type: "Investigation Support",
-    description:
-      "Anaïs is investigating Harborside Manufacturing's illegal toxic waste dumping into Synchrony Bay. Worker deaths covered up and falsified EPA reports. She needs muscle while she gathers evidence at the dockside factories - photos of dumping operations, interviews with dying workers, soil and water samples. Harborside will send security goons, local gangs are on their payroll. Duration: days to weeks.",
-    requirements: [],
-  },
-  {
-    title: "Apex Dynamics Whistleblower: AI Ethics Nightmare",
-    difficulty: "⭐⭐⭐⭐",
-    visible: false,
-    payment: "€$28,000",
-    type: "Protection/Infiltration + Perk Shard",
-    description:
-      "A senior engineer inside Apex Dynamics wants to expose their autonomous weapons program - AI that targets civilians, predictive policing algorithms with built-in racial bias, robots designed to break strikes. The whistleblower is paranoid and heavily watched by Apex's internal security. Get Anaïs to the meeting location undetected, keep both of them safe during the evidence exchange, and ensure the data makes it out. Apex's counter-intelligence division uses their own AI surveillance.",
-    requirements: [],
-  },
-  {
-    title: "Post-Exposé Extraction",
-    difficulty: "⭐⭐⭐⭐⭐",
-    visible: false,
-    payment: "€$100,000 or a special favor",
-    type: "Emergency Extraction",
-    description:
-      "Anaïs's latest exposé just dropped. Corps/gangs/government wants her dead. Need immediate extraction, safe house, and protection until heat dies down. She's burned her location again.",
-    requirements: [],
-  },
-  {
-    title: "Kronos Systems Black Site: The War Crimes Documentary",
-    difficulty: "⭐⭐⭐⭐⭐",
-    visible: false,
-    payment: "€$150,000 + Documentary Credit + Global Distribution",
-    type: "Long-term Protection",
-    description:
-      "Anaïs is going deep inside a Kronos Systems black site facility where they test experimental weapons on 'enemy combatants' and dissidents. Illegal sonic and chemical weapons. You're posing as new security personnel, she's posing as a medic. You're her lifeline, security, and extraction plan for 3 weeks of constant danger. She'll document everything with hidden cameras. If you're caught, Kronos makes you both disappear. If you succeed, this brings down their entire private warfare division and a war will be stopped",
-    requirements: [],
-  },
-],
+    {
+      title: "Bay Development Corporation Displacement Interview",
+      difficulty: "⭐⭐⭐",
+      payment: "€$2,500",
+      type: "Escort",
+      description:
+        "Accompany Anaïs to interview families being displaced by Bay Development Corporation's aggressive gentrification projects. Former residents, community organizers, local business owners forced out by rising rents and eminent domain abuse. BDC has been known to send 'representatives' to discourage people from talking to journalists. Mostly insurance - she expects no trouble but wants backup in case BDC goons show up. You're posing as part of her press team. Professional demeanor essential - these people have lost everything and deserve respect.",
+      requirements: [
+        "A suit worth at least €$1,000",
+        "Respect for journalistic process",
+      ],
+    },
+    {
+      title: "Élévation Exposé: The Rotten Core of High Society",
+      difficulty: "⭐⭐⭐",
+      payment: "€$4,000 + High Society Blackmail Material",
+      visible: false,
+      type: "Infiltration",
+      description:
+        "Get Anaïs into Élévation, the Michelin 3-star restaurant where Synchrony Bay's elite make their real deals. Posing as staff or guests, she needs photos of corpo executives, politicians, and crime bosses conducting illegal business over €$2,000 plates. Document who's eating with who, capture incriminating conversations, photograph document exchanges.",
+      requirements: [
+        "Formal attire/service skills",
+        "High society etiquette knowledge",
+      ],
+    },
+    {
+      title: "Helix Corporation Testing Facility: Medical War Crimes",
+      difficulty: "⭐⭐⭐",
+      payment: "€$4,500",
+      type: "Documentary Protection",
+      description:
+        "Anaïs is documenting Helix Corporation's illegal human experimentation at their 'volunteer medical trials' facility. Gene therapy without consent, experimental drugs on desperate patients, falsified safety data. She needs protection while interviewing victims, photographing facilities, and gathering evidence of genetic engineering crimes. Helix security will be minimal at the facility itself, but corporate cleaners might show up if they catch wind. Witnesses are traumatized and scared of retaliation - need sensitivity. Evidence could shut down entire unethical testing programs and expose Helix's dark side.",
+      requirements: [],
+    },
+    {
+      title: "Meridian Technologies Exposé: Chakra T6 Privacy Breach",
+      difficulty: "⭐⭐⭐",
+      visible: true,
+      completed: false,
+      active: true,
+      payment: "€$5,000 + Tech Industry Connections",
+      type: "Corporate Espionage",
+      description:
+        "Break into Meridian Technologies' 10th floor offices to find evidence about their new flagship phone, the Chakra T6. Anonymous sources claim it secretly records conversations even when off, harvests biometric data without consent, has backdoor government access, and sells user location data to third parties. Anaïs needs photos of internal documents, prototypes, and source code. Building security is tight but predictable. Tech companies kill stories like this so you have one chance to get it right.",
+      requirements: [
+        "Building infiltration skills",
+        "Tech security bypass knowledge",
+      ],
+    },
+    {
+      title: "Conflict Zone Photography: War Zone Access",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$35,000",
+      visible: false,
+      type: "Protection/Access",
+      description:
+        "Escort Anaïs into active combat zones between corps or gangs. She needs photos of the violence for her exposé. Keep her alive while she gets impossible shots. She'll take risks you wouldn't.",
+      requirements: [],
+    },
+    {
+      title: "Harborside Manufacturing Investigation: Toxic Dumping Exposé",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$42,000",
+      visible: false,
+      type: "Investigation Support",
+      description:
+        "Anaïs is investigating Harborside Manufacturing's illegal toxic waste dumping into Synchrony Bay. Worker deaths covered up and falsified EPA reports. She needs muscle while she gathers evidence at the dockside factories - photos of dumping operations, interviews with dying workers, soil and water samples. Harborside will send security goons, local gangs are on their payroll. Duration: days to weeks.",
+      requirements: [],
+    },
+    {
+      title: "Post-Exposé Extraction",
+      difficulty: "⭐⭐⭐⭐⭐",
+      visible: false,
+      payment: "€$100,000 or a special favor",
+      type: "Emergency Extraction",
+      description:
+        "Anaïs's latest exposé just dropped. Corps/gangs/government wants her dead. Need immediate extraction, safe house, and protection until heat dies down. She's burned her location again.",
+      requirements: [],
+    },
+    {
+      title: "Kronos Systems Black Site: The War Crimes Documentary",
+      difficulty: "⭐⭐⭐⭐⭐",
+      visible: false,
+      payment: "€$150,000 + Documentary Credit + Global Distribution",
+      type: "Long-term Protection",
+      description:
+        "Anaïs is going deep inside a Kronos Systems black site facility where they test experimental weapons on 'enemy combatants' and dissidents. Illegal sonic and chemical weapons. You're posing as new security personnel, she's posing as a medic. You're her lifeline, security, and extraction plan for 3 weeks of constant danger. She'll document everything with hidden cameras. If you're caught, Kronos makes you both disappear. If you succeed, this brings down their entire private warfare division and a war will be stopped",
+      requirements: [],
+    },
+  ],
   aria: [
     {
       title: "Document Delivery: Anonymous Drop",
