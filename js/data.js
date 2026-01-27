@@ -1,70 +1,38 @@
 const gigs = {
   ashford: [
     {
-      title: "Document Courier: Secure Corporate Delivery",
-      difficulty: "⭐",
-      payment: "€$800",
-      type: "Courier",
+      title: "Asset Recovery: Stolen Prototype",
+      difficulty: "⭐⭐⭐",
+      payment: "€$25,000",
+      type: "Retrieval",
       description:
-        "Transport sealed documents between Ashford's corporate clients. No questions asked, no opening packages. Simple delivery job but requires professional appearance and discretion. Usually same-day within corpo plaza district.",
+        "Corpo courier was hijacked, prototype combat stimulant stolen by La Ola gang. Retrieve prototype intact. Lethal force authorized against gang members. Prototype must not be damaged or analyzed.",
       requirements: [
-        "Professional attire",
-        "Reliable transport",
-        "Basic discretion",
+        "Combat capability",
+        "Fast response time",
+        "Knowledge of gang territories",
       ],
     },
     {
-      title: "Corporate Background Check: Verify Employee",
-      difficulty: "⭐",
-      payment: "€$600",
-      type: "Investigation",
+      title: "Hostile Acquisition: Silence the Whistleblower",
+      difficulty: "⭐⭐⭐",
+      payment: "€$40,000",
+      visible: false,
+      type: "Wet Work",
       description:
-        "Verify employment history and credentials of potential hire. Basic surveillance and record checking. Client wants confirmation before bringing someone into sensitive position. Simple investigation work.",
-      requirements: ["Basic investigation skills", "Access to public records"],
-    },
-    {
-      title: "Executive Chauffeur: Discrete Transportation",
-      difficulty: "⭐⭐",
-      payment: "€$1,200",
-      type: "Transportation",
-      description:
-        "Drive corporate executive to sensitive meetings. Must be professional, discrete, and able to navigate city quickly. May witness confidential conversations - forget everything you hear. Regular work available for reliable operators.",
+        "Find and assassinate a private solo whistleblower. Make the problem disappear. Permanent solution preferred, but blackmail or forced relocation acceptable if clean. Details will be given once accepted.",
       requirements: [
-        "Clean vehicle",
-        "Professional demeanor",
-        "No questions policy",
+        "Discretion paramount",
+        "No connections to client",
+        "Professional execution",
       ],
-    },
-    {
-      title: "Office Surveillance: Monitor Employee",
-      difficulty: "⭐⭐",
-      payment: "€$1,500",
-      type: "Surveillance",
-      description:
-        "Client suspects employee of corporate espionage. Follow target during work hours, document meetings and contacts. Basic surveillance, no confrontation. Report findings only. Two-week assignment.",
-      requirements: [
-        "Surveillance experience",
-        "Photography equipment",
-        "Patience",
-      ],
-    },
-    {
-      title: "Corporate Espionage: Kronos Systems R&D Theft",
-      difficulty: "⭐⭐⭐⭐⭐",
-      payment: "€$50,000",
-      type: "Data Theft",
-      description:
-        "Retrieve prototype neural interface specifications from Kronos Systems's central R&D facility. Client is a competing megacorp looking to reverse-engineer the technology. Facility has top-tier security including netrunners, combat drones, and MaxTac response protocols.",
-      requirements: [
-        "Experienced netrunner",
-        "Infiltration specialist",
-        "Contingency extraction plan",
-      ],
+      /*Anais*/
     },
     {
       title: "Executive Protection: Helix Corporation VP",
       difficulty: "⭐⭐⭐⭐",
       payment: "€$35,000",
+      visible: false,
       type: "Protection Detail",
       description:
         "Provide 72-hour protection for Helix Corporation VP during hostile takeover negotiations. Multiple assassination attempts expected from rival corp. Client requires discrete, professional operators who can blend into corporate environment.",
@@ -75,48 +43,24 @@ const gigs = {
       ],
     },
     {
-      title: "Hostile Acquisition: Silence the Whistleblower",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$40,000",
-      type: "Wet Work",
+      title: "Corporate Espionage: R&D Theft",
+      difficulty: "⭐⭐⭐⭐⭐",
+      payment: "€$50,000",
+      visible: false,
+      type: "Data Theft",
       description:
-        "A mid-level Cascade Energy accountant is preparing to leak evidence of environmental crimes to the media. Make the problem disappear. Permanent solution preferred, but blackmail or forced relocation acceptable if clean.",
+        "Retrieve prototype neural interface specifications from a certain R&D facility. Client is a competing megacorp looking to reverse-engineer the technology. Facility has top-tier security including netrunners, combat drones, and MaxTac response protocols. Details provided once accepted.",
       requirements: [
-        "Discretion paramount",
-        "No connections to client",
-        "Professional execution",
+        "Experienced netrunner",
+        "Infiltration specialist",
+        "Contingency extraction plan",
       ],
-    },
-    {
-      title: "Asset Recovery: Stolen Prototype",
-      difficulty: "⭐⭐⭐",
-      payment: "€$25,000",
-      type: "Retrieval",
-      description:
-        "Corpo courier was hijacked, prototype combat stimulant stolen by Valentinos gang. Retrieve prototype intact. Lethal force authorized against gang members. Prototype must not be damaged or analyzed.",
-      requirements: [
-        "Combat capability",
-        "Fast response time",
-        "Knowledge of gang territories",
-      ],
-    },
-    {
-      title: "Corporate Sabotage: Manufacturing Plant",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$45,000",
-      type: "Sabotage",
-      description:
-        "Disable competing pharmaceutical manufacturing plant for minimum 3 months. Must appear as industrial accident, not sabotage. No casualties among executive staff (workers acceptable collateral).",
-      requirements: [
-        "Technical knowledge of industrial systems",
-        "Stealth infiltration",
-        "Evidence cleanup",
-      ],
+      /*Kronos Systems's central*/
     },
   ],
   morales: [
     {
-      title: "Neighborhood Watch: Patrol Shift",
+      title: "Repeatable - Neighborhood Watch: Patrol Shift",
       difficulty: "⭐",
       payment: "€$300 + Community Respect",
       type: "Security",
@@ -125,90 +69,16 @@ const gigs = {
       requirements: ["Willingness to help community"],
     },
     {
-      title: "Delivery Protection: Small Business Escort",
-      difficulty: "⭐",
-      payment: "€$400 + Free Meals",
-      type: "Escort",
-      description:
-        "Local bodega owner needs protection during supply runs. Gangs charge 'tax' for passing through. Walk with them, make sure no one causes trouble. Usually non-violent - presence is enough. Weekly runs, 2-3 hours each.",
-      requirements: ["Intimidating presence or combat skills"],
-    },
-    {
-      title: "Community Mediation: Settle Disputes",
+      title: "Community Mediation",
       difficulty: "⭐⭐",
       payment: "€$600",
       type: "Negotiation",
       description:
-        "Neighbors feuding over property damage, noise, or business competition. Rosa needs someone to mediate before it escalates to violence. Talk it out, find compromise, prevent bloodshed. Most people respect Rosa's judgment.",
+        "Neighbors feuding over property damage and noise. Rosa needs someone to mediate before it escalates to violence. Talk it out, find compromise, prevent bloodshed. Most people respect Rosa's judgment.",
       requirements: ["Patience", "Respect for community", "Fair-mindedness"],
     },
     {
-      title: "Youth Outreach: Keep Kids Safe",
-      difficulty: "⭐⭐",
-      payment: "€$500 + Community Support",
-      type: "Protection/Mentorship",
-      description:
-        "Local kids getting recruited by gangs. Rosa wants someone to provide alternative - teach self-defense, share street smarts, be a role model. Show them there's more than gang life. Ongoing, flexible hours. Payment is modest but impact is real.",
-      requirements: [
-        "Patience with youth",
-        "Street experience",
-        "Not actively affiliated with gangs",
-      ],
-    },
-    {
-      title: "Community Defense: Eviction Resistance",
-      difficulty: "⭐⭐⭐",
-      payment: "€$8,000 + Community Support",
-      type: "Protection",
-      description:
-        "Megabuilding residents are being forcibly evicted by Kronos Systems subsidiary. Protect families during 'relocation' and ensure corpo security doesn't get violent. Non-lethal preferred but defend the people by any means necessary.",
-      requirements: [
-        "Willing to stand against corpo security",
-        "Combat skills",
-        "Community trust",
-      ],
-    },
-    {
-      title: "Workers' Rights: Factory Shutdown",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$12,000",
-      type: "Sabotage",
-      description:
-        "Textile factory has had 47 worker deaths this year due to safety violations. Owner refuses to fix conditions or pay compensation. Shut down the factory permanently. Make it expensive enough that rebuilding isn't worth it.",
-      requirements: [
-        "Technical sabotage skills",
-        "Timing to avoid worker casualties",
-        "Anti-corpo sentiment",
-      ],
-    },
-    {
-      title: "Food Distribution: Convoy Hijack",
-      difficulty: "⭐⭐",
-      payment: "€$5,000 + Food Share",
-      type: "Robbery",
-      description:
-        "Cascade Energy convoy carrying food shipments through the barrio. They've been price-gouging residents. Hijack the convoy, distribute food to community centers. Drivers are just working people - no casualties.",
-      requirements: [
-        "Vehicle skills",
-        "Fast distribution network",
-        "Non-lethal approach",
-      ],
-    },
-    {
-      title: "Gang Mediation: Prevent Turf War",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$10,000",
-      type: "Negotiation/Combat",
-      description:
-        "6th Street and Valentinos about to go to war over territory. Crossfire will kill barrio residents. Mediate peace or eliminate leadership on both sides if necessary. Community safety is priority.",
-      requirements: [
-        "Gang connections or combat superiority",
-        "Negotiation skills",
-        "Community respect",
-      ],
-    },
-    {
-      title: "Corpo Revenge: Punish the Polluters",
+      title: "Punish the Polluters",
       difficulty: "⭐⭐⭐",
       payment: "€$7,500",
       type: "Targeted Strike",
@@ -217,20 +87,19 @@ const gigs = {
       requirements: [
         "Intelligence gathering",
         "Precision strikes",
-        "Strong stomach for revenge work",
       ],
     },
     {
-      title: "Resource Redistribution: Medical Supply Heist",
-      difficulty: "⭐⭐⭐",
-      payment: "€$9,000 + Medical Supplies",
-      type: "Theft",
+      title: "Workers' Rights: Factory Shutdown",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$12,000",
+      type: "Sabotage",
       description:
-        "Pharmaceutical warehouse has insulin, antibiotics, and cancer meds sitting in storage while people die. Theft is justified. Grab as much as you can carry, deliver to Dr. Lin Zhao for distribution.",
+        "Textile factory has had 47 worker deaths this year due to safety violations. Owner refuses to fix conditions or pay compensation. Shut down the factory permanently. Make it expensive enough that rebuilding isn't worth it. Steal expensive textile precision robot arm to help fund workers layoff period",
       requirements: [
-        "Stealth or overwhelming force",
-        "Transportation",
-        "Connection to street clinics",
+        "Technical sabotage skills",
+        "Timing to avoid worker casualties",
+        "Anti-corpo sentiment",
       ],
     },
   ],
@@ -459,9 +328,7 @@ const gigs = {
       type: "Information Gathering/Bribery",
       description:
         "Michelin inspectors are anonymous. Wei needs to know when they're visiting Élévation so he can prepare perfectly. Find out inspector identities, schedules, preferences. Bribe, blackmail, or surveil Michelin Guide headquarters in France.",
-      requirements: [
-        "International intelligence gathering",
-      ],
+      requirements: ["International intelligence gathering"],
     },
     {
       title: "Recipe Theft",
@@ -494,9 +361,7 @@ const gigs = {
       type: "Theft/Smuggling",
       description:
         "Ultra-wealthy client demands 1947 Château d'Yquem for their private dinner at Élévation. Only known bottles are in museum collections or wealthy individual private cellars. Acquire by any means necessary. One week deadline.",
-      requirements: [
-        "Portable wine cooler",
-      ],
+      requirements: ["Portable wine cooler"],
     },
   ],
   zhao: [
