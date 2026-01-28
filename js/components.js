@@ -1,14 +1,14 @@
 // ==================== LOCALSTORAGE FUNCTIONS ====================
 
 function saveGigsToLocalStorage() {
-  localStorage.setItem('gigsData', JSON.stringify(gigs));
+  localStorage.setItem("gigsData", JSON.stringify(gigs));
 }
 
 function loadGigsFromLocalStorage() {
-  const saved = localStorage.getItem('gigsData');
+  const saved = localStorage.getItem("gigsData");
   if (saved) {
     const savedGigs = JSON.parse(saved);
-    Object.keys(savedGigs).forEach(charId => {
+    Object.keys(savedGigs).forEach((charId) => {
       if (gigs[charId]) {
         savedGigs[charId].forEach((savedGig, index) => {
           if (gigs[charId][index]) {
@@ -23,7 +23,7 @@ function loadGigsFromLocalStorage() {
 }
 
 // Load saved gigs on page load
-if (typeof gigs !== 'undefined') {
+if (typeof gigs !== "undefined") {
   loadGigsFromLocalStorage();
 }
 
@@ -151,7 +151,7 @@ function showModal(char) {
         .filter((gig) => gig.visible !== false)
         .map(
           (gig) => `
-            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""} ${gig.active ? "active" : ""}" data-gig-title="${gig.title.replace(/"/g, '&quot;')}">
+            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""} ${gig.active ? "active" : ""}" data-gig-title="${gig.title.replace(/"/g, "&quot;")}">
               <div class="gig-header">
                 <div class="gig-title">${gig.title}</div>
                 <div class="gig-difficulty">${gig.difficulty}</div>
@@ -271,18 +271,18 @@ function showModal(char) {
 
         // Get the gig title from the data attribute
         const gigTitle = gigCard.getAttribute("data-gig-title");
-        
+
         // Find the actual gig in the original array by title
-        const gigData = gigs[char.id].find(g => g.title === gigTitle);
-        
+        const gigData = gigs[char.id].find((g) => g.title === gigTitle);
+
         if (gigData) {
           gigData.active = !gigData.active;
-          
+
           // Save to localStorage
           saveGigsToLocalStorage();
-          
-          // Re-render modal to show updated state
-          showModal(char);
+
+          // Toggle the class on THIS card instead of re-rendering
+          gigCard.classList.toggle("active");
         }
       });
     });
