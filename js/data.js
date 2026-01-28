@@ -107,7 +107,7 @@ const gigs = {
       payment: "€$1,000",
       type: "Courier",
       description:
-        "Pick up sensitive documents from Viktor's contacts and deliver to secure location. Simple courier work but requires discretion. Don't look inside, don't ask questions, don't remember faces. Professional demeanor essential.",
+        "Pick up sensitive documents from Karev's contacts and deliver to secure location. Simple courier work but requires discretion. Don't look inside, don't ask questions, don't remember faces. Professional demeanor essential.",
       requirements: ["Reliable", "Professional appearance", "No loose lips"],
     },
     {
@@ -116,7 +116,7 @@ const gigs = {
       payment: "€$1,800",
       type: "Surveillance",
       description:
-        "Follow one of Viktor's business contacts for a day. Document where they go, who they meet. Viktor suspects disloyalty but needs proof before acting. Simple surveillance, no confrontation. Report findings to Kat.",
+        "Follow one of Karev's business contacts for a day. Document where they go, who they meet. Karev suspects disloyalty but needs proof before acting. Simple surveillance, no confrontation. Report findings to Kat.",
       requirements: [
         "Basic surveillance skills",
         "Inconspicuous appearance",
@@ -129,7 +129,7 @@ const gigs = {
       payment: "€$60,000",
       type: "Wet Work",
       description:
-        "Viktor's main competitor for VP of Operations is gaining board support. Arrange a fatal 'accident' during his commute. Must be untraceable to Viktor or Kat. Public incident preferred to send message to other rivals.",
+        "Karev's main competitor for VP of Operations is gaining board support. Arrange a fatal 'accident' during his commute. Must be untraceable to Karev or Kat. Public incident preferred to send message to other rivals.",
       requirements: [
         "Professional execution",
         "Perfect deniability",
@@ -142,7 +142,7 @@ const gigs = {
       payment: "€$35,000 + Corpo Intel",
       type: "Data Theft",
       description:
-        "Competing exec has merger plans that would threaten Viktor's position. Break into his home office, copy all documents related to Atlas Security Services merger. He has private security and a personal netrunner.",
+        "Competing exec has merger plans that would threaten Karev's position. Break into his home office, copy all documents related to Atlas Security Services merger. He has private security and a personal netrunner.",
       requirements: [
         "B&E skills",
         "Data extraction",
@@ -155,7 +155,7 @@ const gigs = {
       payment: "€$25,000",
       type: "Social Engineering",
       description:
-        "Plant evidence of embezzlement on Viktor's colleague. Need fabricated financial records, planted physical evidence, and anonymous tip to internal affairs. Victim has done nothing wrong - this is purely political.",
+        "Plant evidence of embezzlement on Karev's colleague. Need fabricated financial records, planted physical evidence, and anonymous tip to internal affairs. Victim has done nothing wrong - this is purely political.",
       requirements: [
         "Forgery skills or netrunner",
         "Physical evidence planting",
@@ -168,7 +168,7 @@ const gigs = {
       payment: "€$20,000",
       type: "Security",
       description:
-        "Viktor has illegal tech shipment coming through port. Ensure it arrives at warehouse intact. Rival corps or gangs may attempt to intercept. Cargo must not be inspected or delayed.",
+        "Karev has illegal tech shipment coming through port. Ensure it arrives at warehouse intact. Rival corps or gangs may attempt to intercept. Cargo must not be inspected or delayed.",
       requirements: [
         "Combat skills",
         "Convoy protection experience",
@@ -414,104 +414,90 @@ const gigs = {
   marcus: [],
   castellanos: [
     {
-      title: "Shopping Escort: Luxury District Protection",
+      title: "Let me Party in peace!",
       difficulty: "⭐",
-      payment: "€$800 + Shopping Perks",
-      type: "Escort",
+      payment: "€$500 + Open Bar Tab",
+      type: "Escort / Party Security",
       description:
-        "Walk with Val through high-end shopping district. She's bored and wants company, plus occasional bag carrier. Mostly safe but she attracts attention. Keep admirers at distance, carry purchases, look professional. Easy money if you can tolerate entitled rich girl.",
-      requirements: [
-        "Professional appearance",
-        "Patience",
-        "Don't judge her spending",
-      ],
+        "Heyyyyy lets hit a maybe not so legal warehouse rave in the Southern Sprawl. I want you glued to me and block those sketchy promoters or ugly bastards,",
+      requirements: ["Be handsome af"],
     },
     {
-      title: "Social Media Documentation: Follow & Film",
+      title: "HELP!!!",
       difficulty: "⭐",
-      payment: "€$600 + Social Media Exposure",
-      type: "Photography",
+      payment: "€$1500",
+      visible: false,
+      type: "Logistics / Discretion",
       description:
-        "Val wants professional photos/videos for her social media. Follow her around, make her look good, edit footage. She's doing something 'edgy' (probably safe but styled dangerous). Help her maintain her rebel image. Few hours, easy work.",
+        "I had a penthouse party and someone stole daddy's prized guitar! Help me get it back plzzz.",
       requirements: [
-        "Photography/video skills",
-        "Editing capability",
-        "Tolerate posing and retakes",
+        "Discretion above all",
+        "Basic cleanup hustle",
+        "No judgment zone",
       ],
     },
     {
-      title: "Party Reconnaissance: Scope the Venue",
-      difficulty: "⭐⭐",
-      payment: "€$1,500",
-      type: "Reconnaissance",
-      description:
-        "Val wants to throw party in 'dangerous' location. Scout the venue first - check for gang activity, structural safety, escape routes. Report back so she can party 'wild' while actually being relatively safe. She trusts your judgment even if she won't admit it.",
-      requirements: [
-        "Area knowledge",
-        "Safety assessment skills",
-        "Honest reporting",
-      ],
-    },
-    {
-      title: "Thrill Heist: Steal for the Story",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$30,000 + 'Companionship'",
-      type: "Heist",
-      description:
-        "Steal priceless art from rival family's collection. Not for money - Val wants the thrill and the story. She'll probably watch from nearby, might even participate. Wants something exciting she can brag about at parties. High security, high stakes, pure adrenaline.",
-      requirements: [
-        "Professional thieves",
-        "Tolerate Val's presence/interference",
-        "Make it memorable",
-      ],
-    },
-    {
-      title: "Exclusive Event Infiltration",
-      difficulty: "⭐⭐⭐",
-      payment: "€$20,000 + High Society Access",
-      type: "Social Engineering",
-      description:
-        "Get Val into ultra-exclusive corpo event her parents forbid her from attending. Need forged credentials, disguises, or creative infiltration. She wants to cause a scandal while there. Bonus if she can embarrass her parents' friends.",
-      requirements: [
-        "Social engineering skills",
-        "High society knowledge",
-        "Backup extraction plan",
-      ],
-    },
-    {
-      title: "Dangerous Urban Exploration",
-      difficulty: "⭐⭐⭐",
-      payment: "€$15,000",
-      type: "Exploration/Protection",
-      description:
-        "Escort Val through combat zones, abandoned buildings, or active gang territories. She wants to experience 'real danger' (with protection). Take photos, livestream it, make her feel alive. Keep her actually safe while letting her feel unsafe.",
-      requirements: [
-        "Combat skills",
-        "Patience with rich kids",
-        "Area knowledge",
-      ],
-    },
-    {
-      title: "Scandal Creation: Ruin the Suitor",
-      difficulty: "⭐⭐",
-      payment: "€$12,000",
-      type: "Social Sabotage",
-      description:
-        "Val's parents are pushing her toward arranged marriage with boring corpo heir. Create public scandal involving him - affair, financial crime, embarrassing incident. Creative approaches rewarded. She wants it messy and public.",
-      requirements: [
-        "Social manipulation",
-        "Evidence fabrication",
-        "Media connections helpful",
-      ],
-    },
-    {
-      title: "Party Protection: Wild Night Security",
-      difficulty: "⭐⭐⭐",
-      payment: "€$10,000 + Party Access",
-      type: "Security",
-      description:
-        "Val throws parties in abandoned warehouses, gang territory, or other dangerous locations. Provide security against gangs, corpo security, or police. Keep the party going, keep Val alive. Expect chaos, drugs, and corpo kids playing dangerous games. Monthly, all night. Warning: extremely unpredictable.",
+      title: "Let's do something public >w0",
+      difficulty: "⭐",
+      payment: "€$500",
+      visible: false,
+      type: "Intimate Escort",
+      description: "I reserved a curtained VIP cabana at Undertow Resort.",
       requirements: [],
+    },
+    {
+      title: "Party Yacht",
+      difficulty: "⭐⭐",
+      payment: "€$1,000",
+      visible: false,
+      type: "Security / Party Escort",
+      description:
+        "We're crashing a party yacht. If you get me past security I'll let you bend me over the railing <3",
+      requirements: [],
+    },
+    {
+      title: "Let's just hang on the beach",
+      difficulty: "⭐⭐",
+      payment: "€$1,000",
+      visible: false,
+      type: "Escort",
+      description: "Wanna swim and have some fun?.",
+      requirements: [],
+    },
+    {
+      title: "Beachside Mega Club Frenzy: Poolside Protection & Play",
+      difficulty: "⭐⭐⭐",
+      payment: "€$5,000 + Club Perks",
+      visible: false,
+      type: "Extreme Intimate / Security",
+      description:
+        "Let's go to Voltage (beachside mega club). They got a massive pool we can \"swim\" in >w0. Let's just not get caught",
+      requirements: [
+        "Combat-ready awareness in crowds",
+        "Discreet public sex capability",
+        "Stamina for multi-round chaos",
+        "Extraction if things heat up too much",
+      ],
+    },
+    {
+      title: "Help :(",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$10,000",
+      visible: false,
+      type: "Rescue / Social Engineering",
+      description:
+        "I ended up on a billionaire's superyacht. It started as a cool party but now its a heavy, no-holds-barred orgy. Gross guys are trying to force themselves on me and I'm scared. Security has guns and wont't let guests leave early.",
+      requirements: [],
+    },
+    {
+      title: "Eclipse-Style Den Raid: Deep Rescue",
+      difficulty: "⭐⭐⭐⭐⭐",
+      payment: "€$50,000",
+      visible: false,
+      type: "High-Risk Assault / Extraction",
+      description:
+        "My daughter Val which I heard you were fraternizing with has been kidnapped by Eclipse. They say they've been drugging and raping her for hours and will continue to do so unless we pay up 50 million. Save her quickly at the Faded Piers.",
+      requirements: ["Returned alive and physically well"],
     },
   ],
   tamm: [
@@ -688,97 +674,80 @@ const gigs = {
   ],
   aria: [
     {
-      title: "Document Delivery: Anonymous Drop",
-      difficulty: "⭐",
-      payment: "€$700",
-      type: "Courier",
+      title: "Executive Impersonation: Contract Negotiation",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$42,000",
+      visible: false,
+      type: "Corporate Representation",
       description:
-        "Deliver sealed envelope to contact. No questions, no identification, no paper trail. Aria needs information moved without digital trace. Simple dead drop usually, but discretion is paramount. She trusts you to forget you ever had the package.",
-      requirements: ["Reliable", "Discrete", "No questions policy"],
+        "Neptune's CEO can't attend critical contract negotiation with Meridian Technologies. Aria needs you to attend in their place with full authority. She'll provide briefing materials, negotiation parameters, and corporate credentials. You'll have 2 hours to close €15M logistics deal.",
+      requirements: [
+        "Negotiation expertise",
+        "Corporate presence",
+        "Quick decision-making under pressure",
+      ],
     },
     {
-      title: "Surveillance Detection: Counter-Tail",
-      difficulty: "⭐⭐",
-      payment: "€$1,200",
+      title: "Data Center Emergency: Physical Server Access",
+      difficulty: "⭐⭐⭐",
+      payment: "€$3,800",
+      type: "Technical Crisis",
+      visible: false,
+      description:
+        "Neptune's secondary data center is being attacked. Critical logistics data needs manual extraction from physical servers before the data is destroyed. You have 4 hours to access the facility, extract data from designated server racks, and upload to secure backup.",
+      requirements: ["Technical competency", "Problem-solving under pressure"],
+    },
+    {
+      title: "Cargo Recovery: Stolen Shipment Retrieval",
+      difficulty: "⭐⭐⭐",
+      payment: "€$4,000",
+      type: "Recovery",
+      description:
+        "Neptune shipment worth €200k was hijacked en route to client. Insurance won't cover it and Aria's bonus depends on successful delivery. She has intel on where the cargo is being held - a warehouse controlled by local gang. Get in, recover the shipment, deliver it to the original destination.",
+      requirements: ["Combat capability", "Vehicle access", "Problem-solving"],
+    },
+    {
+      title: "Executive Extraction: Crisis Management",
+      difficulty: "⭐⭐⭐",
+      payment: "€$5,000 + €$1,000 bonus",
+      visible: false,
       type: "Security",
       description:
-        "Walk predetermined route while watching for surveillance. Aria suspects Viktor's security is tracking her movements. You serve as decoy or confirmation. Report any tails. Potentially dangerous if they realize what you're doing.",
+        "Neptune executive is stranded at failed business summit in hostile corporate territory (Kronos Systems controlled zone). Their security detail bailed and they need immediate extraction before competitors use the opportunity for leverage or worse. Aria will provide their location and safe route intel. You have 6 hours to get them out and back to Neptune territory. Bonus if done without incident.",
+      requirements: ["Driving skills", "Situational awareness"],
+    },
+    {
+      title: "Prototype Acquisition: Competitive Intelligence",
+      difficulty: "⭐⭐⭐",
+      payment: "€$4,600",
+      visible: false,
+      type: "Corporate Espionage",
+      description:
+        "Apex is falling behind on their AI development timeline. A smaller tech startup has developed a promising automation prototype that could help the company. Break into the startup's lab, steal the prototype and related research data, deliver to Aria's contact at Apex. The startup itself has very little security but the box they stored it in has military grade protections.",
+      requirements: ["Breaking and entering", "Basic tech handling", "Stealth"],
+    },
+    {
+      title: "Executive Blackmail: Career Protection",
+      difficulty: "⭐⭐⭐⭐",
+      payment: "€$48,000 + Ongoing Retainer",
+      type: "Intelligence Gathering",
+      description:
+        "An Apex executive is being undermined by a rival executive who wants their position. The rival is blocking their initiatives and spreading rumors. Aria has access to the rival's schedule through Neptune's partnership meetings. Surveil them, document compromising behavior, deliver evidence.",
       requirements: [
-        "Surveillance awareness",
-        "Calm under pressure",
-        "Observant",
+        "Surveillance expertise",
+        "Photography/recording capability",
+        "Patience",
       ],
     },
     {
-      title: "Safe House Preparation: Logistics Support",
-      difficulty: "⭐⭐",
-      payment: "€$1,000",
-      type: "Logistics",
-      description:
-        "Aria needs safe house stocked and ready for emergency. Buy supplies (food, medical, basic necessities), deliver to location, set up basics. Use cash only, avoid surveillance, leave no trace of your involvement. Critical for her escape plans.",
-      requirements: [
-        "Logistics capability",
-        "Counter-surveillance awareness",
-        "Discretion",
-      ],
-    },
-    {
-      title: "Project Sabotage: Delay Harmful Initiative",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$20,000 + Insider Intel",
-      type: "Sabotage",
-      description:
-        "Viktor Volkov is launching project that will displace 500 families for corporate development. Aria provides intel, you sabotage the project. Destroy equipment, corrupt data, eliminate key personnel - whatever stops it. Time-sensitive before construction begins. Intel provided: full project plans, security details, personnel files. Goal: minimum 6-month delay or permanent cancellation. Often works with Marcus Thompson.",
-      requirements: [],
-    },
-    {
-      title: "Corporate Intelligence Leak: Expose the Crime",
-      difficulty: "⭐⭐⭐",
-      payment: "€$15,000 + Protected Whistleblower Status",
-      type: "Data Distribution",
-      description:
-        "Aria has stolen evidence of Viktor's crimes. Need it distributed to media, activists, and authorities in way that protects her identity. Physical and digital distribution. Works with Anaïs Beaumont for publication and Marcus Thompson for digital security. Risk: high - if traced back to Aria, she's dead. Impact: could bring down projects, maybe executives.",
-      requirements: [],
-    },
-    {
-      title: "Worker Protection Operation: Community Warning",
-      difficulty: "⭐⭐",
-      payment: "€$8,000",
-      type: "Information Distribution",
-      description:
-        "Viktor's company planning mass layoffs or dangerous project affecting workers. Aria provides advance warning. Need to alert workers, help them prepare, organize resistance if possible. Time-sensitive - usually 72 hours notice. Coordinate with Rosa Morales. Frequency: monthly. Moral weight: preventing people from being blindsided.",
-      requirements: [],
-    },
-    {
-      title: "Damage Mitigation: Environmental Cleanup",
-      difficulty: "⭐⭐⭐",
-      payment: "€$25,000 + Equipment",
-      type: "Environmental Response",
-      description:
-        "Viktor's company caused environmental disaster - chemical spill, toxic dumping, water contamination. Aria can't stop it but she can fund cleanup. Organize and execute cleanup operation. Protect affected communities. She'll provide equipment and intel. Scale: usually community-level disasters. Urgency: health crisis situations. Support: full funding, equipment, medical coordination with Dr. Lin Zhao.",
-      requirements: [],
-    },
-    {
-      title: "Whistleblower Protection: Extraction & Security",
-      difficulty: "⭐⭐⭐⭐",
-      payment: "€$18,000 + Relocation Funds",
-      type: "Protection & Extraction",
-      description:
-        "Someone inside Kronos Systems is ready to expose Viktor's crimes but they're in danger. Aria provides funding for extraction, relocation, and protection. Get them out alive, set them up somewhere safe, protect them until they can testify or publish. Often coordinates with Marcus Thompson for digital protection. Timeline: usually 48-hour emergency. Package: extraction, safe house, new identity if needed. Stakes: life or death for whistleblower.",
-      requirements: [],
-    },
-    {
-      title: "Coordinate with Kat: Joint Operation",
+      title: "Rescue Yekaterina Volkov",
       difficulty: "⭐⭐⭐⭐⭐",
-      payment: "€$40,000 (split funding from both)",
-      type: "Complex Operation",
+      payment: "€$175,000 + Future Favors",
+      visible: false,
+      type: "Rescue Mission",
       description:
-        "Rare occasion when Aria and Yekaterina Volkov coordinate on operation that serves both their purposes. Usually targeting Viktor's rivals in way that helps him (keeping Kat safe) while also sabotaging his broader plans (Aria's goal). Extremely delicate political situation. Complexity: highest level. Benefit: two insiders working together, massive intel access.",
-      requirements: [
-        "Discretion",
-        "Skill",
-        "Understanding of corporate politics",
-      ],
+        "Apex's AI HR model told the company to replace Fedor Volkov and make him the scapegoat for a failed major initiative. An S.O.S. signal was given from Yekaterina but no response was given. Save her before her life is endangered.",
+      requirements: [],
     },
   ],
 };
@@ -1070,7 +1039,7 @@ const characters = [
     alignment: "corpo",
     specialty: "Corpo intelligence",
     background:
-      "Hired out of business school by Neptune Logistics . Became indispensable to Viktor Volkov while learning about his crimes. Now actively sabotages from inside.",
+      "Hired out of business school by Neptune Logistics . Became indispensable to Karev Volkov while learning about his crimes. Now actively sabotages from inside.",
     services: [
       "Sabotage operations targeting her boss's projects",
       "Leak corpo intelligence to affected communities",

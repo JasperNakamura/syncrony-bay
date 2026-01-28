@@ -14,7 +14,6 @@ function loadGigsFromLocalStorage() {
           if (gigs[charId][index]) {
             gigs[charId][index].active = savedGig.active || false;
             gigs[charId][index].completed = savedGig.completed || false;
-            gigs[charId][index].visible = savedGig.visible !== false;
           }
         });
       }
