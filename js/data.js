@@ -152,6 +152,7 @@ const gigs = {
       title: "Board Member Assassination",
       difficulty: "⭐⭐⭐⭐⭐",
       payment: "€$175,000",
+      visible: false,
       type: "Wet Work",
       description:
         "Apex board member is attempting to impede on Karev's bonus pay and continued CEO position. He has too much support to remove politically. Arrange fatal 'accident' during his morning commute. Must be untraceable to Karev. Public incident preferred - send message to other board members who might oppose Karev's ambitions.",
