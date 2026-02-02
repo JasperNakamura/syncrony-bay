@@ -105,6 +105,7 @@ const gigs = {
       title: "Loyalty Test",
       difficulty: "⭐⭐",
       payment: "€$2,500",
+      completed: true,
       type: "Trust Verification",
       description:
         "Deliver encrypted data chip to her contact - contents are worth €$50,000 on black market. Don't open it, don't copy it, don't sell the intel.",
@@ -114,7 +115,7 @@ const gigs = {
       title: "Competitor Intelligence: Steal Research Data",
       difficulty: "⭐⭐⭐",
       payment: "€$25,000",
-      visible: false,
+      visible: true,
       type: "Data Theft",
       description:
         "Upstart AI development firm has breakthrough neural network research. Karev needs their research data before they file patents. Break into their research facility, copy everything related to adaptive learning algorithms. Security is tight but not military-grade. Upload data to Kat's secure server.",
@@ -124,7 +125,7 @@ const gigs = {
       title: "Sabotage Rival Automation Demo",
       difficulty: "⭐⭐⭐",
       payment: "€$30,000",
-      visible: false,
+      visible: true,
       type: "Sabotage",
       description:
         "A Japanese rival tech company is presenting their new automated factory system to Apex's biggest potential client tomorrow. Karev needs the demo to fail spectacularly. Infiltrate their demonstration facility tonight, introduce subtle faults into the robotics control systems. Must look like their tech failure, not sabotage.",
