@@ -12,8 +12,14 @@ function loadGigsFromLocalStorage() {
       if (gigs[charId]) {
         savedGigs[charId].forEach((savedGig, index) => {
           if (gigs[charId][index]) {
-            gigs[charId][index].active = savedGig.active || false;
-            gigs[charId][index].completed = savedGig.completed || false;
+            // Only override if the saved value exists and is true
+            // This prevents localStorage from overwriting hardcoded completed/active states
+            if (savedGig.active === true) {
+              gigs[charId][index].active = true;
+            }
+            if (savedGig.completed === true) {
+              gigs[charId][index].completed = true;
+            }
           }
         });
       }
