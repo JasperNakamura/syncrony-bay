@@ -923,12 +923,12 @@ const characters = [
     alias: "Chef",
     age: 18,
     nationality: "Chinese",
-    occupation: "Assistant Chef at Élévation",
+    occupation: "Sous Chef at Élévation",
     type: "specialist",
     alignment: "corpo",
     specialty: "Fusion molecular gastronomy and culinary espionage",
     background:
-      "Child prodigy from Shanghai. Youngest assistant chef at three-Michelin-star restaurant Élévation. Obsessed with earning own stars before 25.",
+      "Child prodigy from Shanghai. Youngest sous chef at three-Michelin-star restaurant Élévation. Obsessed with earning own stars before 25.",
     services: [
       "Obtain rare/illegal ingredients",
       "Sabotage competing restaurants",
