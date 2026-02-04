@@ -283,6 +283,7 @@ const gigs = {
       difficulty: "⭐⭐⭐",
       payment: "€$12,000",
       type: "Sabotage",
+      completed: true,
       description:
         "Rival restaurant 'Le Bernardin' is gaining Michelin consideration. Need their kitchen sabotaged during critic visit. Food poisoning incident, equipment failure, or staff incident acceptable. Must appear accidental. Timing is critical.",
       requirements: [
@@ -457,6 +458,7 @@ const gigs = {
       title: "Let me Party in peace!",
       difficulty: "⭐",
       payment: "€$500 + Open Bar Tab",
+      completed: true,
       type: "Escort / Party Security",
       description:
         "Heyyyyy lets hit a maybe not so legal warehouse rave in the Southern Sprawl. I want you glued to me and block those sketchy promoters or ugly bastards.",
@@ -466,7 +468,7 @@ const gigs = {
       title: "HELP!!!",
       difficulty: "⭐",
       payment: "€$1500",
-      visible: false,
+      visible: true,
       type: "Logistics / Discretion",
       description:
         "I had a penthouse party and someone stole daddy's prized guitar! Help me get it back plzzz.",
@@ -480,7 +482,7 @@ const gigs = {
       title: "Let's do something public >w0",
       difficulty: "⭐",
       payment: "€$500",
-      visible: false,
+      visible: true,
       type: "Intimate Escort",
       description: "I reserved a curtained VIP cabana at Undertow Resort.",
       requirements: [],
@@ -585,6 +587,7 @@ const gigs = {
       title: "Campus Fight Protection",
       difficulty: "⭐",
       payment: "€$300 + Food",
+      completed: true,
       type: "Deterrence",
       description:
         "Kaia's been getting into fights with another engineering student. It's escalating. Other student has gang connections. Stand nearby during their next class, make your presence known. Hopefully no actual fighting needed.",
@@ -626,6 +629,7 @@ const gigs = {
       title: "Bay Development Corporation Displacement Interview",
       difficulty: "⭐⭐⭐",
       payment: "€$2,500",
+      completed: true,
       type: "Escort",
       description:
         "Accompany Anaïs to interview families being displaced by Bay Development Corporation's aggressive gentrification projects. Former residents, community organizers, local business owners forced out by rising rents and eminent domain abuse. BDC has been known to send 'representatives' to discourage people from talking to journalists. Mostly insurance - she expects no trouble but wants backup in case BDC goons show up. You're posing as part of her press team. Professional demeanor essential - these people have lost everything and deserve respect.",
