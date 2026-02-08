@@ -600,14 +600,14 @@ const gigs = {
       visible: false,
       type: "Escort",
       description:
-        "Walk Kaia to and from university. La Ola and Eclipse both want her dead for 'disrespecting' them. She'll fight you on needing protection. Keep her alive despite herself. M-F, 7am and 6pm.",
+        "Walk Kaia to and from university. La Ola and Eclipse both want her dead for 'disrespecting' them. She'll fight you on needing protection. Keep her alive despite herself.",
       requirements: [],
     },
     {
       title: "Nightclub Brawl Extraction",
       difficulty: "⭐⭐",
       payment: "€$700 + Semla",
-      visible: false,
+      visible: true,
       type: "Emergency Extraction",
       description:
         "Kaia went to a nightclub in Eclipse territory despite warnings. She hasn't seemingly come back since. Find and save her.",
