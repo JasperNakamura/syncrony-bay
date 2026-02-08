@@ -735,7 +735,7 @@ const gigs = {
     {
       title: "Data Center Emergency: Physical Server Access",
       difficulty: "⭐⭐⭐",
-      payment: "€$3,800",
+      payment: "€$13,800",
       type: "Technical Crisis",
       visible: false,
       description:
@@ -745,7 +745,7 @@ const gigs = {
     {
       title: "Cargo Recovery: Stolen Shipment Retrieval",
       difficulty: "⭐⭐⭐",
-      payment: "€$4,000",
+      payment: "€$14,000",
       type: "Recovery",
       description:
         "Neptune shipment worth €200k was hijacked en route to client. Insurance won't cover it and Aria's bonus depends on successful delivery. She has intel on where the cargo is being held - a warehouse controlled by local gang. Get in, recover the shipment, deliver it to the original destination.",
@@ -754,7 +754,7 @@ const gigs = {
     {
       title: "Executive Extraction: Crisis Management",
       difficulty: "⭐⭐⭐",
-      payment: "€$5,000 + €$1,000 bonus",
+      payment: "€$15,000 + €$4,000 bonus",
       visible: false,
       type: "Security",
       description:
@@ -764,7 +764,7 @@ const gigs = {
     {
       title: "Prototype Acquisition: Competitive Intelligence",
       difficulty: "⭐⭐⭐",
-      payment: "€$4,600",
+      payment: "€$14,600",
       visible: false,
       type: "Corporate Espionage",
       description:
