@@ -221,7 +221,7 @@ const gigs = {
       title: "Route Reconnaissance: Scout the Path",
       difficulty: "⭐⭐",
       payment: "€$1,200",
-      visible: false,
+      visible: true,
       type: "Support",
       description:
         "Ji-Yeon has a hot delivery through Eclipse territory by the Faded Piers tomorrow but the usual route is compromised. She needs someone to scout alternative paths tonight - check gang patrol patterns, identify checkpoint locations, find blind spots in surveillance. Report back with viable routes. She'll handle the actual delivery.",
@@ -241,6 +241,7 @@ const gigs = {
       title: "Pursuit Intercept: Block the Tail",
       difficulty: "⭐⭐",
       payment: "€$2,000",
+      completed: true,
       type: "Support",
       description:
         "Ji-Yeon is delivering stolen Atlus tech schematics. Security spotted her pickup and is following her route. She needs you positioned at a chokepoint to intercept the tail vehicle - block the road, cause a traffic jam, whatever it takes to buy her time to lose them. Don't engage directly, just delay.",
