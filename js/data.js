@@ -212,6 +212,7 @@ const gigs = {
       title: "Regular Client Package",
       difficulty: "⭐",
       payment: "€$200",
+      completed: true, 
       type: "Courier",
       description:
         "Deliver something to Ji-Yeon's home. She cannot deliver it herself.",
@@ -747,6 +748,7 @@ const gigs = {
       difficulty: "⭐⭐⭐",
       payment: "€$14,000",
       type: "Recovery",
+      completed: true,
       description:
         "Neptune shipment worth €200k was hijacked en route to client. Insurance won't cover it and Aria's bonus depends on successful delivery. She has intel on where the cargo is being held - a warehouse controlled by local gang. Get in, recover the shipment, deliver it to the original destination.",
       requirements: ["Combat capability", "Vehicle access", "Problem-solving"],
