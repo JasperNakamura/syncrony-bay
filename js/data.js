@@ -298,6 +298,7 @@ const gigs = {
       title: "Eliminate Rising Star",
       difficulty: "⭐⭐⭐",
       payment: "€$14,000",
+      completed: true,
       type: "Character Assassination",
       description:
         "Young celebrity chef Martin Compston is getting media attention as 'next big thing' in Synchrony Bay. Create a scandal that destroys their reputation. Find dirt or fabricate drug use, sexual harassment claims, etc. Permanent career damage required. Media contacts helpful.",
@@ -470,6 +471,7 @@ const gigs = {
       title: "HELP!!!",
       difficulty: "⭐",
       payment: "€$1500",
+      completed: true,
       visible: true,
       type: "Logistics / Discretion",
       description:
@@ -493,7 +495,7 @@ const gigs = {
       title: "Party Yacht",
       difficulty: "⭐⭐",
       payment: "€$1,000",
-      visible: false,
+      visible: true,
       type: "Security / Party Escort",
       description:
         "We're crashing a party yacht. If you get me past security I'll let you bend me over the railing <3",
