@@ -408,6 +408,7 @@ const gigs = {
     {
       title: "Pharmaceutical Supply Run",
       difficulty: "⭐⭐⭐",
+      completed: true,
       payment: "€$1,800",
       type: "Acquisition",
       description: '"Obtain" black market immunosuppressors. Located in ',
@@ -496,6 +497,7 @@ const gigs = {
       difficulty: "⭐⭐",
       payment: "€$1,000",
       visible: true,
+      completed: true, 
       type: "Security / Party Escort",
       description:
         "We're crashing a party yacht. If you get me past security I'll let you bend me over the railing <3",
