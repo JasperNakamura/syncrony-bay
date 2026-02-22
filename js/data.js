@@ -223,6 +223,7 @@ const gigs = {
       difficulty: "⭐⭐",
       payment: "€$1,200",
       visible: true,
+      completed: true, 
       type: "Support",
       description:
         "Ji-Yeon has a hot delivery through Eclipse territory by the Faded Piers tomorrow but the usual route is compromised. She needs someone to scout alternative paths tonight - check gang patrol patterns, identify checkpoint locations, find blind spots in surveillance. Report back with viable routes. She'll handle the actual delivery.",
@@ -232,7 +233,7 @@ const gigs = {
       title: "Distraction Play: Draw Security Away",
       difficulty: "⭐⭐",
       payment: "€$1,500",
-      visible: false,
+      visible: true,
       type: "Support",
       description:
         "Ji-Yeon is moving encrypted data through a corporate checkpoint in 2 hours at Monorail L2. Security is tight. She needs someone to create a distraction on the opposite side of the checkpoint - nothing violent, just enough chaos to pull guards away for 90 seconds while she slips through. Timing is everything.",
