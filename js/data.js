@@ -418,6 +418,7 @@ const gigs = {
       title: "Equipment Transport: Heavy Machinery",
       difficulty: "⭐⭐⭐",
       payment: "€$5,200",
+      completed: true,
       type: "Transportation",
       description:
         "Transport refurbished X-Ray machine from warehouse to clinic. Heavy, valuable, and corpo security watches these items.",
