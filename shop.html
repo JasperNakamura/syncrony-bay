@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: blob:;"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Synchrony Bay - Shop</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/shop.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>◢ SYNCHRONY BAY BLACK MARKET ◣</h1>
+        <div class="subtitle">// PROCUREMENT TERMINAL - BROWSE & ACQUIRE //</div>
+        <a href="index.html" class="back-link" title="Back to Contacts">
+          ← BACK TO CONTACTS
+        </a>
+      </header>
+
+      <!-- Budget Setup -->
+      <div class="budget-section" id="budgetSetup">
+        <div class="budget-prompt">ENTER AVAILABLE FUNDS</div>
+        <div class="budget-input-row">
+          <span class="currency-prefix">Ȼ</span>
+          <input
+            type="number"
+            class="budget-input"
+            id="budgetInput"
+            placeholder="0"
+            min="0"
+          />
+          <button class="budget-set-btn" id="budgetSet">CONFIRM</button>
+        </div>
+      </div>
+
+      <!-- Budget Display (shown after setting budget) -->
+      <div class="budget-section budget-display" id="budgetDisplay" style="display: none;">
+        <div class="budget-header-row">
+          <div class="budget-label">BUDGET</div>
+          <div class="budget-total" id="budgetAmount">Ȼ0</div>
+          <div class="budget-actions">
+            <button class="budget-action-btn" id="editBudgetBtn" title="Edit budget">✎ EDIT</button>
+            <button class="budget-action-btn reset" id="resetBtn" title="Reset purchases">↻ RESET</button>
+          </div>
+        </div>
+        <div class="budget-bar-container">
+          <div class="budget-bar" id="budgetBar" style="width: 100%;"></div>
+        </div>
+        <div class="budget-stats">
+          <div class="budget-stat">
+            <span class="stat-label">SPENT:</span>
+            <span class="stat-value spent" id="budgetSpent">Ȼ0</span>
+          </div>
+          <div class="budget-stat">
+            <span class="stat-label">REMAINING:</span>
+            <span class="stat-value remaining" id="budgetRemaining">Ȼ0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <input
+        type="text"
+        class="search-box"
+        id="shopSearch"
+        placeholder="Search items, vendors..."
+      />
+
+      <!-- Category Filters (generated from shopCategories in shop.js) -->
+      <div class="filters" id="filterContainer"></div>
+
+      <!-- Shop Grid -->
+      <div class="shop-grid" id="shopGrid"></div>
+    </div>
+
+    <script src="js/shop-data.js"></script>
+    <script src="js/shop.js"></script>
+  </body>
+</html>

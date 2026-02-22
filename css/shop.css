@@ -1,0 +1,550 @@
+/* ==================== SHOP PAGE STYLES ==================== */
+
+/* Budget Section */
+.budget-section {
+  background: rgba(0, 240, 255, 0.05);
+  border: 2px solid var(--cp-yellow);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.budget-prompt {
+  color: var(--cp-yellow);
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px var(--cp-yellow);
+}
+
+.budget-input-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.currency-prefix {
+  color: var(--cp-yellow);
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.budget-input {
+  width: 200px;
+  padding: 12px 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid var(--cp-yellow);
+  color: var(--cp-yellow);
+  font-family: "Courier New", monospace;
+  font-size: 1.2em;
+  border-radius: 5px;
+  text-align: right;
+  transition: border-color 0.3s;
+}
+
+.budget-input:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(252, 238, 9, 0.3);
+}
+
+.budget-input::placeholder {
+  color: rgba(252, 238, 9, 0.3);
+}
+
+/* Hide number input spinners */
+.budget-input::-webkit-outer-spin-button,
+.budget-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.budget-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.budget-set-btn {
+  background: var(--cp-yellow);
+  color: var(--cp-dark);
+  border: 2px solid var(--cp-yellow);
+  padding: 12px 25px;
+  font-family: "Courier New", monospace;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.budget-set-btn:hover {
+  box-shadow: 0 0 20px var(--cp-yellow);
+  transform: translateY(-1px);
+}
+
+/* Budget Display */
+.budget-display {
+  text-align: left;
+}
+
+.budget-header-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.budget-label {
+  color: var(--cp-cyan);
+  font-size: 0.9em;
+}
+
+.budget-total {
+  color: var(--cp-yellow);
+  font-size: 1.6em;
+  font-weight: bold;
+  text-shadow: 0 0 10px var(--cp-yellow);
+  flex: 1;
+}
+
+.budget-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.budget-action-btn {
+  background: transparent;
+  border: 1px solid var(--cp-cyan);
+  color: var(--cp-cyan);
+  padding: 6px 14px;
+  font-family: "Courier New", monospace;
+  font-size: 0.8em;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+
+.budget-action-btn:hover {
+  background: rgba(0, 240, 255, 0.15);
+  box-shadow: 0 0 10px var(--cp-cyan);
+}
+
+.budget-action-btn.reset {
+  border-color: var(--cp-red);
+  color: var(--cp-red);
+}
+
+.budget-action-btn.reset:hover {
+  background: rgba(255, 0, 60, 0.15);
+  box-shadow: 0 0 10px var(--cp-red);
+}
+
+/* Budget Bar */
+.budget-bar-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.budget-bar {
+  height: 100%;
+  background: var(--cp-cyan);
+  border-radius: 4px;
+  transition: width 0.5s ease, background 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 0 10px var(--cp-cyan);
+}
+
+.budget-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+}
+
+.stat-label {
+  color: var(--cp-cyan);
+  margin-right: 5px;
+}
+
+.stat-value.spent {
+  color: var(--cp-red);
+}
+
+.stat-value.remaining {
+  color: var(--cp-yellow);
+}
+
+/* Filter Buttons (reusing pattern from main site) */
+.shop-filter-btn {
+  background: rgba(0, 240, 255, 0.1);
+  border: 2px solid var(--cp-yellow);
+  color: var(--cp-yellow);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-size: 1em;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+
+.shop-filter-btn:hover {
+  background: rgba(252, 238, 9, 0.2);
+  box-shadow: 0 0 15px var(--cp-yellow);
+}
+
+.shop-filter-btn.active {
+  background: var(--cp-yellow);
+  color: var(--cp-dark);
+  box-shadow: 0 0 20px var(--cp-yellow);
+}
+
+/* Shop Grid */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+/* Shop Card */
+.shop-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 46, 0.8) 100%);
+  border: 2px solid var(--cp-cyan);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.25);
+}
+
+/* Purchased State (non-consumable, already bought) */
+.shop-card.purchased {
+  opacity: 0.35;
+  border-color: rgba(0, 240, 255, 0.3);
+  pointer-events: none;
+}
+
+.shop-card.purchased::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 240, 255, 0.03) 10px,
+    rgba(0, 240, 255, 0.03) 20px
+  );
+  pointer-events: none;
+}
+
+/* Unaffordable State */
+.shop-card.unaffordable {
+  border-color: rgba(255, 0, 60, 0.3);
+  opacity: 0.6;
+}
+
+/* Card Header */
+.shop-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.shop-card-name {
+  font-size: 1.15em;
+  font-weight: bold;
+  color: var(--cp-cyan);
+}
+
+.shop-card-price {
+  color: var(--cp-yellow);
+  font-weight: bold;
+  font-size: 1.2em;
+  white-space: nowrap;
+  text-shadow: 0 0 8px rgba(252, 238, 9, 0.4);
+}
+
+/* Card Meta */
+.shop-card-meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.consumable-badge,
+.single-badge,
+.category-tag {
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  font-weight: bold;
+}
+
+.consumable-badge {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--cp-cyan);
+  border: 1px solid var(--cp-cyan);
+}
+
+.single-badge {
+  background: rgba(252, 238, 9, 0.1);
+  color: var(--cp-yellow);
+  border: 1px solid var(--cp-yellow);
+}
+
+.category-tag {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card Description */
+.shop-card-desc {
+  line-height: 1.6;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  flex: 1;
+}
+
+/* Card detail lines (body part, emulated, vehicle info) */
+.shop-card-detail {
+  font-size: 0.8em;
+  color: rgba(0, 240, 255, 0.6);
+  padding: 2px 0;
+  margin-bottom: 2px;
+}
+
+/* Type label */
+.shop-card-type {
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Negotiate price */
+.price-negotiate {
+  color: var(--cp-red);
+  font-size: 0.85em;
+  font-style: italic;
+  animation: negotiatePulse 2s ease-in-out infinite;
+}
+
+@keyframes negotiatePulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Legality badge */
+.legality-badge {
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 0.75em;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid;
+}
+
+/* Card Vendor */
+.shop-card-vendor {
+  font-size: 0.8em;
+  color: rgba(0, 240, 255, 0.5);
+  margin-bottom: 15px;
+  padding-left: 5px;
+  border-left: 2px solid rgba(0, 240, 255, 0.2);
+}
+
+/* Card Footer */
+.shop-card-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 240, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.qty-owned {
+  color: var(--cp-cyan);
+  font-size: 0.85em;
+  font-weight: bold;
+  padding: 4px 10px;
+  background: rgba(0, 240, 255, 0.1);
+  border-radius: 3px;
+}
+
+/* Buy Button */
+.buy-btn {
+  background: transparent;
+  border: 2px solid var(--cp-yellow);
+  color: var(--cp-yellow);
+  padding: 10px 20px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+  margin-left: auto;
+}
+
+.buy-btn:hover {
+  background: rgba(252, 238, 9, 0.2);
+  box-shadow: 0 0 15px var(--cp-yellow);
+  transform: translateY(-1px);
+}
+
+.buy-btn:active {
+  transform: scale(0.97);
+}
+
+.buy-btn.disabled {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+}
+
+.buy-btn.disabled:hover {
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Purchased Label */
+.purchased-label {
+  color: rgba(0, 240, 255, 0.5);
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-left: auto;
+}
+
+/* Legality Badges */
+.legality-badge {
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 0.7em;
+  font-weight: bold;
+}
+
+.legality-open {
+  background: rgba(0, 200, 0, 0.15);
+  color: #00cc66;
+  border: 1px solid #00cc66;
+}
+
+.legality-regulated {
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--cp-cyan);
+  border: 1px solid var(--cp-cyan);
+}
+
+.legality-restricted {
+  background: rgba(252, 238, 9, 0.1);
+  color: var(--cp-yellow);
+  border: 1px solid var(--cp-yellow);
+}
+
+.legality-prohibited {
+  background: rgba(255, 100, 0, 0.15);
+  color: #ff6600;
+  border: 1px solid #ff6600;
+}
+
+.legality-illegal {
+  background: rgba(255, 0, 60, 0.1);
+  color: var(--cp-red);
+  border: 1px solid var(--cp-red);
+}
+
+.legality-condemned {
+  background: rgba(255, 0, 60, 0.25);
+  color: #ff003c;
+  border: 1px solid #ff003c;
+  text-shadow: 0 0 6px rgba(255, 0, 60, 0.5);
+}
+
+/* Body Part & Emulated Info */
+.shop-card-bodypart,
+.shop-card-emulated {
+  font-size: 0.8em;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  border-left: 2px solid rgba(0, 240, 255, 0.2);
+  color: rgba(0, 240, 255, 0.6);
+}
+
+.shop-card-emulated {
+  color: rgba(252, 238, 9, 0.5);
+  border-left-color: rgba(252, 238, 9, 0.2);
+  font-style: italic;
+}
+
+/* Price TBD */
+.price-tbd {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.9em;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .shop-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-input-row {
+    flex-direction: column;
+  }
+
+  .budget-input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .budget-header-row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .budget-total {
+    text-align: center;
+  }
+
+  .budget-stats {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+
+  .budget-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-card-header {
+    flex-direction: column;
+  }
+
+  .shop-card-price {
+    font-size: 1.1em;
+  }
+}
