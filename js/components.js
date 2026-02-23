@@ -31,7 +31,10 @@ function loadGigsFromLocalStorage() {
               gigs[charId][index].active = true;
             }
             // Don't mark repeatable gigs as completed
-            if (savedGig.completed === true && !gigs[charId][index].title.startsWith("Repeatable")) {
+            if (
+              savedGig.completed === true &&
+              !gigs[charId][index].title.startsWith("Repeatable")
+            ) {
               gigs[charId][index].completed = true;
             }
           }
@@ -114,8 +117,10 @@ function renderCards(filter = "all", search = "") {
     return matchesFilter && matchesSearch;
   });
 
-  filtered.forEach((char) => {
-    cardsGrid.appendChild(createCard(char));
+  filtered.forEach((char, index) => {
+    const card = createCard(char);
+    card.style.animationDelay = `${index * 30}ms`;
+    cardsGrid.appendChild(card);
   });
 
   if (filtered.length === 0) {
@@ -177,9 +182,11 @@ function showModal(char) {
                 <div class="gig-type">📋 ${gig.type}</div>
               </div>
               <div class="gig-description">${gig.description}</div>
-              ${gig.requirements
-                ? `<div class="gig-requirements"><div class="gig-requirements-title">Requirements:</div><ul style="margin:5px 0 0 20px;list-style:disc;">${gig.requirements.map((r) => `<li>${r}</li>`).join("")}</ul></div>`
-                : ""}
+              ${
+                gig.requirements
+                  ? `<div class="gig-requirements"><div class="gig-requirements-title">Requirements:</div><ul style="margin:5px 0 0 20px;list-style:disc;">${gig.requirements.map((r) => `<li>${r}</li>`).join("")}</ul></div>`
+                  : ""
+              }
               ${completeBtn}
             </div>`;
         })
@@ -264,7 +271,8 @@ function showModal(char) {
           const gigCard = btn.closest(".gig-card");
           const flash = document.createElement("div");
           flash.className = "gig-reward-flash";
-          flash.textContent = "+Ȼ" + reward.toLocaleString() + " ADDED TO BALANCE";
+          flash.textContent =
+            "+Ȼ" + reward.toLocaleString() + " ADDED TO BALANCE";
           gigCard.appendChild(flash);
           setTimeout(() => flash.remove(), 3000);
         }

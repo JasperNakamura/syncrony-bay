@@ -20,7 +20,7 @@
       </header>
 
       <!-- Balance Setup -->
-      <div class="budget-section" id="budgetSetup">
+      <div class="budget-section budget-setup-animated" id="budgetSetup">
         <div class="budget-prompt">ENTER STARTING BALANCE</div>
         <div class="budget-input-row">
           <span class="currency-prefix">Ȼ</span>
@@ -36,7 +36,16 @@
           <div class="budget-total" id="budgetRemaining">Ȼ0</div>
           <div class="budget-actions">
             <button class="budget-action-btn" id="editBudgetBtn">✎ EDIT</button>
+            <button class="budget-action-btn" id="adjustAddBtn">+</button>
+            <button class="budget-action-btn reset" id="adjustSubBtn">−</button>
           </div>
+        </div>
+        <!-- Popover lives OUTSIDE budget-header-row so it drops below cleanly -->
+        <div class="adjust-popover" id="adjustRow">
+          <span class="adjust-label" id="adjustLabel">CREDIT</span>
+          <input type="number" class="adjust-input" id="adjustInput" placeholder="0" min="0" />
+          <button class="budget-action-btn confirm-adjust" id="adjustConfirm">✓</button>
+          <button class="budget-action-btn reset" id="adjustCancel">✕</button>
         </div>
         <div class="budget-bar-container">
           <div class="budget-bar" id="budgetBar" style="width:100%"></div>
@@ -44,9 +53,7 @@
       </div>
 
       <input type="text" class="search-box" id="shopSearch" placeholder="Search items, vendors..." />
-
       <div class="filters" id="filterContainer"></div>
-
       <div class="shop-grid list-view" id="shopGrid"></div>
     </div>
 

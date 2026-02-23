@@ -3,23 +3,29 @@
   let currentFilter = "all";
   let purchases = {};
 
-  const balanceInput   = document.getElementById("budgetInput");
-  const balanceSetBtn  = document.getElementById("budgetSet");
+  const balanceInput = document.getElementById("budgetInput");
+  const balanceSetBtn = document.getElementById("budgetSet");
   const balanceDisplay = document.getElementById("budgetDisplay");
-  const balanceEl      = document.getElementById("budgetRemaining");
-  const balanceBar     = document.getElementById("budgetBar");
-  const balanceSetup   = document.getElementById("budgetSetup");
-  const editBtn        = document.getElementById("editBudgetBtn");
-  const shopGrid       = document.getElementById("shopGrid");
-  const filterContainer= document.getElementById("filterContainer");
-  const searchBox      = document.getElementById("shopSearch");
+  const balanceEl = document.getElementById("budgetRemaining");
+  const balanceBar = document.getElementById("budgetBar");
+  const balanceSetup = document.getElementById("budgetSetup");
+  const editBtn = document.getElementById("editBudgetBtn");
+  const adjustAddBtn = document.getElementById("adjustAddBtn");
+  const adjustSubBtn = document.getElementById("adjustSubBtn");
+  const adjustRow = document.getElementById("adjustRow");
+  const adjustInput = document.getElementById("adjustInput");
+  const adjustConfirm = document.getElementById("adjustConfirm");
+  const adjustCancel = document.getElementById("adjustCancel");
+  const shopGrid = document.getElementById("shopGrid");
+  const filterContainer = document.getElementById("filterContainer");
+  const searchBox = document.getElementById("shopSearch");
 
   const legalityColors = {
-    Open:      { color: "#4ade80", icon: "●" },
+    Open: { color: "#4ade80", icon: "●" },
     Regulated: { color: "#60a5fa", icon: "◆" },
-    Restricted:{ color: "#facc15", icon: "▲" },
-    Prohibited:{ color: "#f97316", icon: "◼" },
-    Illegal:   { color: "#ef4444", icon: "✖" },
+    Restricted: { color: "#facc15", icon: "▲" },
+    Prohibited: { color: "#f97316", icon: "◼" },
+    Illegal: { color: "#ef4444", icon: "✖" },
     Condemned: { color: "#dc2626", icon: "☠" },
   };
 
@@ -32,7 +38,9 @@
       btn.dataset.filter = key;
       btn.textContent = shopCategories[key];
       btn.addEventListener("click", () => {
-        filterContainer.querySelectorAll(".shop-filter-btn").forEach((b) => b.classList.remove("active"));
+        filterContainer
+          .querySelectorAll(".shop-filter-btn")
+          .forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
         currentFilter = key;
         renderShop(currentFilter, searchBox.value);
@@ -59,7 +67,7 @@
 
   // ---- Balance UI ----
   function showBalanceDisplay() {
-    balanceSetup.style.display = "none";
+    balanceSetup.classList.remove("open");
     balanceDisplay.style.display = "block";
     updateBalanceUI();
   }
@@ -70,6 +78,9 @@
     if (saved !== null) balance = JSON.parse(saved);
 
     balanceEl.textContent = "Ȼ" + balance.toLocaleString();
+    balanceEl.classList.remove("balance-flash");
+    void balanceEl.offsetWidth; // force reflow so animation restarts
+    balanceEl.classList.add("balance-flash");
 
     const initialStr = localStorage.getItem("shopInitialBalance");
     const initial = initialStr ? JSON.parse(initialStr) : balance;
@@ -97,7 +108,8 @@
     const filtered = shopItems.filter((item) => {
       const matchFilter = filter === "all" || item.category === filter;
       const sl = search.toLowerCase();
-      const matchSearch = search === "" ||
+      const matchSearch =
+        search === "" ||
         item.name.toLowerCase().includes(sl) ||
         (item.description || "").toLowerCase().includes(sl) ||
         (item.emulated || "").toLowerCase().includes(sl) ||
@@ -107,10 +119,15 @@
       return matchFilter && matchSearch;
     });
 
-    filtered.forEach((item) => shopGrid.appendChild(createShopCard(item)));
-
+    filtered.forEach((item, index) => {
+      const card = createShopCard(item);
+      card.style.animationDelay = `${index * 30}ms`;
+      shopGrid.appendChild(card);
+    });
+    
     if (filtered.length === 0) {
-      shopGrid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--cp-red);">No items found.</p>';
+      shopGrid.innerHTML =
+        '<p style="grid-column:1/-1;text-align:center;color:var(--cp-red);">No items found.</p>';
     }
   }
 
@@ -122,7 +139,8 @@
     const balanceIsSet = balance > 0;
     const canAfford = isNegotiable || balance >= item.price;
 
-    card.className = "shop-card" +
+    card.className =
+      "shop-card" +
       (isPurchased ? " purchased" : "") +
       (!canAfford && balanceIsSet && !isPurchased ? " unaffordable" : "");
     card.dataset.id = item.id;
@@ -133,27 +151,45 @@
 
     const leg = legalityColors[item.legality] || { color: "#888", icon: "?" };
     const legalityBadge = `<span class="legality-badge" style="color:${leg.color};border-color:${leg.color};">${leg.icon} ${item.legality.toUpperCase()}</span>`;
-    const priceDisplay = isNegotiable ? '<span class="price-negotiate">NEGOTIATE</span>' : "Ȼ" + item.price.toLocaleString();
+    const priceDisplay = isNegotiable
+      ? '<span class="price-negotiate">NEGOTIATE</span>'
+      : "Ȼ" + item.price.toLocaleString();
 
     let metaLines = "";
-    if (item.bodyPart) metaLines += `<div class="shop-card-detail">⚙ ${item.bodyPart}</div>`;
-    if (item.emulated) metaLines += `<div class="shop-card-detail">⚔ ${item.emulated}</div>`;
-    if (item.vehicleSize) metaLines += `<div class="shop-card-detail">◈ ${item.vehicleSize} — Seats ${item.capacity}</div>`;
+    if (item.bodyPart)
+      metaLines += `<div class="shop-card-detail">⚙ ${item.bodyPart}</div>`;
+    if (item.emulated)
+      metaLines += `<div class="shop-card-detail">⚔ ${item.emulated}</div>`;
+    if (item.vehicleSize)
+      metaLines += `<div class="shop-card-detail">◈ ${item.vehicleSize} — Seats ${item.capacity}</div>`;
 
-    const descHTML = item.description ? `<div class="shop-card-desc">${item.description}</div>` : "";
-
-    let actionHTML = "";
-    if (isPurchased)        actionHTML = '<div class="purchased-label">✓ ACQUIRED</div>';
-    else if (!balanceIsSet) actionHTML = '<button class="buy-btn disabled" disabled>SET BALANCE FIRST</button>';
-    else if (isNegotiable)  actionHTML = '<button class="buy-btn disabled" disabled>PRICE NOT SET</button>';
-    else if (!canAfford)    actionHTML = '<button class="buy-btn disabled" disabled>INSUFFICIENT FUNDS</button>';
-    else                    actionHTML = `<button class="buy-btn" data-item-id="${item.id}">◢ PURCHASE ◣</button>`;
-
-    const qtyHTML = item.consumable && qty > 0
-      ? `<div class="qty-owned"><button class="qty-btn" data-action="remove" data-item-id="${item.id}">−</button> OWNED: ${qty}</div>`
+    const descHTML = item.description
+      ? `<div class="shop-card-desc">${item.description}</div>`
       : "";
 
-    const categoryLabel = (shopCategories[item.category] || item.category).toUpperCase();
+    let actionHTML = "";
+    if (isPurchased)
+      actionHTML = '<div class="purchased-label">✓ ACQUIRED</div>';
+    else if (!balanceIsSet)
+      actionHTML =
+        '<button class="buy-btn disabled" disabled>SET BALANCE FIRST</button>';
+    else if (isNegotiable)
+      actionHTML =
+        '<button class="buy-btn disabled" disabled>PRICE NOT SET</button>';
+    else if (!canAfford)
+      actionHTML =
+        '<button class="buy-btn disabled" disabled>INSUFFICIENT FUNDS</button>';
+    else
+      actionHTML = `<button class="buy-btn" data-item-id="${item.id}">◢ PURCHASE ◣</button>`;
+
+    const qtyHTML =
+      item.consumable && qty > 0
+        ? `<div class="qty-owned"><button class="qty-btn" data-action="remove" data-item-id="${item.id}">−</button> OWNED: ${qty}</div>`
+        : "";
+
+    const categoryLabel = (
+      shopCategories[item.category] || item.category
+    ).toUpperCase();
 
     card.innerHTML = `
       <div class="shop-card-header">
@@ -167,7 +203,11 @@
     `;
 
     const buyBtn = card.querySelector(".buy-btn:not(.disabled)");
-    if (buyBtn) buyBtn.addEventListener("click", (e) => { e.stopPropagation(); purchaseItem(item.id); });
+    if (buyBtn)
+      buyBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        purchaseItem(item.id);
+      });
 
     card.querySelectorAll(".qty-btn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
@@ -177,7 +217,6 @@
           else delete purchases[item.id];
         }
         saveState();
-        updateBalanceUI();
         renderShop(currentFilter, searchBox.value);
       });
     });
@@ -204,7 +243,10 @@
     const val = parseInt(balanceInput.value, 10);
     if (isNaN(val) || val <= 0) {
       balanceInput.style.borderColor = "var(--cp-red)";
-      setTimeout(() => (balanceInput.style.borderColor = "var(--cp-yellow)"), 800);
+      setTimeout(
+        () => (balanceInput.style.borderColor = "var(--cp-yellow)"),
+        800,
+      );
       return;
     }
     balance = val;
@@ -214,16 +256,67 @@
     renderShop(currentFilter, searchBox.value);
   });
 
-  balanceInput.addEventListener("keydown", (e) => { if (e.key === "Enter") balanceSetBtn.click(); });
+  balanceInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") balanceSetBtn.click();
+  });
 
   editBtn.addEventListener("click", () => {
     balanceDisplay.style.display = "none";
-    balanceSetup.style.display = "block";
     balanceInput.value = balance;
-    balanceInput.focus();
+    balanceSetup.classList.add("open");
+    setTimeout(() => balanceInput.focus(), 300);
   });
 
-  searchBox.addEventListener("input", () => { renderShop(currentFilter, searchBox.value); });
+  let adjustMode = 1; // 1 = add, -1 = subtract
+
+  adjustAddBtn.addEventListener("click", () => {
+    adjustMode = 1;
+    adjustRow.classList.add("open");
+    adjustInput.placeholder = "0";
+    adjustAddBtn.classList.add("hidden");
+    adjustSubBtn.classList.add("hidden");
+    adjustInput.focus();
+  });
+
+  adjustSubBtn.addEventListener("click", () => {
+    adjustMode = -1;
+    adjustRow.classList.add("open");
+    adjustInput.placeholder = "0";
+    adjustAddBtn.classList.add("hidden");
+    adjustSubBtn.classList.add("hidden");
+    adjustInput.focus();
+  });
+
+  adjustCancel.addEventListener("click", () => {
+    adjustRow.classList.remove("open");
+    adjustAddBtn.classList.remove("hidden");
+    adjustSubBtn.classList.remove("hidden");
+    adjustInput.value = "";
+  });
+
+  adjustConfirm.addEventListener("click", () => {
+    const val = parseInt(adjustInput.value, 10);
+    if (!isNaN(val) && val > 0) {
+      balance += val * adjustMode;
+      if (balance < 0) balance = 0;
+      saveState();
+      updateBalanceUI();
+      renderShop(currentFilter, searchBox.value);
+    }
+    adjustRow.classList.remove("open");
+    adjustAddBtn.classList.remove("hidden");
+    adjustSubBtn.classList.remove("hidden");
+    adjustInput.value = "";
+  });
+
+  adjustInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") adjustConfirm.click();
+    if (e.key === "Escape") adjustCancel.click();
+  });
+
+  searchBox.addEventListener("input", () => {
+    renderShop(currentFilter, searchBox.value);
+  });
 
   // ---- Poll for balance changes from index.html ----
   setInterval(() => {

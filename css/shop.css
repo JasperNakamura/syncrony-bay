@@ -82,6 +82,22 @@
   transform: translateY(-1px);
 }
 
+.budget-setup-animated {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.budget-setup-animated.open {
+  max-height: 200px;
+  opacity: 1;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
 /* Budget Display */
 .budget-display {
   text-align: left;
@@ -110,7 +126,75 @@
 
 .budget-actions {
   display: flex;
+  align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+}
+
+.adjust-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.adjust-input {
+  width: 100px !important;
+  padding: 5px 10px !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid var(--cp-cyan) !important;
+  color: var(--cp-cyan) !important;
+  font-family: "Courier New", monospace !important;
+  font-size: 0.85em !important;
+  border-radius: 3px !important;
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
+.adjust-input::-webkit-outer-spin-button,
+.adjust-input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+.adjust-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.confirm-adjust {
+  border-color: #4ade80 !important;
+  color: #4ade80 !important;
+}
+
+.adjust-popover {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  margin-top: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin-top 0.3s ease, border-color 0.3s ease;
+}
+
+.adjust-popover.open {
+  max-height: 80px;
+  opacity: 1;
+  padding: 12px 16px;
+  margin-top: 12px;
+  border-color: var(--cp-cyan);
+}
+
+.adjust-label {
+  color: var(--cp-yellow);
+  font-size: 0.85em;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  min-width: 60px;
 }
 
 .budget-action-btn {
@@ -211,7 +295,7 @@
 
 /* Shop Card */
 .shop-card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 46, 0.8) 100%);
+  background: #0d0d1f;
   border: 2px solid var(--cp-cyan);
   border-radius: 10px;
   padding: 20px;
@@ -226,32 +310,27 @@
 
 /* Purchased State (non-consumable, already bought) */
 .shop-card.purchased {
-  opacity: 0.35;
   border-color: rgba(0, 240, 255, 0.3);
   pointer-events: none;
 }
 
-.shop-card.purchased::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 10px,
-    rgba(0, 240, 255, 0.03) 10px,
-    rgba(0, 240, 255, 0.03) 20px
-  );
-  pointer-events: none;
+.shop-card.purchased .shop-card-name,
+.shop-card.purchased .shop-card-price,
+.shop-card.purchased .shop-card-meta,
+.shop-card.purchased .shop-card-footer {
+  opacity: 0.35;
 }
 
 /* Unaffordable State */
 .shop-card.unaffordable {
   border-color: rgba(255, 0, 60, 0.3);
-  opacity: 0.6;
+}
+
+.shop-card.unaffordable .shop-card-name,
+.shop-card.unaffordable .shop-card-price,
+.shop-card.unaffordable .shop-card-meta,
+.shop-card.unaffordable .shop-card-footer {
+  opacity: 0.4;
 }
 
 /* Card Header */
@@ -616,4 +695,36 @@
   0%   { opacity: 1; transform: translateY(0); }
   70%  { opacity: 1; }
   100% { opacity: 0; transform: translateY(-8px); }
+}
+
+.budget-action-btn {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.budget-action-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+}
+
+@keyframes balanceUpdate {
+  0%   { color: var(--cp-cyan); text-shadow: 0 0 10px var(--cp-cyan); transform: translateX(-2px); }
+  25%  { color: #fff; text-shadow: 0 0 20px #fff; transform: translateX(2px); }
+  50%  { color: var(--cp-yellow); text-shadow: 0 0 15px var(--cp-yellow); transform: translateX(-1px); }
+  75%  { color: #fff; text-shadow: 0 0 20px #fff; transform: translateX(1px); }
+  100% { color: var(--cp-yellow); text-shadow: 0 0 10px var(--cp-yellow); transform: translateX(0); }
+}
+
+.balance-flash {
+  animation: balanceUpdate 0.4s ease forwards;
+}
+
+@keyframes cardScanIn {
+  0%   { opacity: 0; transform: translateX(-8px); clip-path: inset(0 100% 0 0); }
+  60%  { opacity: 1; clip-path: inset(0 0% 0 0); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.shop-card {
+  animation: cardScanIn 0.50s ease forwards;
 }
