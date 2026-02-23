@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synchrony Bay — Equipment</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/equipment.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>◢ EQUIPMENT LOADOUT ◣</h1>
+        <div class="subtitle">// INSTALLED CYBERWARE & GEAR //</div>
+        <a href="index.html" class="back-link">← BACK TO CONTACTS</a>
+        <a href="shop.html" class="back-link">🛒 SHOP</a>
+      </header>
+
+      <div class="equipment-layout">
+
+        <!-- ASCII Body -->
+        <div class="body-panel">
+          <div class="body-label">BODY SCHEMA</div>
+          <pre class="ascii-body" id="asciiBody">
+<span class="body-zone" data-slot="head">          ┌───────┐
+          │       │
+          │       │
+          │       │
+          └───┬───┘</span>
+        ┌─────┴─────┐
+<span class="body-zone" data-slot="arms">┌───────┤</span><span class="body-zone" data-slot="torso">           </span><span class="body-zone" data-slot="arms">├───────┐
+│       │</span><span class="body-zone" data-slot="torso">           </span><span class="body-zone" data-slot="arms">│       │
+└───────┤</span><span class="body-zone" data-slot="torso">           </span><span class="body-zone" data-slot="arms">├───────┘</span>
+<span class="body-zone" data-slot="torso">        │           │
+        │           │
+        │           │
+        │           │
+        │           │
+        ├───────────┤</span>
+        <span class="body-zone" data-slot="internal">│           │
+        │           │
+        │   ┌───┐   │</span>
+<span class="body-zone" data-slot="legs">        │   │   │   │
+        │   │   │   │
+        │   │   │   │
+        │   │   │   │
+        │   │   │   │
+        │   │   │   │
+        └───┘   └───┘</span>
+</pre>
+
+          <div class="slot-legend">
+            <div class="legend-item"><span class="legend-dot dot-head"></span>HEAD / NEURAL / EYES</div>
+            <div class="legend-item"><span class="legend-dot dot-arms"></span>ARMS / HANDS</div>
+            <div class="legend-item"><span class="legend-dot dot-torso"></span>TORSO / BACK / SKIN</div>
+            <div class="legend-item"><span class="legend-dot dot-internal"></span>INTERNAL ORGANS</div>
+            <div class="legend-item"><span class="legend-dot dot-legs"></span>LEGS / FEET</div>
+          </div>
+        </div>
+
+        <!-- Equipment List -->
+        <div class="equipment-list" id="equipmentList">
+          <div class="eq-loading">// SCANNING LOADOUT...</div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="js/shop-data.js"></script>
+    <script src="js/equipment.js"></script>
+  </body>
+</html>
