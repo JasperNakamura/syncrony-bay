@@ -1,0 +1,166 @@
+/* ==================== MAP PAGE STYLES ==================== */
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    margin-top: 30px;
+  }
+}
+
+.ascii-map {
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  color: var(--cp-cyan);
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--cp-yellow);
+  border-radius: 10px;
+  padding: 20px;
+  overflow-x: auto;
+  text-shadow: 0 0 5px var(--cp-cyan);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .ascii-map {
+    font-size: 0.6em;
+  }
+}
+
+.map-region {
+  cursor: pointer;
+  color: var(--cp-yellow);
+  transition: all 0.2s;
+  text-shadow: 0 0 5px var(--cp-yellow);
+}
+
+.map-region:hover {
+  color: var(--cp-cyan);
+  text-shadow: 0 0 10px var(--cp-cyan), 0 0 20px var(--cp-cyan);
+  font-weight: bold;
+}
+
+.district-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.district-btn {
+  background: rgba(0, 240, 255, 0.1);
+  border: 2px solid var(--cp-yellow);
+  color: var(--cp-yellow);
+  padding: 15px 30px;
+  cursor: pointer;
+  font-family: "Courier New", monospace;
+  font-size: 1em;
+  transition: all 0.3s;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.district-btn:hover {
+  background: rgba(252, 238, 9, 0.2);
+  box-shadow: 0 0 15px var(--cp-yellow);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .district-btn {
+    min-width: 150px;
+    padding: 10px 20px;
+  }
+}
+
+.district-modal-content {
+  transform-origin: center;
+}
+
+.district-modal-content.opening {
+  animation: cyberOpen 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.district-modal-content.closing {
+  animation: cyberClose 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.district-info {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+  border: 3px solid var(--cp-yellow);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 30px;
+  position: relative;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  transform-origin: center;
+  animation: cyberOpen 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.district-info.closing {
+  animation: cyberClose 0.4s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.close-info {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2em;
+  color: var(--cp-yellow);
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: all 0.3s;
+}
+
+.close-info:hover {
+  color: var(--cp-red);
+  transform: rotate(90deg);
+}
+
+.district-title {
+  font-size: 2em;
+  color: var(--cp-yellow);
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px var(--cp-yellow);
+}
+
+.district-description {
+  color: var(--cp-cyan);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.district-features {
+  margin-top: 20px;
+}
+
+.district-features h3 {
+  color: var(--cp-cyan);
+  margin-bottom: 10px;
+}
+
+.district-features ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.district-features li {
+  padding: 8px;
+  margin: 5px 0;
+  background: rgba(0, 240, 255, 0.05);
+  border-left: 2px solid var(--cp-yellow);
+  padding-left: 15px;
+}

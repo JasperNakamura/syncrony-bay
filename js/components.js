@@ -27,14 +27,12 @@ function loadGigsFromLocalStorage() {
       if (gigs[charId]) {
         savedGigs[charId].forEach((savedGig, index) => {
           if (gigs[charId][index]) {
+            // Only override if the saved value exists and is true
+            // This prevents localStorage from overwriting hardcoded completed/active states
             if (savedGig.active === true) {
               gigs[charId][index].active = true;
             }
-            // Don't mark repeatable gigs as completed
-            if (
-              savedGig.completed === true &&
-              !gigs[charId][index].title.startsWith("Repeatable")
-            ) {
+            if (savedGig.completed === true) {
               gigs[charId][index].completed = true;
             }
           }
@@ -117,10 +115,8 @@ function renderCards(filter = "all", search = "") {
     return matchesFilter && matchesSearch;
   });
 
-  filtered.forEach((char, index) => {
-    const card = createCard(char);
-    card.style.animationDelay = `${index * 30}ms`;
-    cardsGrid.appendChild(card);
+  filtered.forEach((char) => {
+    cardsGrid.appendChild(createCard(char));
   });
 
   if (filtered.length === 0) {
@@ -134,6 +130,7 @@ function showModal(char) {
   const modalContent = document.getElementById("modalContent");
   const modalBody = document.getElementById("modalBody");
 
+  const iscorpo = char.alignment === "corpo";
   modalContent.className = `modal-content ${char.alignment}`;
 
   let servicesHTML = '<ul class="services-list">';
@@ -143,11 +140,20 @@ function showModal(char) {
   servicesHTML += "</ul>";
 
   let specialHTML = char.special
-    ? `<div class="modal-section"><h3>Special Notes</h3><p>${char.special}</p></div>`
+    ? `
+        <div class="modal-section">
+            <h3>Special Notes</h3>
+            <p>${char.special}</p>
+        </div>
+    `
     : "";
 
   let quoteHTML = char.quote
-    ? `<div class="quote-box">"${char.quote}"</div>`
+    ? `
+        <div class="quote-box">
+            "${char.quote}"
+        </div>
+    `
     : "";
 
   // Generate gigs section
@@ -158,21 +164,14 @@ function showModal(char) {
       <h3 style="color: var(--cp-yellow); margin-bottom: 15px;">Available Gigs</h3>
       ${gigs[char.id]
         .sort((a, b) => {
-          if (a.active && !b.active) return -1;
-          if (!a.active && b.active) return 1;
-          return 0;
+          if (a.active && !b.active) return -1; // a goes first
+          if (!a.active && b.active) return 1; // b goes first
+          return 0; // keep original order
         })
         .filter((gig) => gig.visible !== false)
-        .map((gig) => {
-          const isRepeatable = gig.title.startsWith("Repeatable");
-          const isCompleted = !isRepeatable && gig.completed;
-          const completeBtn = isCompleted
-            ? `<div class="gig-completed-label">✓ COMPLETED</div>`
-            : `<button class="gig-complete-btn${isRepeatable ? " repeatable" : ""}" data-gig-title="${gig.title.replace(/"/g, "&quot;")}">
-                ${isRepeatable ? "↻ COLLECT REWARD" : "✓ COMPLETE GIG"}
-               </button>`;
-          return `
-            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${isCompleted ? "completed" : ""} ${gig.active ? "active" : ""}" data-gig-title="${gig.title.replace(/"/g, "&quot;")}">
+        .map(
+          (gig) => `
+            <div class="gig-card ${char.alignment === "corpo" ? "corpo-gig" : ""} ${gig.completed ? "completed" : ""} ${gig.active ? "active" : ""}" data-gig-title="${gig.title.replace(/"/g, "&quot;")}">
               <div class="gig-header">
                 <div class="gig-title">${gig.title}</div>
                 <div class="gig-difficulty">${gig.difficulty}</div>
@@ -184,16 +183,33 @@ function showModal(char) {
               <div class="gig-description">${gig.description}</div>
               ${
                 gig.requirements
-                  ? `<div class="gig-requirements"><div class="gig-requirements-title">Requirements:</div><ul style="margin:5px 0 0 20px;list-style:disc;">${gig.requirements.map((r) => `<li>${r}</li>`).join("")}</ul></div>`
+                  ? `
+                <div class="gig-requirements">
+                  <div class="gig-requirements-title">Requirements:</div>
+                  <ul style="margin: 5px 0 0 20px; list-style: disc;">
+                    ${gig.requirements.map((req) => `<li>${req}</li>`).join("")}
+                  </ul>
+                </div>
+              `
                   : ""
               }
-              ${completeBtn}
-            </div>`;
-        })
+              ${
+                (() => {
+                  const isRepeatable = gig.title.startsWith("Repeatable");
+                  const isCompleted = !isRepeatable && gig.completed;
+                  if (isCompleted) return `<div class="gig-completed-label">✓ COMPLETED</div>`;
+                  return `<button class="gig-complete-btn${isRepeatable ? " repeatable" : ""}" data-gig-title="${gig.title.replace(/"/g, "&quot;")}">${isRepeatable ? "↻ COLLECT REWARD" : "✓ COMPLETE GIG"}</button>`;
+                })()
+              }
+            </div>
+          `,
+        )
         .join("")}
-    </div>`;
+    </div>
+  `;
   }
 
+  // Define the image mapping and get the background image FIRST
   const imageMapping = {
     ashford: "var(--img-malcom)",
     morales: "var(--img-rosa)",
@@ -211,34 +227,73 @@ function showModal(char) {
 
   const bgImage = imageMapping[char.id] || "none";
 
+  // SET innerHTML FIRST
   modalBody.innerHTML = `
-    <div class="modal-header" style="display:flex;align-items:flex-start;gap:20px;">
-        <div style="flex:1;">
+    <div class="modal-header" style="display: flex; align-items: flex-start; gap: 20px;">
+        <div style="flex: 1;">
             <h2>${char.name}</h2>
-            <div class="card-alias" style="font-size:1.2em;">"${char.alias}"</div>
+            <div class="card-alias" style="font-size: 1.2em;">"${char.alias}"</div>
         </div>
-        <div class="character-thumbnail" style="background-image:${bgImage} !important;background-size:cover;background-position:top center;width:150px;height:150px;border-radius:8px;flex-shrink:0;cursor:pointer;"></div>
+        <div class="character-thumbnail" style="background-image: ${bgImage} !important; background-size: cover; background-position: top center; width: 150px; height: 150px; border-radius: 8px; flex-shrink: 0; cursor: pointer;"></div>
     </div>
     ${quoteHTML}
-    <div class="modal-section"><h3>Background</h3><p>${char.background}</p></div>
-    <div class="info-grid">
-        <div class="info-item"><div class="info-label">AGE</div><div>${char.age}</div></div>
-        <div class="info-item"><div class="info-label">NATIONALITY</div><div>${char.nationality}</div></div>
-        <div class="info-item"><div class="info-label">OCCUPATION</div><div>${char.occupation}</div></div>
-        <div class="info-item"><div class="info-label">ALIGNMENT</div><div>${char.alignment.toUpperCase()}</div></div>
-        <div class="info-item"><div class="info-label">SPECIALTY</div><div>${char.specialty}</div></div>
+
+    <div class="modal-section">
+        <h3>Background</h3>
+        <p>${char.background}</p>
     </div>
-    <div class="modal-section"><h3>Physical Description</h3><p>${char.physical}</p></div>
-    <div class="modal-section"><h3>Personal Notes</h3><p>${char.notes}</p></div>
-    <div class="modal-section"><h3>Services Available</h3>${servicesHTML}</div>
+
+    <div class="info-grid">
+        <div class="info-item">
+            <div class="info-label">AGE</div>
+            <div>${char.age}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">NATIONALITY</div>
+            <div>${char.nationality}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">OCCUPATION</div>
+            <div>${char.occupation}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">ALIGNMENT</div>
+            <div>${char.alignment.toUpperCase()}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">SPECIALTY</div>
+            <div>${char.specialty}</div>
+        </div>
+    </div>
+
+    <div class="modal-section">
+        <h3>Physical Description</h3>
+        <p>${char.physical}</p>
+    </div>
+
+    <div class="modal-section">
+        <h3>Personal Notes</h3>
+        <p>${char.notes}</p>
+    </div>
+
+    <div class="modal-section">
+        <h3>Services Available</h3>
+        ${servicesHTML}
+    </div>
+
     ${specialHTML}
+
     ${gigsHTML}
   `;
 
   modal.style.display = "block";
+  modalContent.classList.remove("closing");
+  void modalContent.offsetWidth;
+  modalContent.classList.add("opening");
 
+  // THEN add event listeners AFTER the HTML is in the DOM
   setTimeout(() => {
-    // Complete / collect reward buttons
+    // Complete gig / collect reward buttons
     modalBody.querySelectorAll(".gig-complete-btn").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -252,11 +307,9 @@ function showModal(char) {
         if (reward > 0) addToSharedBalance(reward);
 
         if (!isRepeatable) {
-          // One-time gig: mark completed, swap button for label
           gigData.completed = true;
           gigData.active = false;
           saveGigsToLocalStorage();
-
           const gigCard = btn.closest(".gig-card");
           gigCard.classList.add("completed");
           gigCard.classList.remove("active");
@@ -265,35 +318,44 @@ function showModal(char) {
           label.textContent = "✓ COMPLETED";
           btn.replaceWith(label);
         }
-        // Repeatable: don't mark completed, button stays, just add balance
 
         if (reward > 0) {
           const gigCard = btn.closest(".gig-card");
           const flash = document.createElement("div");
           flash.className = "gig-reward-flash";
-          flash.textContent =
-            "+Ȼ" + reward.toLocaleString() + " ADDED TO BALANCE";
+          flash.textContent = "+Ȼ" + reward.toLocaleString() + " ADDED TO BALANCE";
           gigCard.appendChild(flash);
           setTimeout(() => flash.remove(), 3000);
         }
       });
     });
 
-    // Gig card click to toggle active
-    modalBody.querySelectorAll(".gig-card").forEach((gigCard) => {
+        // Add gig card click handlers
+    const gigCards = modalBody.querySelectorAll(".gig-card");
+    gigCards.forEach((gigCard) => {
       gigCard.addEventListener("click", (e) => {
+        // Don't toggle if clicking on links or buttons inside
         if (e.target.tagName === "A" || e.target.tagName === "BUTTON") return;
+
+        // Get the gig title from the data attribute
         const gigTitle = gigCard.getAttribute("data-gig-title");
+
+        // Find the actual gig in the original array by title
         const gigData = gigs[char.id].find((g) => g.title === gigTitle);
+
         if (gigData) {
           gigData.active = !gigData.active;
+
+          // Save to localStorage
           saveGigsToLocalStorage();
+
+          // Toggle the class on THIS card instead of re-rendering
           gigCard.classList.toggle("active");
         }
       });
     });
 
-    // Thumbnail click to enlarge
+    // Add thumbnail click handler
     const thumbnail = modalBody.querySelector(".character-thumbnail");
     if (thumbnail) {
       thumbnail.addEventListener("click", () => {
@@ -301,13 +363,18 @@ function showModal(char) {
         imageOverlay.className = "image-overlay";
         imageOverlay.innerHTML = `
             <div class="enlarged-image-container">
-                <div class="enlarged-image" style="background-image:${bgImage} !important;background-size:contain !important;background-position:center !important;background-repeat:no-repeat !important;"></div>
-            </div>`;
+                <div class="enlarged-image" style="background-image: ${bgImage} !important; background-size: contain !important; background-position: center !important; background-repeat: no-repeat !important;"></div>
+            </div>
+        `;
         document.body.appendChild(imageOverlay);
+
+        // Close on click
         imageOverlay.addEventListener("click", () => {
           imageOverlay.classList.add("closing");
           setTimeout(() => imageOverlay.remove(), 400);
         });
+
+        // Trigger animation
         setTimeout(() => imageOverlay.classList.add("active"), 10);
       });
     }

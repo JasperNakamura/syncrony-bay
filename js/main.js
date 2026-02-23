@@ -1,14 +1,22 @@
 (function() {
-  // ==================== DOM REFERENCES ====================
   const cardsGrid = document.getElementById("cardsGrid");
   const searchBox = document.getElementById("searchBox");
   const filterBtns = document.querySelectorAll(".filter-btn");
   const modal = document.getElementById("characterModal");
+  const modalContent = document.getElementById("modalContent");
   const closeModal = document.getElementById("closeModal");
 
   let currentFilter = "all";
 
-  // ==================== EVENT LISTENERS ====================
+  function closeModalAnimated() {
+    modalContent.classList.remove("opening");
+    modalContent.classList.add("closing");
+    setTimeout(() => {
+      modal.style.display = "none";
+      modalContent.classList.remove("closing");
+    }, 400);
+  }
+
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       filterBtns.forEach((b) => b.classList.remove("active"));
@@ -22,16 +30,11 @@
     renderCards(currentFilter, searchBox.value);
   });
 
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+  closeModal.addEventListener("click", closeModalAnimated);
 
   window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
+    if (e.target === modal) closeModalAnimated();
   });
 
-  // ==================== INITIALIZATION ====================
   renderCards();
 })();
