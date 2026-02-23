@@ -16,6 +16,7 @@ const shopItems = [
     consumable: true,
     legality: "Illegal",
     type: "Drug",
+    description: "Short-burst stimulant. Spikes reflexes for a few minutes.",
   },
   {
     id: "mummy",
@@ -25,6 +26,7 @@ const shopItems = [
     consumable: true,
     legality: "Illegal",
     type: "Drug",
+    description: "Heavy sedative wrap-drug. Numbs pain and slows metabolism.",
   },
   {
     id: "euphoria",
@@ -34,6 +36,7 @@ const shopItems = [
     consumable: true,
     legality: "Illegal",
     type: "Drug",
+    description: "Synthetic bliss compound. Floods the brain with dopamine.",
   },
   {
     id: "bloodmist",
@@ -43,6 +46,7 @@ const shopItems = [
     consumable: true,
     legality: "Condemned",
     type: "Drug",
+    description: "Aerosolized combat drug. Triggers berserker-state aggression.",
   },
   {
     id: "tranquilizer",
@@ -53,6 +57,7 @@ const shopItems = [
     legality: "Illegal",
     type: "Poison",
     emulated: "Drow Poison",
+    description: "Fast-acting paralytic agent. Odourless and colourless.",
   },
 
   // -- Medical --
@@ -64,6 +69,7 @@ const shopItems = [
     consumable: true,
     legality: "Open",
     type: "Medication",
+    description: "Single-dose nanite capsule. Effective for 30 days.",
   },
 
   // -- Technology --
@@ -76,6 +82,7 @@ const shopItems = [
     legality: "Restricted",
     type: "Technology",
     emulated: "Cloak of the Archmage",
+    description: "Full-body neural mesh for deep netrunning immersion.",
   },
   {
     id: "cube-shield",
@@ -86,6 +93,7 @@ const shopItems = [
     legality: "Illegal",
     type: "Technology",
     emulated: "Cube of Force",
+    description: "Pocket-sized force field generator. Six-sided barrier on activation.",
   },
   {
     id: "retinal-scanner",
@@ -95,6 +103,7 @@ const shopItems = [
     consumable: false,
     legality: "Illegal",
     type: "Technology",
+    description: "Biometric access device. Reads retinal patterns up to 2m.",
   },
   {
     id: "prototype-biosuit",
@@ -105,6 +114,7 @@ const shopItems = [
     legality: "Illegal",
     type: "Technology",
     emulated: "Barbarian Rage",
+    description: "Experimental suit that channels physical trauma into aggression.",
   },
   {
     id: "auto-bento",
@@ -114,6 +124,7 @@ const shopItems = [
     consumable: false,
     legality: "Open",
     type: "Technology",
+    description: "Self-heating meal unit. Stores and prepares rations automatically.",
   },
   {
     id: "door-jammer",
@@ -124,6 +135,7 @@ const shopItems = [
     legality: "Restricted",
     type: "Technology",
     emulated: "Arcane Lock spell",
+    description: "Magnetic wedge that magnetically seals any standard door frame.",
   },
   {
     id: "bit-sticker",
@@ -134,6 +146,7 @@ const shopItems = [
     legality: "Prohibited",
     type: "Technology",
     emulated: "Spell Scroll (systemized)",
+    description: "Single-use netrunning patch. Pre-loaded with one systemised program.",
   },
 
   // -- Equipment & Gear --
@@ -146,6 +159,7 @@ const shopItems = [
     legality: "Open",
     type: "Equipment",
     emulated: "All-purpose tool",
+    description: "Modular multi-tool. Adapts to most mechanical and electronic tasks.",
   },
   {
     id: "reinforced-clothing",
@@ -156,6 +170,7 @@ const shopItems = [
     legality: "Open",
     type: "Clothing",
     emulated: "Cloak of Protection",
+    description: "Street-grade clothing with woven impact-resistant fibres.",
   },
   {
     id: "adaptive-binoculars",
@@ -165,6 +180,7 @@ const shopItems = [
     consumable: false,
     legality: "Open",
     type: "Equipment",
+    description: "Auto-focus optics with digital zoom and low-light assist.",
   },
   {
     id: "double-dragon",
@@ -174,6 +190,7 @@ const shopItems = [
     consumable: false,
     legality: "Open",
     type: "Sex Toy",
+    description: "High-end dual-motor pleasure device. Discretely packaged.",
   },
   {
     id: "rations-1-weeks-worth",
@@ -183,6 +200,7 @@ const shopItems = [
     consumable: true,
     legality: "Open",
     type: "Equipment",
+    description: "Compressed nutrient blocks. Tasteless but sufficient.",
   },
   {
     id: "smokes-20",
@@ -192,6 +210,7 @@ const shopItems = [
     consumable: true,
     legality: "Open",
     type: "Equipment",
+    description: "Pack of 20 filtered cigarettes. A dying habit in a dying city.",
   },
 
   // -- Cyberware (General) --
@@ -203,6 +222,7 @@ const shopItems = [
     consumable: false,
     legality: "Open",
     type: "Cyberware",
+    description: "Neural imprint of a physical feat. Installs muscle memory directly.",
   },
   {
     id: "training-chip-skill",
@@ -212,6 +232,7 @@ const shopItems = [
     consumable: false,
     legality: "Open",
     type: "Cyberware",
+    description: "Skill-pattern chip. Uploads proficiency in one chosen discipline.",
   },
   {
     id: "training-chip-language",
@@ -221,6 +242,7 @@ const shopItems = [
     consumable: false,
     legality: "Open",
     type: "Cyberware",
+    description: "Language acquisition chip. Fluency installed in under an hour.",
   },
 
   // -- Robotics --
@@ -233,6 +255,7 @@ const shopItems = [
     legality: "Restricted",
     type: "Robotics",
     emulated: "Enhanced Imp familiar",
+    description: "Autonomous eight-legged drone with enhanced sensory and combat packages.",
   },
   {
     id: "emergent-crawler",
@@ -242,6 +265,7 @@ const shopItems = [
     consumable: false,
     legality: "Regulated",
     type: "Robotics",
+    description: "Self-learning crawler bot. Adapts behaviour based on environment.",
   },
   {
     id: "spiderbot-simple",
@@ -252,6 +276,7 @@ const shopItems = [
     legality: "Regulated",
     type: "Robotics",
     emulated: "Imp familiar",
+    description: "Basic remote-operated spider unit. Surveillance and light utility.",
   },
   {
     id: "drone-simple",
@@ -262,6 +287,7 @@ const shopItems = [
     legality: "Open",
     type: "Robotics",
     emulated: "Find Familiar scroll",
+    description: "Entry-level aerial drone. Remote-piloted with standard camera feed.",
   },
 
   // -- Optics (Lens Upgrades) --
@@ -274,6 +300,7 @@ const shopItems = [
     legality: "Prohibited",
     type: "Lens Upgrade",
     emulated: "Ring of X-ray Vision",
+    description: "Lens overlay that penetrates up to 30cm of non-lead material.",
   },
   {
     id: "anti-cloak-lenses",
@@ -284,6 +311,7 @@ const shopItems = [
     legality: "Regulated",
     type: "Lens Upgrade",
     emulated: "See Invisibility spell",
+    description: "Detects active stealth fields and optical camouflage systems.",
   },
   {
     id: "thermal-lenses",
@@ -293,6 +321,7 @@ const shopItems = [
     consumable: false,
     legality: "Regulated",
     type: "Lens Upgrade",
+    description: "Overlays heat signatures onto normal vision in real time.",
   },
 
   // -- Weapons --
@@ -305,6 +334,7 @@ const shopItems = [
     legality: "Restricted",
     type: "Weapon",
     emulated: "Automatic Pistol",
+    description: "Compact pistol with factory-fitted integral suppressor.",
   },
   {
     id: "basic-pistol",
@@ -315,6 +345,7 @@ const shopItems = [
     legality: "Regulated",
     type: "Weapon",
     emulated: "Automatic Pistol",
+    description: "Standard semi-automatic sidearm. Reliable and widely available.",
   },
   {
     id: "slowball",
@@ -324,6 +355,7 @@ const shopItems = [
     consumable: true,
     legality: "Open",
     type: "Weapon",
+    description: "Throwable gel-charge that releases a localised slow field on impact.",
   },
 
   // -- Weapon Mods --
@@ -336,6 +368,7 @@ const shopItems = [
     legality: "Regulated",
     type: "Firearm Upgrade",
     emulated: "+1 Weapon",
+    description: "Magnetic rail lining that significantly improves projectile velocity.",
   },
   {
     id: "silencer",
@@ -345,6 +378,7 @@ const shopItems = [
     consumable: false,
     legality: "Restricted",
     type: "Firearm Upgrade",
+    description: "Threaded suppressor attachment. Reduces muzzle report and flash.",
   },
 
   // ======================== CYBERNETICS ========================
@@ -359,6 +393,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Arm",
     emulated: "Grappling hook",
+    description: "Forearm-mounted grapple launcher with 30m reinforced cable.",
   },
   {
     id: "bioregulator-f-m",
@@ -381,6 +416,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Liver",
     emulated: "Tankard of Sobriety",
+    description: "Liver implant that filters alcohol before it reaches the bloodstream.",
   },
   {
     id: "magnification-opticals",
@@ -392,6 +428,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Eyes",
     emulated: "Eyes of Minute Seeing",
+    description: "Ocular implant for microscopic detail vision up to 100x zoom.",
   },
   {
     id: "nightvision-mod",
@@ -403,6 +440,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Eyes",
     emulated: "Goggles of Night",
+    description: "Retinal overlay enabling full vision in near-total darkness.",
   },
   {
     id: "refraction-opticals",
@@ -414,6 +452,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Eyes",
     emulated: "Eyes of the Eagle",
+    description: "Sharpens long-range vision to near-telescopic clarity.",
   },
   {
     id: "pregnancy-detector",
@@ -437,6 +476,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Arms",
     emulated: "Grenade launcher",
+    description: "Forearm-integrated grenade launcher with auto-feed chamber.",
   },
   {
     id: "bioinhibitor-f-m",
@@ -458,6 +498,7 @@ const shopItems = [
     legality: "Open",
     type: "Cyberware",
     bodyPart: "Arms",
+    description: "Full cybernetic arm replacement. Strength and dexterity enhanced.",
   },
   {
     id: "fall-suspension",
@@ -469,6 +510,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Legs",
     emulated: "Monk: Slow Fall (1/2 level)",
+    description: "Leg dampeners that absorb kinetic force from extreme drops.",
   },
   {
     id: "arc-launcher",
@@ -480,6 +522,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Arms",
     emulated: "Catapult, varying levels",
+    description: "Launches any held object with magnetic arc propulsion.",
   },
   {
     id: "monowire-base",
@@ -490,6 +533,7 @@ const shopItems = [
     legality: "Open",
     type: "Cyberware",
     bodyPart: "Arms",
+    description: "Wrist-mounted monofilament wire. Cuts through most materials.",
   },
   {
     id: "advanced-npc",
@@ -514,6 +558,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Eyes, arms, or chest",
     emulated: "Circlet of Blasting",
+    description: "Implanted laser emitter. Precise cutting and combat application.",
   },
   {
     id: "homeostatic-regulator",
@@ -525,6 +570,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Immune",
     emulated: "Amulet of Health",
+    description: "Immune system booster that maintains peak biological performance.",
   },
   {
     id: "artificial-liver",
@@ -548,6 +594,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Back",
     emulated: "Amulet of Health, faster installation",
+    description: "Accelerated cell growth implant. Dramatically reduces recovery time.",
   },
   {
     id: "dermal-cloaking",
@@ -559,6 +606,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Skin",
     emulated: "Cloak of Elvenkind",
+    description: "Skin-layer light-bending mesh. Reduces visual and thermal signature.",
   },
   {
     id: "nano-tract-apendages",
@@ -570,6 +618,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Hands, feet",
     emulated: "Slippers of Spider Climbing",
+    description: "Nanoscale adhesive pads on hands and feet for surface climbing.",
   },
   {
     id: "bouldering-module",
@@ -581,6 +630,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Arms, legs",
     emulated: "Ring of Swimming and Climbing",
+    description: "Limb reinforcements for scaling sheer vertical and aquatic surfaces.",
   },
   {
     id: "thermal-optics",
@@ -591,6 +641,7 @@ const shopItems = [
     legality: "Prohibited",
     type: "Cyberware",
     bodyPart: "Eyes",
+    description: "Full-spectrum thermal vision implant. Sees through smoke and walls.",
   },
   {
     id: "hostile-refactorizer",
@@ -602,6 +653,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Neural",
     emulated: "Ring of Spell Turning (systems only)",
+    description: "Neural buffer that intercepts and redirects hostile system intrusions.",
   },
   {
     id: "holography",
@@ -613,6 +665,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Skin",
     emulated: "Cloak of Displacement",
+    description: "Skin-mounted holo-emitters create a persistent displacement afterimage.",
   },
   {
     id: "asura-arms",
@@ -636,6 +689,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Eyes",
     emulated: "Ring of X-ray Vision (audio)",
+    description: "Echolocation implant. Maps surroundings through walls via audio pulses.",
   },
   {
     id: "bullet-time",
@@ -647,6 +701,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Neural",
     emulated: "Time Stop spell, 1 turn",
+    description: "Neural overclock that briefly compresses perceived time to a crawl.",
   },
   {
     id: "stealth-epidermals",
@@ -658,6 +713,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Skin",
     emulated: "Cloak of Invisibility",
+    description: "Full-body optical camouflage skin. Near-perfect invisibility.",
   },
   {
     id: "winter-module",
@@ -669,6 +725,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Torso",
     emulated: "Shield of the Uven Rune",
+    description: "Torso implant generating a reactive cold-energy barrier on impact.",
   },
   {
     id: "regeneration-factor",
@@ -680,6 +737,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Immune",
     emulated: "Ring of Regeneration",
+    description: "Immune overhaul enabling accelerated tissue and organ regeneration.",
   },
   {
     id: "experimental-dermals",
@@ -691,6 +749,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Skin",
     emulated: "Armor of Invulnerability",
+    description: "Prototype subdermal plating. Renders the user nearly impervious to damage.",
   },
 
   // -- Cyberware (unpriced / negotiable) --
@@ -704,6 +763,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Arms",
     emulated: "Rapier",
+    description: "Retractable monofilament blades that extend from the forearm.",
   },
   {
     id: "transfusion-needle",
@@ -715,6 +775,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Arms",
     emulated: "Enervation spell",
+    description: "Arm-mounted needle that drains biological energy from a target.",
   },
   {
     id: "integral-neurography",
@@ -726,6 +787,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Brain",
     emulated: "Ring of Mind Shielding",
+    description: "Brain implant that actively blocks external psionic and digital intrusion.",
   },
   {
     id: "vampiric-transfuser",
@@ -737,6 +799,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Digestive",
     emulated: "Vampiric Touch spell",
+    description: "Digestive implant that converts absorbed blood into usable energy.",
   },
   {
     id: "exoplating",
@@ -760,6 +823,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Arm",
     emulated: "Rope of Entanglement",
+    description: "Arm-launched entanglement wire. Immobilises targets on contact.",
   },
   {
     id: "flight-deck",
@@ -771,6 +835,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Back or feet",
     emulated: "Wings of Flying",
+    description: "Retractable thruster wings enabling sustained personal flight.",
   },
   {
     id: "rocket-feet",
@@ -782,6 +847,7 @@ const shopItems = [
     type: "Cyberware",
     bodyPart: "Feet",
     emulated: "Winged Boots",
+    description: "Foot-mounted jet boosters for rapid vertical and horizontal bursts.",
   },
 
   // ======================== AUTOMOTIVE UPGRADES ========================
@@ -1053,6 +1119,7 @@ const shopItems = [
     type: "Vehicle",
     vehicleSize: "Small",
     capacity: 1,
+    description: "Lightweight single-seat bike. Fast and nimble in tight urban spaces.",
   },
   {
     id: "motorcycle",
@@ -1064,6 +1131,7 @@ const shopItems = [
     type: "Vehicle",
     vehicleSize: "Small",
     capacity: 2,
+    description: "Heavier two-seat bike with improved stability at high speed.",
   },
   {
     id: "three-wheeler",
@@ -1075,6 +1143,7 @@ const shopItems = [
     type: "Vehicle",
     vehicleSize: "Small",
     capacity: 2,
+    description: "Compact tri-wheel vehicle. Stable and fuel-efficient.",
   },
   {
     id: "roadster",
@@ -1086,6 +1155,7 @@ const shopItems = [
     type: "Vehicle",
     vehicleSize: "Medium",
     capacity: 2,
+    description: "Open-top two-seater built for speed on open roads.",
   },
   {
     id: "coupe",
@@ -1097,6 +1167,7 @@ const shopItems = [
     type: "Vehicle",
     vehicleSize: "Medium",
     capacity: 4,
+    description: "Sleek four-seat performance car. Balances speed and comfort.",
   },
   {
     id: "sedan",
@@ -1108,6 +1179,7 @@ const shopItems = [
     type: "Vehicle",
     vehicleSize: "Medium",
     capacity: 5,
+    description: "Standard five-seat vehicle. Reliable and inconspicuous.",
   },
 ];
 
