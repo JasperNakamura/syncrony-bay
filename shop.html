@@ -3,10 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: blob:;" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * 'unsafe-inline' 'unsafe-eval'; img-src * data: blob:;"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Synchrony Bay - Shop</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/shop.css" />
@@ -15,8 +21,12 @@
     <div class="container">
       <header>
         <h1>◢ SYNCHRONY BAY BLACK MARKET ◣</h1>
-        <div class="subtitle">// PROCUREMENT TERMINAL - BROWSE & ACQUIRE //</div>
-        <a href="index.html" class="back-link" title="Back to Contacts">← BACK TO CONTACTS</a>
+        <div class="subtitle">
+          // PROCUREMENT TERMINAL - BROWSE & ACQUIRE //
+        </div>
+        <a href="index.html" class="back-link" title="Back to Contacts"
+          >← BACK TO CONTACTS</a
+        >
       </header>
 
       <!-- Balance Setup -->
@@ -24,13 +34,23 @@
         <div class="budget-prompt">ENTER STARTING BALANCE</div>
         <div class="budget-input-row">
           <span class="currency-prefix">Ȼ</span>
-          <input type="number" class="budget-input" id="budgetInput" placeholder="0" min="0" />
+          <input
+            type="number"
+            class="budget-input"
+            id="budgetInput"
+            placeholder="0"
+            min="0"
+          />
           <button class="budget-set-btn" id="budgetSet">CONFIRM</button>
         </div>
       </div>
 
       <!-- Balance Display -->
-      <div class="budget-section budget-display" id="budgetDisplay" style="display:none">
+      <div
+        class="budget-section budget-display"
+        id="budgetDisplay"
+        style="display: none"
+      >
         <div class="budget-header-row">
           <div class="budget-label">BALANCE</div>
           <div class="budget-total" id="budgetRemaining">Ȼ0</div>
@@ -43,16 +63,38 @@
         <!-- Popover lives OUTSIDE budget-header-row so it drops below cleanly -->
         <div class="adjust-popover" id="adjustRow">
           <span class="adjust-label" id="adjustLabel">CREDIT</span>
-          <input type="number" class="adjust-input" id="adjustInput" placeholder="0" min="0" />
-          <button class="budget-action-btn confirm-adjust" id="adjustConfirm">✓</button>
+          <input
+            type="number"
+            class="adjust-input"
+            id="adjustInput"
+            placeholder="0"
+            min="0"
+          />
+          <button class="budget-action-btn confirm-adjust" id="adjustConfirm">
+            ✓
+          </button>
           <button class="budget-action-btn reset" id="adjustCancel">✕</button>
         </div>
         <div class="budget-bar-container">
-          <div class="budget-bar" id="budgetBar" style="width:100%"></div>
+          <div class="budget-bar" id="budgetBar" style="width: 100%"></div>
         </div>
       </div>
 
-      <input type="text" class="search-box" id="shopSearch" placeholder="Search items, vendors..." />
+      <div class="shop-controls">
+        <input
+          type="text"
+          class="search-box"
+          id="shopSearch"
+          placeholder="Search items, vendors..."
+        />
+        <select class="sort-select" id="shopSort">
+          <option value="default">SORT: DEFAULT</option>
+          <option value="name-asc">NAME: A → Z</option>
+          <option value="name-desc">NAME: Z → A</option>
+          <option value="price-asc">PRICE: LOW → HIGH</option>
+          <option value="price-desc">PRICE: HIGH → LOW</option>
+        </select>
+      </div>
       <div class="filters" id="filterContainer"></div>
       <div class="shop-grid list-view" id="shopGrid"></div>
     </div>

@@ -19,6 +19,7 @@
   const shopGrid = document.getElementById("shopGrid");
   const filterContainer = document.getElementById("filterContainer");
   const searchBox = document.getElementById("shopSearch");
+  const sortSelect = document.getElementById("shopSort");
 
   const legalityColors = {
     Open: { color: "#4ade80", icon: "●" },
@@ -103,28 +104,34 @@
   function renderShop(filter, search) {
     filter = filter || "all";
     search = search || "";
+    const sort = sortSelect.value;
     shopGrid.innerHTML = "";
 
-    const filtered = shopItems.filter((item) => {
+    let filtered = shopItems.filter((item) => {
       const matchFilter = filter === "all" || item.category === filter;
       const sl = search.toLowerCase();
       const matchSearch =
         search === "" ||
         item.name.toLowerCase().includes(sl) ||
         (item.description || "").toLowerCase().includes(sl) ||
-        (item.emulated || "").toLowerCase().includes(sl) ||
-        (item.bodyPart || "").toLowerCase().includes(sl) ||
         item.type.toLowerCase().includes(sl) ||
         item.legality.toLowerCase().includes(sl);
       return matchFilter && matchSearch;
     });
+
+    if (sort === "name-asc")
+      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    if (sort === "name-desc")
+      filtered.sort((a, b) => b.name.localeCompare(a.name));
+    if (sort === "price-asc") filtered.sort((a, b) => a.price - b.price);
+    if (sort === "price-desc") filtered.sort((a, b) => b.price - a.price);
 
     filtered.forEach((item, index) => {
       const card = createShopCard(item);
       card.style.animationDelay = `${index * 30}ms`;
       shopGrid.appendChild(card);
     });
-    
+
     if (filtered.length === 0) {
       shopGrid.innerHTML =
         '<p style="grid-column:1/-1;text-align:center;color:var(--cp-red);">No items found.</p>';
@@ -147,7 +154,7 @@
 
     const consumableBadge = item.consumable
       ? '<span class="consumable-badge">↻ CONSUMABLE</span>'
-      : '<span class="single-badge">◆ ONE-TIME</span>';
+      : '';
 
     const leg = legalityColors[item.legality] || { color: "#888", icon: "?" };
     const legalityBadge = `<span class="legality-badge" style="color:${leg.color};border-color:${leg.color};">${leg.icon} ${item.legality.toUpperCase()}</span>`;
@@ -330,6 +337,9 @@
       }
     }
   }, 1000);
+
+
+  sortSelect.addEventListener("change", () => renderShop(currentFilter, searchBox.value));
 
   // ---- Init ----
   buildFilters();

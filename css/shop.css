@@ -619,11 +619,9 @@
   }
 }
 
-.shop-card-desc,
 .shop-card-type,
 .shop-card-bodypart,
 .shop-card-emulated,
-.shop-card-detail,
 .shop-card-vendor {
   display: none;
 }
@@ -727,4 +725,47 @@
 
 .shop-card {
   animation: cardScanIn 0.50s ease forwards;
+}
+
+.shop-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.shop-controls .search-box {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.sort-select {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--cp-yellow);
+  color: var(--cp-yellow);
+  padding: 10px 35px 10px 15px;
+  font-family: "Courier New", monospace;
+  font-size: 0.9em;
+  border-radius: 5px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fcee09' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: all 0.3s;
+}
+
+.sort-select:hover {
+  box-shadow: 0 0 10px var(--cp-yellow);
+}
+
+.sort-select:focus {
+  outline: none;
+  box-shadow: 0 0 15px var(--cp-yellow);
+}
+
+.sort-select option {
+  background: #0a0a0a;
+  color: var(--cp-yellow);
 }
