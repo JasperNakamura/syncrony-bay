@@ -303,6 +303,7 @@ function showModal(char) {
 
         const isRepeatable = gigData.title.startsWith("Repeatable");
         const reward = parsePaymentValue(gigData.payment);
+        const gigCard = btn.closest(".gig-card");
 
         if (reward > 0) addToSharedBalance(reward);
 
@@ -310,7 +311,6 @@ function showModal(char) {
           gigData.completed = true;
           gigData.active = false;
           saveGigsToLocalStorage();
-          const gigCard = btn.closest(".gig-card");
           gigCard.classList.add("completed");
           gigCard.classList.remove("active");
           const label = document.createElement("div");
@@ -320,11 +320,10 @@ function showModal(char) {
         }
 
         if (reward > 0) {
-          const gigCard = btn.closest(".gig-card");
           const flash = document.createElement("div");
           flash.className = "gig-reward-flash";
           flash.textContent = "+Ȼ" + reward.toLocaleString() + " ADDED TO BALANCE";
-          gigCard.appendChild(flash);
+          document.body.appendChild(flash);
           setTimeout(() => flash.remove(), 3000);
         }
       });
