@@ -22,31 +22,69 @@
         <div class="body-panel">
           <div class="body-label">BODY SCHEMA</div>
           <pre class="ascii-body" id="asciiBody">
-<span class="body-zone" data-slot="head">          ┌───────┐
-          │       │
-          │       │
-          │       │
-          └───┬───┘</span>
-        ┌─────┴─────┐
-<span class="body-zone" data-slot="arms">┌───────┤</span><span class="body-zone" data-slot="torso">           </span><span class="body-zone" data-slot="arms">├───────┐
-│       │</span><span class="body-zone" data-slot="torso">           </span><span class="body-zone" data-slot="arms">│       │
-└───────┤</span><span class="body-zone" data-slot="torso">           </span><span class="body-zone" data-slot="arms">├───────┘</span>
-<span class="body-zone" data-slot="torso">        │           │
-        │           │
-        │           │
-        │           │
-        │           │
-        ├───────────┤</span>
-        <span class="body-zone" data-slot="internal">│           │
-        │           │
-        │   ┌───┐   │</span>
-<span class="body-zone" data-slot="legs">        │   │   │   │
-        │   │   │   │
-        │   │   │   │
-        │   │   │   │
-        │   │   │   │
-        │   │   │   │
-        └───┘   └───┘</span>
+            <span class="body-zone" data-slot="head">
+                  _______           
+                //       \\
+               /           \
+              |             |
+            /¯               ¯\
+            \_               _/
+              |             |
+              \            /
+                \         /
+                /¯¯|   |¯¯\</span>
+    <span class="body-zone" data-slot="torso">  _________/  '     '  \_________</span>
+<span class="body-zone" data-slot="arms">    ''</span><span class="body-zone" data-slot="torso">           ¯       ¯</span><span class="body-zone" data-slot="arms">           ''</span>
+<span class="body-zone" data-slot="arms">  ''      </span><span class="body-zone" data-slot="torso">¯¯¯¯¯¯¯¯¯¯'   '¯¯¯¯¯¯¯¯¯¯</span><span class="body-zone" data-slot="arms">   ''</span>
+<span class="body-zone" data-slot="arms"> ''</span><span class="body-zone" data-slot="torso">                                    </span><span class="body-zone" data-slot="arms">''</span>
+<span class="body-zone" data-slot="arms">''    </span><span class="body-zone" data-slot="torso">|/           \   /          \|</span><span class="body-zone" data-slot="arms">    ''</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">/                            \</span><span class="body-zone" data-slot="arms">     |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">|                            |</span><span class="body-zone" data-slot="arms">     |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">|                            |</span><span class="body-zone" data-slot="arms">     |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">|                            |</span><span class="body-zone" data-slot="arms">     |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">\_________/         \________/</span><span class="body-zone" data-slot="arms">     |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">\                            /</span><span class="body-zone" data-slot="arms">     |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso"> |             '            | </span><span class="body-zone" data-slot="arms">     |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso"> \             '            /</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso"> \             |          //</span><span class="body-zone" data-slot="arms">       |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">/ |            |           |\</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">  |            |           | </span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">  |            |           | </span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|     </span><span class="body-zone" data-slot="torso">  |            |           | </span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|      </span><span class="body-zone" data-slot="internal">//                        \\</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|      </span><span class="body-zone" data-slot="internal">|            { }           |</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|      </span><span class="body-zone" data-slot="internal">|             |            |</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|      </span><span class="body-zone" data-slot="internal">|             '            |</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|      </span><span class="body-zone" data-slot="internal">|             '            |</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">|      </span><span class="body-zone" data-slot="internal">|     ''            ''     |</span><span class="body-zone" data-slot="arms">      |</span>
+<span class="body-zone" data-slot="arms">\  __  </span><span class="body-zone" data-slot="internal">|      '            '      |</span><span class="body-zone" data-slot="arms">  __  /</span>
+<span class="body-zone" data-slot="arms">\ \   </span><span class="body-zone" data-slot="internal">|       \          /        |</span><span class="body-zone" data-slot="arms">   / /</span>
+<span class="body-zone" data-slot="arms">  \_\  </span><span class="body-zone" data-slot="internal">|       ¯¯¯/¯¯¯\¯¯         |</span><span class="body-zone" data-slot="arms">  /_/</span>
+<span class="body-zone" data-slot="arms">    \_</span><span class="body-zone" data-slot="internal">|          //   \\          |</span><span class="body-zone" data-slot="arms">_/</span>
+      <span class="body-zone" data-slot="legs">|          |     |          |
+      |          |     |          |
+      |          |     |          |
+      |          |     |          |
+      |          |     |          |
+      |          |     |          |
+      |          |     |          |
+      |          |     |          |
+      \         //     \         /
+      |\       /|        |\      /|
+      \|       |'        '|      |/
+        |   ''   |       |   ''   |
+        |        |       |        |
+        |        |       |        |
+        |        |       |        |
+        |        |       |        |
+        |        |       |        |
+        |        |       |        |
+        |        |       |        |
+        \     |/'       '\|     /
+        /      |         |       \
+        /        \       /        \
+      /¯       |  |     |  |       ¯\
+    /¯_/_/_/_/____/     \____\_\_\_\_¯\</span>
 </pre>
 
           <div class="slot-legend">

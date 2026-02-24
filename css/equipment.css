@@ -2,7 +2,7 @@
 
 .equipment-layout {
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 460px 1fr;
   gap: 30px;
   align-items: start;
 }
@@ -29,9 +29,9 @@
 /* ---- ASCII Body ---- */
 .ascii-body {
   font-family: "Courier New", monospace;
-  font-size: 0.82em;
+  font-size: 0.72em;
   color: rgba(0, 240, 255, 0.4);
-  line-height: 1.6;
+  line-height: 1.1;
   text-align: left;
   display: inline-block;
   margin: 0 auto 20px auto;
@@ -284,7 +284,7 @@
   box-shadow: 0 0 8px rgba(252, 238, 9, 0.3);
 }
 
-.equipment-btn.unequip{
+.equip-btn.unequip {
   background: transparent;
   border: 1px solid rgba(255, 0, 60, 0.4);
   color: rgba(255, 0, 60, 0.6);
