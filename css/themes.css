@@ -32,7 +32,7 @@
   --cp-yellow:       #00dcff;   /* remapped — yellow slots become cyan */
   --cp-cyan:         #00dcff;
   --cp-red:          #00dcff;   /* danger uses same accent, lower opacity */
-  --cp-danger:       #ff4466;
+  --cp-danger:       #9400C7;
   --cp-green:        #00ffcc;
   --cp-dark:         #03060d;
   --cp-darker:       #010408;
@@ -165,7 +165,7 @@
 }
 
 /* ================================================================
-   THEME: STREETWEAR / DRIP
+   THEME: STREETWEAR / DRIP ff2d55
    Barlow Condensed, editorial, red accent, compressed + raw
    ================================================================ */
 [data-theme="drip"] {
