@@ -1,0 +1,308 @@
+/* ================================================================
+   THEMES.CSS — Master theme token file
+   Usage: Add data-theme="tron|cp77|drip|terminal" to <html>
+   All other CSS files consume these tokens only.
+   Default (no attribute) = original style for safety.
+   ================================================================ */
+
+/* ── Shared image assets (unchanged across themes) ── */
+:root {
+  --img-malcom: url('assets/images/malcom.jpg');
+  --img-rosa:   url('assets/images/rosa.jpg');
+  --img-kat:    url('assets/images/kat.jpg');
+  --img-akira:  url('assets/images/akira.jpg');
+  --img-jiyeon: url('assets/images/jiyeon.jpg');
+  --img-shen:   url('assets/images/shen.jpg');
+  --img-zhao:   url('assets/images/zhao.jpg');
+  --img-marcus: url('assets/images/marcus.jpg');
+  --img-val:    url('assets/images/val.jpg');
+  --img-kaia:   url('assets/images/kaia.jpg');
+  --img-anais:  url('assets/images/anais.jpg');
+  --img-aria:   url('assets/images/aria.jpg');
+}
+
+/* ================================================================
+   THEME: TRON / NEO-TOKYO
+   Ice-blue grid, chamfered panels, single-accent minimalism
+   ================================================================ */
+[data-theme="tron"] {
+  /* Core palette */
+  --cp-accent:       #00dcff;
+  --cp-accent2:      #0af;
+  --cp-yellow:       #00dcff;   /* remapped — yellow slots become cyan */
+  --cp-cyan:         #00dcff;
+  --cp-red:          #00dcff;   /* danger uses same accent, lower opacity */
+  --cp-danger:       #ff4466;
+  --cp-green:        #00ffcc;
+  --cp-dark:         #03060d;
+  --cp-darker:       #010408;
+  --cp-surface:      rgba(0,220,255,0.03);
+  --cp-surface2:     rgba(0,220,255,0.07);
+  --cp-border:       rgba(0,220,255,0.2);
+  --cp-border-strong:rgba(0,220,255,0.5);
+  --cp-text:         rgba(0,220,255,0.85);
+  --cp-text-muted:   rgba(0,220,255,0.4);
+  --cp-text-dim:     rgba(0,220,255,0.2);
+
+  /* Typography */
+  --font-display:    'Orbitron', monospace;
+  --font-body:       'Share Tech Mono', monospace;
+  --font-mono:       'Share Tech Mono', monospace;
+
+  /* Geometry */
+  --radius:          0px;
+  --radius-sm:       0px;
+  --clip-corner:     polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  --clip-corner-sm:  polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+
+  /* Shadows / glows */
+  --glow:            0 0 12px rgba(0,220,255,0.5);
+  --glow-strong:     0 0 25px rgba(0,220,255,0.7), 0 0 50px rgba(0,220,255,0.3);
+  --glow-text:       0 0 8px #00dcff;
+
+  /* Borders */
+  --border-width:    1px;
+  --header-border:   1px solid rgba(0,220,255,0.3);
+
+  /* Body background */
+  --body-bg:         #03060d;
+  --body-bg-image:
+    linear-gradient(rgba(0,220,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,220,255,0.025) 1px, transparent 1px);
+  --body-bg-size:    40px 40px;
+
+  /* Buttons */
+  --btn-primary-bg:  rgba(0,220,255,0.1);
+  --btn-primary-border: rgba(0,220,255,0.5);
+  --btn-primary-color: #00dcff;
+  --btn-primary-hover-bg: rgba(0,220,255,0.2);
+  --btn-primary-hover-shadow: var(--glow);
+
+  /* Cards */
+  --card-bg:         rgba(3,6,13,0.9);
+  --card-border:     1px solid rgba(0,220,255,0.2);
+  --card-hover-shadow: var(--glow);
+
+  /* Inputs */
+  --input-bg:        rgba(0,0,0,0.6);
+  --input-border:    rgba(0,220,255,0.3);
+  --input-color:     #00dcff;
+  --input-placeholder: rgba(0,220,255,0.3);
+
+  /* Header */
+  --header-bg:       rgba(0,220,255,0.02);
+  --header-color:    #00dcff;
+  --h1-color:        #00dcff;
+  --h1-shadow:       var(--glow-text);
+
+  /* Misc */
+  --scan-anim: tronScan 4s linear infinite;
+}
+
+/* ================================================================
+   THEME: CP2077 FAITHFUL
+   Game-accurate: black + yellow header bar, left accent stripe,
+   flat fills, red diamonds for items
+   ================================================================ */
+[data-theme="cp77"] {
+  --cp-accent:       #fcee09;
+  --cp-accent2:      #ff003c;
+  --cp-yellow:       #fcee09;
+  --cp-cyan:         #fcee09;   /* cyan slots adopt yellow */
+  --cp-red:          #ff003c;
+  --cp-danger:       #ff003c;
+  --cp-green:        #4ade80;
+  --cp-dark:         #0d0d0d;
+  --cp-darker:       #080808;
+  --cp-surface:      rgba(252,238,9,0.04);
+  --cp-surface2:     rgba(252,238,9,0.08);
+  --cp-border:       rgba(252,238,9,0.2);
+  --cp-border-strong:#fcee09;
+  --cp-text:         rgba(255,255,255,0.85);
+  --cp-text-muted:   rgba(255,255,255,0.45);
+  --cp-text-dim:     rgba(255,255,255,0.2);
+
+  --font-display:    'Orbitron', monospace;
+  --font-body:       'Share Tech Mono', monospace;
+  --font-mono:       'Share Tech Mono', monospace;
+
+  --radius:          0px;
+  --radius-sm:       0px;
+  --clip-corner:     none;
+  --clip-corner-sm:  none;
+
+  --glow:            none;
+  --glow-strong:     none;
+  --glow-text:       none;
+
+  --border-width:    0px;
+  --header-border:   none;
+
+  --body-bg:         #0d0d0d;
+  --body-bg-image:   none;
+  --body-bg-size:    auto;
+
+  --btn-primary-bg:    #fcee09;
+  --btn-primary-border:#fcee09;
+  --btn-primary-color: #000;
+  --btn-primary-hover-bg: #fff;
+  --btn-primary-hover-shadow: 0 0 20px rgba(252,238,9,0.4);
+
+  --card-bg:         #111;
+  --card-border:     none;
+  --card-border-left:3px solid #fcee09;
+  --card-hover-shadow: none;
+
+  --input-bg:        #0a0a0a;
+  --input-border:    rgba(252,238,9,0.4);
+  --input-color:     #fcee09;
+  --input-placeholder: rgba(252,238,9,0.3);
+
+  --header-bg:       #fcee09;
+  --header-color:    #000;
+  --h1-color:        #fcee09;
+  --h1-shadow:       none;
+}
+
+/* ================================================================
+   THEME: STREETWEAR / DRIP
+   Barlow Condensed, editorial, red accent, compressed + raw
+   ================================================================ */
+[data-theme="drip"] {
+  --cp-accent:       #ff2d55;
+  --cp-accent2:      #ff2d55;
+  --cp-yellow:       #ff2d55;   /* all yellow → red */
+  --cp-cyan:         #ff2d55;   /* all cyan → red */
+  --cp-red:          #ff2d55;
+  --cp-danger:       #ff2d55;
+  --cp-green:        #34d399;
+  --cp-dark:         #0a0a0a;
+  --cp-darker:       #050505;
+  --cp-surface:      rgba(255,45,85,0.04);
+  --cp-surface2:     rgba(255,45,85,0.08);
+  --cp-border:       rgba(255,255,255,0.08);
+  --cp-border-strong:#ff2d55;
+  --cp-text:         #ffffff;
+  --cp-text-muted:   rgba(255,255,255,0.4);
+  --cp-text-dim:     rgba(255,255,255,0.15);
+
+  --font-display:    'Barlow Condensed', sans-serif;
+  --font-body:       'Barlow Condensed', sans-serif;
+  --font-mono:       'Share Tech Mono', monospace;
+
+  --radius:          0px;
+  --radius-sm:       0px;
+  --clip-corner:     none;
+  --clip-corner-sm:  none;
+
+  --glow:            none;
+  --glow-strong:     none;
+  --glow-text:       none;
+
+  --border-width:    0px;
+  --header-border:   none;
+  --header-bottom-border: 3px solid #ff2d55;
+
+  --body-bg:         #0a0a0a;
+  --body-bg-image:   none;
+  --body-bg-size:    auto;
+
+  --btn-primary-bg:    #ff2d55;
+  --btn-primary-border:#ff2d55;
+  --btn-primary-color: #fff;
+  --btn-primary-hover-bg: #fff;
+  --btn-primary-hover-shadow: none;
+  --btn-primary-hover-color: #ff2d55;
+
+  --card-bg:         #0f0f0f;
+  --card-border:     none;
+  --card-border-bottom: 1px solid rgba(255,255,255,0.07);
+  --card-hover-shadow: none;
+
+  --input-bg:        transparent;
+  --input-border:    rgba(255,255,255,0.15);
+  --input-color:     #fff;
+  --input-placeholder: rgba(255,255,255,0.25);
+
+  --header-bg:       transparent;
+  --header-color:    #fff;
+  --h1-color:        #fff;
+  --h1-shadow:       none;
+  --h1-font-size:    4em;
+  --h1-font-weight:  900;
+  --h1-letter-spacing: -0.02em;
+}
+
+/* ================================================================
+   THEME: HACKATHON / TERMINAL
+   VT323, phosphor green, CRT scanlines, raw terminal output
+   ================================================================ */
+[data-theme="terminal"] {
+  --cp-accent:       #00ff41;
+  --cp-accent2:      #00cc33;
+  --cp-yellow:       #ffcc00;
+  --cp-cyan:         #00ff41;
+  --cp-red:          #ff4444;
+  --cp-danger:       #ff4444;
+  --cp-green:        #00ff41;
+  --cp-dark:         #000;
+  --cp-darker:       #000;
+  --cp-surface:      rgba(0,255,65,0.03);
+  --cp-surface2:     rgba(0,255,65,0.06);
+  --cp-border:       rgba(0,255,65,0.15);
+  --cp-border-strong:rgba(0,255,65,0.4);
+  --cp-text:         rgba(0,255,65,0.9);
+  --cp-text-muted:   rgba(0,255,65,0.5);
+  --cp-text-dim:     rgba(0,255,65,0.25);
+
+  --font-display:    'VT323', monospace;
+  --font-body:       'VT323', monospace;
+  --font-mono:       'VT323', monospace;
+
+  --radius:          0px;
+  --radius-sm:       0px;
+  --clip-corner:     none;
+  --clip-corner-sm:  none;
+
+  --glow:            0 0 8px rgba(0,255,65,0.4);
+  --glow-strong:     0 0 20px rgba(0,255,65,0.6);
+  --glow-text:       0 0 6px #00ff41;
+
+  --border-width:    1px;
+  --header-border:   1px solid rgba(0,255,65,0.2);
+
+  --body-bg:         #000;
+  --body-bg-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.15) 2px,
+      rgba(0,0,0,0.15) 4px
+    );
+  --body-bg-size:    auto;
+
+  --btn-primary-bg:    transparent;
+  --btn-primary-border:rgba(0,255,65,0.5);
+  --btn-primary-color: #00ff41;
+  --btn-primary-hover-bg: rgba(0,255,65,0.1);
+  --btn-primary-hover-shadow: var(--glow);
+  --btn-primary-hover-color: #00ff41;
+
+  --card-bg:         rgba(0,255,65,0.02);
+  --card-border:     1px solid rgba(0,255,65,0.15);
+  --card-hover-shadow: var(--glow);
+
+  --input-bg:        transparent;
+  --input-border:    rgba(0,255,65,0.3);
+  --input-color:     #00ff41;
+  --input-placeholder: rgba(0,255,65,0.3);
+
+  --header-bg:       transparent;
+  --header-color:    #00ff41;
+  --h1-color:        #00ff41;
+  --h1-shadow:       var(--glow-text);
+
+  /* CRT vignette via pseudo-element on body */
+  --crt-vignette: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.8) 100%);
+}

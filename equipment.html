@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Synchrony Bay — Equipment</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/equipment.css" />
+    <link rel="stylesheet" href="css/themes.css" />
+<link rel="stylesheet" href="css/theme-switcher.css" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="stylesheet" href="css/equipment.css" />
   </head>
   <body>
     <div class="container">
@@ -17,7 +19,6 @@
       </header>
 
       <div class="equipment-layout">
-
         <!-- ASCII Body -->
         <div class="body-panel">
           <div class="body-label">BODY SCHEMA</div>
@@ -88,11 +89,21 @@
 </pre>
 
           <div class="slot-legend">
-            <div class="legend-item"><span class="legend-dot dot-head"></span>HEAD / NEURAL / EYES</div>
-            <div class="legend-item"><span class="legend-dot dot-arms"></span>ARMS / HANDS</div>
-            <div class="legend-item"><span class="legend-dot dot-torso"></span>TORSO / BACK / SKIN</div>
-            <div class="legend-item"><span class="legend-dot dot-internal"></span>INTERNAL ORGANS</div>
-            <div class="legend-item"><span class="legend-dot dot-legs"></span>LEGS / FEET</div>
+            <div class="legend-item">
+              <span class="legend-dot dot-head"></span>HEAD / NEURAL / EYES
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot dot-arms"></span>ARMS / HANDS
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot dot-torso"></span>TORSO / BACK / SKIN
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot dot-internal"></span>INTERNAL ORGANS
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot dot-legs"></span>LEGS / FEET
+            </div>
           </div>
         </div>
 
@@ -100,11 +111,11 @@
         <div class="equipment-list" id="equipmentList">
           <div class="eq-loading">// SCANNING LOADOUT...</div>
         </div>
-
       </div>
     </div>
 
     <script src="js/shop-data.js"></script>
     <script src="js/equipment.js"></script>
+    <script src="js/theme-switcher.js"></script>
   </body>
 </html>

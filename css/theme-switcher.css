@@ -1,0 +1,134 @@
+/* ================================================================
+   THEME-SWITCHER.CSS
+   Floating theme picker widget. Drop anywhere above </body>.
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&family=Barlow+Condensed:wght@700;900&family=VT323&display=swap');
+
+/* ---- Floating switcher pill ---- */
+#theme-switcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Toggle button */
+#theme-toggle-btn {
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65em;
+  letter-spacing: 0.2em;
+  padding: 8px 14px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+#theme-toggle-btn:hover {
+  border-color: rgba(255,255,255,0.5);
+  color: #fff;
+}
+
+/* Panel */
+#theme-panel {
+  background: rgba(5,5,8,0.95);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 200px;
+
+  /* Hidden state */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#theme-panel.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.theme-panel-label {
+  font-size: 0.58em;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+/* Individual theme buttons */
+.theme-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72em;
+  letter-spacing: 0.1em;
+  text-align: left;
+  width: 100%;
+  transition: all 0.15s;
+}
+
+.theme-opt:hover {
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.8);
+}
+
+.theme-opt.active {
+  border-color: currentColor;
+  color: #fff;
+}
+
+/* Color dot */
+.theme-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.theme-opt[data-theme="tron"]     .theme-dot { background: #00dcff; box-shadow: 0 0 6px #00dcff; border-radius: 0; clip-path: none; }
+.theme-opt[data-theme="cp77"]     .theme-dot { background: #fcee09; clip-path: polygon(50% 0%,100% 50%,50% 100%,0% 50%); border-radius: 0; }
+.theme-opt[data-theme="drip"]     .theme-dot { background: #ff2d55; border-radius: 0; }
+.theme-opt[data-theme="terminal"] .theme-dot { background: #00ff41; border-radius: 0; }
+
+.theme-opt-name {
+  flex: 1;
+  font-weight: bold;
+}
+
+.theme-opt-sub {
+  font-size: 0.85em;
+  opacity: 0.45;
+  font-weight: normal;
+}
+
+/* Active state color per theme */
+.theme-opt[data-theme="tron"].active     { color: #00dcff; border-color: rgba(0,220,255,0.4); background: rgba(0,220,255,0.05); }
+.theme-opt[data-theme="cp77"].active     { color: #fcee09; border-color: rgba(252,238,9,0.4);  background: rgba(252,238,9,0.05); }
+.theme-opt[data-theme="drip"].active     { color: #ff2d55; border-color: rgba(255,45,85,0.4);  background: rgba(255,45,85,0.05); }
+.theme-opt[data-theme="terminal"].active { color: #00ff41; border-color: rgba(0,255,65,0.4);   background: rgba(0,255,65,0.05); }
+
+/* Transition flash on body when switching */
+body.theme-switching {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
